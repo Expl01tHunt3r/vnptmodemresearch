@@ -1,0 +1,716 @@
+BGA IC
+Xtal:1
+DDR3 init.
+DRAMC init done.
+Calculate size.
+DRAM size=256MB
+Set new TRFC.
+ddr-1066
+
+7512DRAMC V1.2.2 (0)
+Set SPI Flash Clock to 25 Mhz
+
+
+EN751221 at Fri Aug 28 19:07:40 ICT 2020 version 1.1 free bootbase
+
+Memory size 256MB
+
+Set SPI Flash Clock to 25 Mhz
+spi_nand_probe: mfr_id=0xc8, dev_id=0x1
+Dected SPI NAND Flash : _SPI_NAND_DEVICE_ID_F50L1G41LB, Flash Size=0x8000000
+bmt pool size: 81
+BMT & BBT Init Success
+
+Press any key in 3 secs to enter boot command mode.
+
+>>>> boot_info_addr: 75c0570; flag: 1
+............................................................
+
+
+Invalid Power GPIO, just return and don't turn on Power LED
+
+==> boot flag = 0Decompress to 80002000 free_mem_ptr=80750000 free_mem_ptr_end=807B0000
+from main
+Uncompressing [LZMA] ...  done.
+Linux version 2.6.36 (root@ecnh) (gcc version 4.3.6 (Buildroot 2012.05) ) #3 SMP Fri Dec 29 10:15:30 ICT 2023
+ISPRAM0: PA=00350000,Size=00010000,enabled
+memsize:256MB
+EcoNet EN751221 SOC prom init
+bootconsole [early0] enabled
+CPU revision is: 00019558 (MIPS 34Kc)
+Determined physical RAM map:
+ memory: 0ffe0000 @ 00020000 (usable)
+Wasting 1024 bytes for tracking 32 unused pages
+Zone PFN ranges:
+  Normal   0x00000020 -> 0x00010000
+Movable zone start PFN for each node
+early_node_map[1] active PFN ranges
+    0: 0x00000020 -> 0x00010000
+3 available secondary CPU TC(s)
+PERCPU: Embedded 7 pages/cpu @81203000 s7168 r8192 d13312 u65536
+pcpu-alloc: s7168 r8192 d13312 u65536 alloc=16*4096
+pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 64992
+Kernel command line:  es=1
+PID hash table entries: 1024 (order: 0, 4096 bytes)
+Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes.
+Primary data cache 32kB, 4-way, VIPT, cache aliases, linesize 32 bytes
+Writing ErrCtl register=0003e134
+Readback ErrCtl register=0003e134
+nmi base is 81274200
+Memory: 255092k/262016k available (3448k kernel code, 6924k reserved, 710k data, 224k init, 0k highmem)
+SLUB: Genslabs=7, HWalign=32, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+Hierarchical RCU implementation.
+        RCU-based detection of stalled CPUs is disabled.
+        Verbose stalled-CPUs detection is disabled.
+NR_IRQS:64
+CPU frequency 900.00 MHz
+ Using 199.996 MHz high precision timer.
+console [ttyS0] enabled, bootconsole disabled
+console [ttyS0] enabled, bootconsole disabled
+Calibrating delay loop... 598.01 BogoMIPS (lpj=2990080)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+34K sync es set to 1.
+Config7: 0x80080500
+Limit of 4 TCs set
+TLB of 64 entry pairs shared by 2 VPEs
+VPE 0: TC 0 1 2, VPE 1: TC 3
+IPI buffer pool of 16 buffers
+CPU revision is: 00019558 ((null))
+TC 1 going on-line as CPU 1
+CPU revision is: 00019558 ((null))
+TC 2 going on-line as CPU 2
+CPU revision is: 00019558 ((null))
+TC 3 going on-line as CPU 3
+Brought up 4 CPUs
+NET: Registered protocol family 16
+PCIe driver version: 751221.3.20160516
+MT7512_pcie_init
+check pcie link up status:
+isRC0_LINKUP=0
+isRC1_LINKUP=1
+registering PCI controller with io_map_base unset
+bio: create slab <bio-0> at 0
+pci 0000:00:01.0: BAR 8: assigned [mem 0x20000000-0x200fffff]
+pci 0000:00:00.0: PCI bridge to [bus 01-01]
+pci 0000:00:00.0:   bridge window [io  disabled]
+pci 0000:00:00.0:   bridge window [mem disabled]
+pci 0000:00:00.0:   bridge window [mem pref disabled]
+pci 0000:02:00.0: BAR 0: assigned [mem 0x20000000-0x200fffff 64bit]
+pci 0000:02:00.0: BAR 0: set to [mem 0x20000000-0x200fffff 64bit] (PCI address [0x20000000-0x200fffff]
+pci 0000:00:01.0: PCI bridge to [bus 02-02]
+pci 0000:00:01.0:   bridge window [io  disabled]
+pci 0000:00:01.0:   bridge window [mem 0x20000000-0x200fffff]
+pci 0000:00:01.0:   bridge window [mem pref disabled]
+PCI: Enabling device 0000:00:01.0 (0000 -> 0002)
+NET: Registered protocol family 8
+NET: Registered protocol family 20
+Switching to clocksource MIPS
+NET: Registered protocol family 2
+IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
+TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+TCP: Hash tables configured (established 8192 bind 8192)
+TCP reno registered
+UDP hash table entries: 128 (order: 0, 4096 bytes)
+UDP-Lite hash table entries: 128 (order: 0, 4096 bytes)
+NET: Registered protocol family 1
+
+ mt7512_pcie_fixup: 0x3438 = 20000014
+ mt7512_pcie_rc1_retrain: 80 = 01408c12 80 = 01608c12
+RC1 Link Traing Result: 10120008
+TC3162 hardware watchdog module loaded.
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+msgmni has been set to 498
+cryptomgr_test used greatest stack depth: 15632 bytes left
+cryptomgr_test used greatest stack depth: 15280 bytes left
+io scheduler noop registered (default)
+ttyS0 at I/O 0xbfbf0003 (irq = 1) is a TC3162
+ECNT ring buffer init success
+brd: module loaded
+
+SPI Flash Init Start
+Found no SPI flash device
+IS_SPIFLASH=0x0, IS_NANDFLASH=0x2, (0xBFA10114)=0x6)
+SPI_NAND_Flash_init: before init, mtx_mode_tog=0xl9, manaul_en=0x1
+spi_nand_probe: mfr_id=0xc8, dev_id=0x1
+Dected SPI NAND Flash : _SPI_NAND_DEVICE_ID_F50L1G41LB, Flash Size=0x8000000
+spi nand flash
+tc3162: flash device 0x01000000 at 0x1c000000
+EN7512 mtd init: spi nand probe enter
+[spi_nand_setup] : Enter
+NAND device: Manufacturer ID: 0xc8, Chip ID: 0x01 (Unknown _SPI_NAND_DEVICE_ID_F50L1G41LB)
+nand_scan_ident ok
+[spi_nand_setup]: chip size =  0x8000000, erase_shift=0x11
+calc_bmt_pool_size : need_valid_block_num=0x51, total_block=0x400
+bmt pool size: 81
+BMT & BBT Init Success
+
+parsing <0[bootloader],0[romfile],30M[tclinux],30M[tclinux_slave],30M[data],16M[yaffs],10M[safedata]>
+partition 10: name <safedata>, offset ffffffff, size a00000, mask flags 0
+partition 9: name <yaffs>, offset ffffffff, size 1000000, mask flags 0
+partition 8: name <data>, offset ffffffff, size 1e00000, mask flags 0
+partition 7: name <tclinux_slave>, offset ffffffff, size 1e00000, mask flags 0
+partition 4: name <tclinux>, offset ffffffff, size 1e00000, mask flags 0
+partition 1: name <romfile>, offset ffffffff, size fffffffe, mask flags 0
+partition 0: name <bootloader>, offset ffffffff, size fffffffe, mask flags 0
+Creating 12 MTD partitions on "EN7512-SPI_NAND":
+0x000000000000-0x000000040000 : "bootloader"
+0x000000040000-0x000000080000 : "romfile"
+0x000000080000-0x0000001e0ef6 : "kernel"
+mtd: partition "kernel" doesn't end on an erase block -- force read-only
+0x0000001e0ef6-0x000000c10ef6 : "rootfs"
+mtd: partition "rootfs" doesn't start on an erase block boundary -- force read-only
+0x000000080000-0x000001e80000 : "tclinux"
+0x000001e80000-0x000001fe0ef6 : "kernel_slave"
+mtd: partition "kernel_slave" doesn't end on an erase block -- force read-only
+0x000001fe0ef6-0x000002a10ef6 : "rootfs_slave"
+mtd: partition "rootfs_slave" doesn't start on an erase block boundary -- force read-only
+0x000001e80000-0x000003c80000 : "tclinux_slave"
+0x000003c80000-0x000005a80000 : "data"
+0x000005a80000-0x000006a80000 : "yaffs"
+0x000006a80000-0x000007480000 : "safedata"
+0x000007520000-0x0000075e0000 : "reservearea"
+
+rootfs
+PPP generic driver version 2.4.2
+PPP Deflate Compression module registered
+PPP BSD Compression module registered
+NET: Registered protocol family 24
+RT3xxx EHCI/OHCI init.
+Netfilter messages via NETLINK v0.30.
+nf_conntrack version 0.5.0 (3985 buckets, 15940 max)
+ctnetlink v0.93: registering with nfnetlink.
+nf_conntrack_rtsp v0.6.21 loading
+ip_set: protocol 6
+nf_nat_rtsp v0.6.21 loading
+ip_tables: (C) 2000-2006 Netfilter Core Team
+TCP cubic registered
+Initializing XFRM netlink socket
+NET: Registered protocol family 10
+ip6_tables: (C) 2000-2006 Netfilter Core Team
+IPv6 over IPv4 tunneling driver
+NET: Registered protocol family 17
+NET: Registered protocol family 15
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+VFS: Mounted root (squashfs filesystem) readonly on device 31:3.
+Freeing unused kernel memory: 224k freed
+init used greatest stack depth: 15232 bytes left
+busybox init and set aff
+init started:  BusyBox v1.00 (2024.01.02-08:10+0000) multi-call binary
+[ used greatest stack depth: 14208 bytes left
+chmod: /userfs/profile.cfg: Read-only file system
+mtd[readflash]:device=reservearea tclen=160 tcoffset=656896
+Unlocking reservearea ...
+Reading from reservearea to /tmp/7570_bob.conf ...
+module_sel: module license 'unspecified' taints kernel.
+Disabling lock debugging due to kernel taint
+insmod used greatest stack depth: 13896 bytes left
+
+tcsmux version: tcsmux V1.1.0.0 (May 17 2018-17:25:36).
+
+tcportbind version: tcportbind V1.1.0.0 (Jan  6 2017-13:45:28).
+vlantag_drv_init
+TCSUPPORT_IPV6
+yaffs: dev is 32505865 name is "mtdblock9" rw
+yaffs: passed flags "tags-ecc-off"
+mount yaffs2 success!
+yaffs: dev is 32505864 name is "mtdblock8" rw
+yaffs: passed flags "tags-ecc-off"
+mount data success!
+mkdir: Cannot create directory `/data': Read-only file system
+TC3162 LED Manager 0.1 init
+
+tcledctrl version: tcledctrl V1.1.0.0 (Jan  2 2024-15:04:01).
+led path:/userfs/7526gled.conf
+tccicmd V1.1.0.0 (Jan  2 2024-15:04:04)
+
+SIFMaster 0.1 init
+
+Register sifm cmd
+mkdir: Cannot create directory `/tmp/userdata/backtrace': File exists
+the number of cfg node is 93
+portbind_init
+autopvc_init
+logAccess_init LanguageSwitch_init vendorCfgFile_init usbstorage_init
+The number of cache node is 5
+Enter into function:parser_romfile
+WPSActiveStatus = NULL
+WPSOOBActive = NULL
+ReCounterActive = NULL
+WPSGenPinCode = NULL
+ra0       no private ioctls.
+
+ra1       no private ioctls.
+
+ra2       no private ioctls.
+
+ra3       no private ioctls.
+
+mtd[readflash]:device=reservearea tclen=1024 tuse default etc/RT30xxEEPROM.bin
+coffset=0
+Unlocking reservearea ...
+Reading from reservearea to /tmp/RT30xxEEPROM.bin ...
+mtd[readflash]:device=reservearea tclen=36864 tcoffset=4096
+Unlocking reservearea ...
+Reading from reservearea to /tmp/CALDATA_default.bin ...
+ run_ac_wps :WPSActiveStatus = NULL
+WPSOOBActive = NULL
+ReCounterActive = NULL
+WPSGenPinCode = NULL
+rai0      no private ioctls.
+
+rai1      no private ioctls.
+
+rai2      no private ioctls.
+
+rai3      no private ioctls.
+
+xyyou:isfirstwrite...offset=a0200
+mtd[readflash]:device=reservearea tclen=xyyou:the tmp/bin is not empty!!!
+10xyyou:id in the bin=1576
+24 tcoffset=131072
+Unlocking reservearea ...
+Reading from reservearea to /tmp/MT7610EEPROM.bin ...
+mtd[readflash]:device=reservearea tclen=36864 tcoffset=135168
+Unlocking reservearea ...
+Reading from reservearea to /tmp/CALDATA_default.bin ...
+ip=0.0.0.0
+ip=0.0.0.0
+acl_cmd=iptables -sslca_write:get Frag Number failed!
+t filter -A acl_chain -i br0 -pdms:get new Lan ipaddr 192.168.1.1
+ TCP -m multiport --dport http,https -m iprange --src-range 0.0.0.0-223.255.255.255 -j ACCEPT
+
+acl_cmd=iptables -t filter -A acl_chain -i br0 -p UDP -m multiport --dport http,https -m iprange --src-range 0.0.0.0-223.255.255.255 -j ACCEPT
+
+acl_cmd=iptables -t filter -A acl_chain -i br0 -p ICMP --icmp-type 8 -m iprange --src-range 0.0.0.0-223.255.255.255 -j ICMP_FLOOD_CHECK
+
+
+==>syslog_write error, get WriteFlashInterval value failed
+
+==>syslog_write error, get UpdateInterval value failed
+
+==>syslog_write error, get AllLogSave value failed
+iptables used greatest stack depth: 13792 bytes left
+The attribute is not in wifiMACTab
+Adapter_Interrupts_Init: Successfully hooked IRQ 29
+
+Adapter_Interrupts_Init: call back registeredAdapter_EIP93_Init: CmdRing_Handle=8ff28ffc
+Adapter_EIP93_Init: ResRing_Handle=8ff28ff8
+Adapter: Successfully initialized EIP93v2 in ARM mode
+PEC_Init: PRNG is initialized
+insmod ETH_LAN driver
+macType = 0
+qdma_lan: physical_size is 0x00200000
+ether.c:v1.00-NAPI 29.Mar.2015
+eth0: FE MAC Ethernet address: CC:71:90:66:E8:C8
+Use External switch ,type 10
+ioctl: No such device
+tcPhyVerLookUp 3942 9412
+ 7530 Ge, 0x1
+MCM MT7530
+ [tcPhyInit] in  [tcPhyInit] out , r31 = (0, 0x0)
+tcPhyVerLookUp 3942 9412
+ 7530 Ge, 0x1
+MCM MT7530
+ [tcPhyInit] in  [tcPhyInit] out , r31 = (1, 0x0)
+tcPhyVerLookUp 3942 9412
+ 7530 Ge, 0x1
+MCM MT7530
+ [tcPhyInit] in  [tcPhyInit] out , r31 = (2, 0x0)
+tcPhyVerLookUp 3942 9412
+ 7530 Ge, 0x1
+MCM MT7530
+ [tcPhyInit] in  [tcPhyInit] out , r31 = (3, 0x0)
+tcPhyVerLookUp 3942 9412
+ 7530 Ge, 0x1
+MCM MT7530
+ [tcPhyInit] in  [tcPhyInit] out , r31 = (4, 0x0)
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 9451
+ 7512 Ge,
+MCM MT7530
+ [tcPhyInit] in  [tcPhyInit] out , r31 = (12, 0x0)
+tcPhyVerLookUp 3942 9451
+ 7512 Ge,
+MCM MT7530
+ [tcPhyInit] in  [tcPhyInit] out , r31 = (12, 0x0)
+ GE Rxet cal (1)(0)(0)(0x21)
+  GE Rext AnaCal Done! (2)(0x22)
+  GE Rext AnaCal Done! (2)(0x22)
+  GE R50 AnaCal Done! (3) (0x26)(0xa6)
+  GE R50 AnaCal Done! (2) (0x27)(0xa7)
+  GE R50 AnaCal Done! (2) (0x27)(0xa7)
+  GE R50 AnaCal Done! (2) (0x27)(0xa7)
+ GE Tx offset AnaCal Done! (3)(0x3)
+ GE Tx offset AnaCal Done! (1)(0x1)
+ GE Tx offset AnaCal Done! (1)(0x21)
+ GE Tx offset AnaCal Done! (1)(0x21)
+ GE Tx amp AnaCal Done! (pair-0)(0x12)(0x3020)
+ GE Tx amp AnaCal Done! (22) (0xa)
+ GE Tx amp AnaCal Done! (pair-1)(0x17)(0x920)
+ GE Tx amp AnaCal Done! (25) (0x7)
+ GE Tx amp AnaCal Done! (pair-2)(0x19)(0xf20)
+ GE Tx amp AnaCal Done! (19) (0xd)
+ GE Tx amp AnaCal Done! (pair-3)(0x21)(0x620)
+ GE Tx amp AnaCal Done! (28) (0x4)
+tcPhyVerLookUp 3942 9412
+ 7530 Ge, 0x1
+MCM MT7530
+tcPhyVerLookUp 3942 9412
+ 7530 Ge, 0x1
+MCM MT7530
+tcPhyVerLookUp 3942 9412
+ 7530 Ge, 0x1
+MCM MT7530
+tcPhyVerLookUp 3942 9412
+ 7530 Ge, 0x1
+MCM MT7530
+tcPhyVerLookUp 3942 9412
+ 7530 Ge, 0x1
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 0
+MCM MT7530
+tcPhyVerLookUp 3942 9451
+ 7512 Ge,
+MCM MT7530
+Exec. Successful
+Exec. Successful and the accuracy is 8kbps
+Exec. Successful and the accuracy is 8kbps
+eth0: starting interface.
+netif_start_queue
+macType = 0
+qdma_wan: qdma_bmgr.c [2582]: HW_FWD physical size is not illegal, force setting to 4MB
+qdma_wan: physical_size is 0x00400000
+Exec. Successful
+Exec. Successful and the accuracy is 8kbps
+Exec. Successful and the accuracy is 8kbps
+EN7571 found!
+FLASH matrix got
+PWRADC offset = 0x326f
+PWRADC ready
+BG 1.76V = 0x285
+BG 0.875V = 0x13b
+RSSI_Vref = 0x20e
+RSSI_V = 0x291
+eFuse value = 0xf3
+eFuse offset = -3.9'C
+Start GPON Tx Calibration
+RGS_T0C = 0x59
+RGS_T1C = 0x58
+APD initialization done
+Initial current loaded
+PWR/ER loaded
+TIASD = 0x36
+Rx LOS is set
+Internal DDMI Enabled
+KT Enabled
+EN7571 Initialization Done!
+PON PHY driver version is 160329.103.8
+insmod used greatest stack depth: 13176 bytes left
+xPON driver initialization
+Alloc data struct memory successful, 35384
+XPON Mapping Module init OK!
+SHORTFLAG:1
+Mirror/redirect action on
+SIOCGIFFLAGS: No such device
+Ebtables v2.0 registered
+HWNAT Module enabled with Type:L2B/IPv4/IPv6/DS-LITE/6RD, foeSize:80B, foeNum:16384
+IP check use Black List
+device eth0 entered promiscuous mode
+LINK_MODE:1
+TC3162 hardware watchdog initialized
+telnetd: starting
+  port: 23; login program: /bin/login
+SSH
+no specific node
+four ports
+device eth0.1 is not a slave of br0
+00:00:12 imgr.c [71]: Initial system driver.
+00:00:12 imgr.c [77]: Initial pthread parameters.
+00:00:12 imgr.c [83]: Initial dispatcher.
+00:00:12 dspch_init.c [23]: Create IPC trap message queue
+00:00:12 dspch_init.c [36]: Create IPC trap message queue
+00:00set olt type: 0
+:12 iecho used greatest stack depth: 7616 bytes left
+mgr.c [89]: Initial database manager.
+00:00:12 dbmgr_init.c [32]: Create database memory.
+00:00:12 dbmgr_init.c [38]: Create the share database memory successful.
+00:00:12 dbmgr_init.c [41]: The total share database size is 0.
+00:00:12 imgr.c [95]: Initial config manager.
+00:00:12 imgr.c [101]: Initial fault manager.
+00:00:12 imgr.c [107]: Initial performance manager.
+sendEponOamCmdMsg open message queue fail!
+cp: /tmp/var/romfile.cfg: No such file or directory
+device eth0.2 is not a slave of br0
+device eth0 is already a member of a bridge; can't enslave it to bridge br0.
+device eth0.1 entered promiscuous mode
+Failed to detect config file encoded or not!
+device eth0.2 entered promiscuous mode
+device eth0 left promiscuous mode
+br0: port 1(eth0) entering disabled state
+mtd[readflash]:device=reservearea tclen=512 tcoffset=656384
+Unlocking reservearea ...
+Reading from reservearea to /tmp/productlinecwmpfilemsgget: No such file or directory
+ ...
+
+Enabling SSL security systempon_vlan_init
+
+Multi Lan port
+ initilize xpon igmp module....done!
+pon_mac_filter_init
+
+Multi Lan port*reg=00001640 value:00000000 (ext_switch:0)
+mtd[readflash]:device=reservearea tclen=512 tcoffset=656384
+Unlocking reservearea ...
+Reading from reservearea to /tmp/productlinecwmpfile ...
+mtd[readflash]:device=tclinux tclen=32 tcoffset=0
+Unlocking tclinux ...
+Reading from tclinux to /tmp/main_trx.bin ...
+
+ gpon_boot main strlen(tempbuffer)=15,trx:256
+,trx->version:G020E2VN00T006VN00T006
+
+mtd[readflash]:device=tclinux_slave tclen=32 t
+ gpon_boot slave fwver=G020E2VN00T006
+coffset=0
+Unlocking tclinux_slave ...
+Reading from tclinux_slave to /tmp/slave_trx.bin ...
+
+ gpon_boot slave strlen(tempbuffer)=15,trx:256chmod: /userfs/profile.cfg: Read-only file system
+
+SSL security system enabled/etc/isp0.conf
+info, udhcpc (v0.9.9-pre) started
+BusyBox v1.00 (2024.01.02-08:10+0000) multi-call binary
+
+Usage: chmod [-R] MODE[,MODE]... FILE...
+
+rm: cannot remove `/etc/nas0_gateway.conf': No such file or directory
+
+br0: topology change detected, propagating
+br0: port 3(eth0.2) entering forwarding state
+br0: port 3(eth0.2) entering forwarding state
+br0: topology change detected, propagating
+br0: port 2(eth0.1) entering forwarding state
+br0: port 2(eth0.1) entering forwarding state
+/bin/sh: tc: not found
+/bin/sh: tc: not found
+done
+dhcp6s parameter activated by exec!
+mkdir: Cannot create directory `/etc/default/': File exists
+mkdir: Cannot create directory `/etc/dropbear/': File exists
+killall: dropbear: no process killed
+killall: dropbear: no process killed
+info, udhcpd (v0.9.9-pre) started
+error, Unable to open /etc/udhcpd.leases for reading
+/bin/sh: /userfs/bin/dproxy: not found
+ra0       no privread WLAN driver from rt_device failed,set with default value!
+ate ioctls.
+
+killall: wscd: no process killed
+rai0      no privread WLAN driver from rt_device failed,set with default value!
+ate ioctls.
+
+killall: wscd: no process killed
+valid subcommands:
+adsl
+iptables: Bad rule (does a matching rule exist in that chain?).
+iptables: Bad rule (does a matching rule exist in that chain?).
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+iptables: No chain/target/match by that name.
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set_bitmap_ip.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set_bitmap_ipmac.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set_bitmap_port.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set_hash_ip.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set_hash_ipport.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set_hash_ipportip.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set_hash_ipportnet.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set_hash_net.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set_hash_netport.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/ipset/ip_set_list_set.ko': No such file or directory
+insmod: cannot open module `/lib/modules/2.6.36/kernel/net/netfilter/xt_set.ko': No such file or directory
+iptables v1.4.10: Couldn't find target `url_filter_dns_chain'
+
+Try `iptables -h' or 'iptables --help' for more information.
+ip6tables v1.4.10: Couldn't find target `url_filter_dns_chain'
+
+Try `ip6tables -h' or 'ip6tables --help' for more information.
+killall: klogd: no process killed
+ra0       no private ioctls.
+
+ftp switch turn on
+sip switch turn on
+h323 switch turn on
+rtsp switch turn on
+l2tp switch turn on,sw_state=
+iptables: Bad rule (does a matching rule exist in that chain?).
+ipsec switch turn on,sw_state=
+iptables: Bad rule (does a matching rule exist in that chain?).
+pptp switch turn on
+dms_boot:start DMS service
+mount: Mounting /dev/sda1 on /userfs/dlna/media failed: No such device or address
+Cannot find device "6rd"
+Cannot find device "6rd"
+ioctl: No such device
+killall: crond: no process killed
+
+***********************************************************************
+         "DMS_TRACE_LEVEL" not defined.
+         Ex: export DMS_TRACE_LEVEL=0x00FF
+         Now assuming DMS_TRACE_LEVEL = 0x0003
+***********************************************************************
+
+[1] Paths will be added
+
+Adding Path: [/tmp/mnt]
+[1970-01-01 00:00:19.424] [ERR ] [dlna_dmsApi.c][974][dlna_dmsAddSharedPath()]  Error in Input Parameters: p_s_dmsHandle
+
+
+
+**********************************************************
+FriendlyName= VNPT_DMS
+Manufacturer= Ralink
+ManufacturerUrl= www.ralinktech.com
+ModelDescription= Ralink DMS
+ModelName= Ralink-DMS
+ModelNumber= 1.0
+ModelUrl= www.ralinktech.com
+SerialNumber= DMS-001
+
+**********************************************************
+IPAddress= 192.168.1.1
+PortNumber= 12345
+NumPath= 1
+MaxContent = 600
+
+Path 0 = /tmp/mnt
+*********************************
+The configured thread attributes
+*********************************
+Total Thread         = 12
+Job and Thread Ratio = 10
+Total Job            = 100
+*********************************
+[INFO]The Valid s_interface Name br0
+[1970-01-01 00:00:19.428] [ERR ] [dmsClmApi.c][487][createRootEntryForSharedPaths()]  Error in osal_stat()
+osal_stat():  : No such file or directory
+iptables: Bad rule (does a matching rule exist in that chain?).
+iptables: Bad rule (does a matching rule exist in that chain?).
+dir: 0, port: 1, rate: 1000000
+write reg: 1140
+write val: 7a12858f
+dir: 1, port: 1, rate: 1000000
+write reg: 1900
+write val: 7a12858f
+dir: 0, port: 2, rate: 1000000
+write reg: 1240
+write val: 7a12858f
+dir: 1, port: 2, rate: 1000000
+write reg: 1a00
+write val: 7a12858f
+dir: 0, port: 3, rate: 1000000
+write reg: 1340
+write val: 7a12858f
+dir: 1, port: 3, rate: 1000000
+write reg: 1b00
+write val: 7a12858f
+dir: 0, port: 4, rate: 1000000
+write reg: 1440
+write val: 7a12858f
+dir: 1, port: 4, rate: 1000000
+write reg: 1c00
+write val: 7a12858f
+killall: devstats
+[advanced.c][3289] error: cannot open /tmp/devstats
+: no process killed
+mode 0 0 0
+pvid 0 0 0
+clear 0 0 0
+pvid 1 0 0
+clear 1 0 0
+pvid 2 0 0
+clear 2 0 0
+pvid 3 0 0
+clear 3 0 0
+Illegal target name 'dhcp_secure_chain'.
+killall: vnptt_tbas: no process killed
+killall: vnptt_apac: no process killed
+killall: vnptt_topo: no process killed
+killall: vnptt_mesh_com: nosetActiveMeshFeatureState():21404 Interface doesn't accept private ioctl..., ifname: rai0, error: No such device
+ process killed
+killall: bndstrg2: no process killed
+ra0       no private ioctls.
+
+rai0      no private ioctls.
+
+[01/Jan/1970:00:00:13 +0000] boa: server version Boa/0.94.13
+[01/Jan/1970:00:00:13 +0000] boa: server built Jan  2 2024 at 15:22:39.
+[01/Jan/1970:00:00:13 +0000] boa: starting server pid=364, port 80
+debug, Sending discover...
+mtd[readflash]:device=reservearea tclen=131072 tcoffset=524288
+Unlocking reservearea ...
+Reading from reservearea to /var/log/tmp_file ...
+debug, Sending discover...
+valid subcommands:
+adsl
+Daemon Successfully forked (pid: 1077)
+iptables: Bad rule (does a matching rule exist in that chain?).
+iptables: Bad rule (does a matching rule exist in that chain?).
+Init called
+
+
+Enter 'Q' or 'q'  or '8' to quit...
+
+===========================================
+1 MODIFY CONFIG
+2 STOP DMS
+3 START DMS
+4 RESTART DMS
+5 ADD SHARED PATH
+6 DELETE SHARED PATH
+7 DISPLAY CONTENT LIST
+8 QUIT APP
+
+============================================
+mtdblock10 for safegate
+yaffs: dev is 32505866 name is "mtdblock10" rw
+yaffs: passed flags "tags-ecc-off"
+debug, Sending discover...
+mount safedata success!
+chmod: /usr/etc/safegate/tools/busybox-checksum: Read-only file system
+chmod: /usr/etc/safegate/tools/usign: Read-only file system
+VNPTT-EMERG: No configuration change. Donot save to flash!!
+Safegate exist!
+
+Please press Enter to activate this console.
