@@ -1,1 +1,3 @@
-
+Nhập đường dẫn tới file .cfg khi được hỏi
+- 0 để giải mã file và chỉnh sửa
+- 1 để mã hoá file và up lên modem ( bắt buộc )
