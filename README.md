@@ -1,105 +1,127 @@
 # VNPT GW020H Reverse Engineering & Rooting Project
+===================================================
 
-## 📌 Mục tiêu dự án
+## 1. Mục tiêu dự án
+Dự án này tập trung vào nghiên cứu modem **GW020H** (và các model tương tự như GW040H, NS,...):
+- Truy cập **root shell** qua mạng LAN, file config hoặc UART.
+- Phân tích firmware gốc và các cơ chế bảo mật.
+- Hỗ trợ **debrick** thiết bị khi gặp sự cố trong quá trình thử nghiệm.
 
-Dự án nhằm mục đích nghiên cứu và khai thác modem **GW020H** và **các dòng modem liên quan (GW040H, NS, ...)** của VNPT, cụ thể:
-
-- Truy cập **root shell** thông qua mạng nội bộ, sửa đổi file config **và** UART.
-- Phân tích firmware gốc và các cơ chế bảo vệ.
-- Hỗ trợ **debricking** thiết bị trong quá trình vọc vạch.
-
-> ⚠️ **Miễn trừ trách nhiệm**: Dự án này chỉ phục vụ mục đích **nghiên cứu, học tập** và không khuyến khích sử dụng vào các hoạt động vi phạm pháp luật, quyền riêng tư hay điều khoản sử dụng của nhà mạng. Bạn hoàn toàn chịu trách nhiệm nếu sử dụng sai mục đích.
-
----
-
-## 📂 Nội dung repo
-
-- `flashdump/mtd0.bin` đến `mtd10.bin`: Dump đầy đủ từ modem chạy **firmware gốc ver 1** – có thể phân tích bằng binwalk và dùng để debrinking trong trươngf hợp cần thiết.
-- Một bản **initramfs OpenWrt** tương thích với SoC của modem: dùng để **debrick** hoặc mở shell tạm thời.
-- Một **tài liệu nội bộ kỹ thuật** của VNPT (tham khảo).
-- Các **script** và **notes** cùng với **phần mềm kèm theo** phục vụ việc root và truy cập hệ thống.
-- Một bản dump firmware đã được strip, trong **squashfs-modified** , gồm 2 file **boa-dump.bin** là file nguyên gốc trong quá trình update firmware qua web UI và file **squashfs.image** là file đã được trích xuất phần squashfs ( có thể dùng tool únquashfs để unpack )
+**⚠️ Miễn trừ trách nhiệm:** 
+Tất cả nội dung chỉ nhằm mục đích nghiên cứu, học tập. 
+Không khuyến khích sử dụng vào các hoạt động vi phạm pháp luật hay xâm phạm hệ thống mạng. 
+Người sử dụng hoàn toàn tự chịu trách nhiệm.
 
 ---
 
-## 🔧 Hướng dẫn sơ bộ
+## 2. Nội dung trong repo
+- `flashdump/mtd0.bin` ... `mtd10.bin`: Dump đầy đủ NAND từ modem firmware gốc v1.
+- Bản **OpenWrt initramfs** tương thích SoC: dùng để debrick hoặc mở shell tạm.
+- **Tài liệu nội bộ kỹ thuật** VNPT (tham khảo).
+- Các script, ghi chú, công cụ root & truy cập shell.
+- Dump firmware đã được strip trong `squashfs-modified`:
+  - `boa-dump.bin`: firmware gốc ( gw020h ) trong quá trình upgrade qua web UI.
+  - `squashfs.image`: phần squashfs đã được tách ( gw020h), có thể giải nén bằng `unsquashfs`.
+  - firmware đã dump đc từ boa của gw040h
 
-1. **Kết nối UART**:
-   *với một số dòng modem như trong tài liệu nội bộ của vnpt, có thể làm theo hướng dẫn để mở telnet mà không cần làm theo các bước dưới.
-   - Yêu cầu mở nắp thiết bị, dùng bộ chuyển đổi UART-to-USB (nên dùng CH340), dây jumper.
-   - Xác định vị trí chân cắm gần khu vực đèn LED, gồm 3 khe: `RX`, `TX`, `GND`.
-   - ⚠️ Cắm đúng để tránh hư thiết bị.
+---
 
-2. **Bật nguồn** và chờ thiết bị khởi động đến khi xuất hiện dòng:
+## 3. Hướng dẫn truy cập UART và mở shell
 
-Please press Enter to activate this console.
+### 3.1 Kết nối UART
+- Chuẩn bị USB-UART (khuyến nghị chip CH340) và dây jumper.
+- Trên bo mạch gần đèn LED sẽ có 3 chân: `RX`, `TX`, `GND`.
+- Kết nối đúng để tránh hỏng phần cứng.
+- Lưu ý đảm bảo kết nối tốt dây ( có thể hàn nếu muốn )
 
-3. **Đăng nhập**:
-- Nhấn Enter để thấy prompt `tc login:`
-- Có 3 tài khoản có thể đăng nhập:
-  - `admin / VnT3ch@dm1n`
-  - `operator / VnT3ch0per@tor`
-  - `customer / customer` (quyền hạn thấp)
-- Đăng nhập thành công sẽ vào shell. Gõ `uname -a` để xác nhận.
+### 3.2 Mở nguồn và đăng nhập
+- Khi boot hay khi telnet/ssh, sẽ thấy :
+  ```
+  Please press Enter to activate this console.
+  ```
+- Nhấn Enter, màn hình hiện `tc login:`.
+- Các tài khoản:
+  - admin / VnT3ch@dm1n
+  - operator / VnT3ch0per@tor
+  - customer / customer (quyền thấp)
+- Đăng nhập thành công: chạy `uname -a` để kiểm tra hệ thống.
 
-4. **(Tùy chọn)** Mở Telnet tạm thời (reboot sẽ mất):
-```sh
+### 3.3 Mở Telnet tạm thời (tùy chọn)
+```
 iptables -P INPUT ACCEPT
 iptables -P FORWARD ACCEPT
 iptables -P OUTPUT ACCEPT
 ```
-Địa chỉ Telnet/SSH mặc định: 192.168.1.1
-
-5.**(Tùy chọn)** Boot vào OpenWrt initramfs: xem mục "BOOT WRT" trong thư mục doc
-
----
-
-##🛠️ Ghi chú kỹ thuật
-
--SoC: MediaTek EN751221
--Flash NAND: 128MB SPI NAND (F50L1G41LB hoặc một số dòng chip khác)
--Dump được thực hiện bằng cat /dev/mtdX hoặc nanddump từ BusyBox trong OpenWrt initramfs.
--Tài liệu nội bộ đã có sẵn trên Scribd (xem trong doc).
--Credentials và thông tin đăng nhập có trong doc/credentials.txt.
--Hiện chưa timf được phương pháp giải mã firmware mà không thông qua dump file giải mã sẵn khi upload
+Sau đó có thể telnet tới 192.168.1.1 (hoặc SSH nếu hệ thống hỗ trợ).
+Nếu muốn mở telnet/ssh vĩnh viễn, hãy tới mục Patch romfile.cfg
 
 ---
 
-##🛠️ Patch romfile.cfg
+## 4. Boot OpenWrt initramfs (tùy chọn)
+Xem mục "BOOT WRT" trong thư mục `doc`.
 
-Giới thiệu:
--romfile.cfg là file cấu hình backup của modem, tải được từ 192.168.1.1 → Maintenance → Backup/Restore.
-
-
--File chứa:
-+ LOID & mật khẩu LOID
-+ SSID, mật khẩu Wi-Fi
-+ Cấu hình mạng, firewall, cron task,...
-  
-- ⚠️ Không nên chia sẻ public vì chứa nhiều thông tin nhạy cảm.
-  
--Giải mã & chỉnh sửa
-+ File được mã hóa bởi chương trình cfg_manager trong firmware.
-+ Đã reverse thành công IV và key để giải mã và mã hóa lại.
-+ Tất cả các modem GW dùng chung key → có thể chuyển romfile.cfg giữa các thiết bị.
-
- - Sử dụng công cụ
-+ Dùng script tools/romfileedit.py để giải mã và chỉnh sửa.
-+ Yêu cầu: Python + một số thư viện hỗ trợ (xem trong tool).
-+ Sau khi chỉnh sửa, cần mã hóa lại và upload qua web UI để modem chấp nhận.
-
-
---- 
-
-##Debricking (OPEN WRT)
-- Trong một số trường hợp, thiết bị có thể bị brick do một số chỉnh sửa gây tác động và làm hệ thống không thể khởi động, việc này gây bootloop hay web UI không load được ( có thể thử restart boa nếu vẫn còn truy cập được shell ), trong trường hợp không truy cập được shell, thử tắt nguồn bằng nút vật lý và mở lại để reboot thiết bị, nếu vãn không giải quyết được, hãy dùng phương pháp load initramfs tạm thời:
-- Tham khảo [OpenWrt Wiki] TP-Link Archer VR1200v (v2).pdf hoặc truy cập theo link https://openwrt.org/inbox/toh/tp-link/archer_vr1200v?s[]=tp%2A&s[]=link%2A mục debricking
-- Sau khi vào được shell root của openwrt, có thể flash lại firmware ( các bản mtdX.bin ) , reboot thiết bị để kiểm tra ( vui lòng giữ file backup romfile.cfg của modem bạn để tải lên restore sau khi debricking )
 ---
-##Phương thức giải mã firmware
 
-hãy nhập lệnh sau vào shell của router
+## 5. Ghi chú kỹ thuật
 
+- SoC: **MediaTek EN751221**
+- Flash: **128MB SPI NAND** (F50L1G41LB hoặc tương đương, có nhiều loại nand và SoC đc hỗ trợ bởi firmware này, có thể thấy trong /userfs/profile.cfg)
+- Dump NAND:
+  - Có thể dùng `cat /dev/mtdX` trong firmware gốc của vnpt hoặc `nanddump` từ OpenWrt initramfs.
+- Các tài liệu nội bộ đã có sẵn trong thư mục `doc`.
+- **Firmware**: hiện chưa có cách giải mã trực tiếp ngoài việc dump `boa-temp`.
+
+---
+
+## 6. Patch romfile.cfg
+
+### 6.1 Giới thiệu
+- `romfile.cfg` là file backup config từ:
+  ```
+  192.168.1.1 → Maintenance → Backup/Restore
+  ```
+- Nội dung gồm:
+  + LOID, mật khẩu LOID
+  + SSID, mật khẩu Wi-Fi
+  + Cấu hình mạng, firewall, cron, ...
+- **Lưu ý:** Không nên chia sẻ file này vì chứa thông tin nhạy cảm.
+
+### 6.2 Giải mã & chỉnh sửa
+- File mã hóa bằng `cfg_manager` trong firmware.
+- Key/IV chung cho các modem GW đã được reverse.
+- Có thể giải mã, chỉnh sửa và mã hóa lại bằng `tools/romfileedit.py`.
+- Tải thư viện cần thiết và nhập lệnh `python3 romfileedit.py` trên CMD ( Windows ) hay bất cứ shell nào đã có python.
+- Đã có hdsd code , chỉ cần chạy là có, em viết bằng tiếng anh do tiếng việt lỗi front.
+
+### 6.3 Yêu cầu
+- Python + các thư viện hỗ trợ.
+- Sau khi chỉnh sửa, mã hóa lại rồi upload qua giao diện web để áp dụng.
+
+---
+
+## 7. Debricking với OpenWrt (BOOT WRT)
+- Khi modem bị brick:
+  1. Thử reboot, restart boa nếu còn shell.
+  2. Nếu không truy cập được:
+     - Dùng OpenWrt initramfs để boot tạm (qua UART).
+     - Flash lại các file mtdX.bin từ backup.
+     - Khởi động lại và restore cấu hình (`romfile.cfg`).
+
+- Tham khảo:
+
+  -Đây là link của 1 chương trình openwrt đang dc phát triển cho modem VR1200v, nói chung là ko liên quan lắm nhưng chung soc nên dùng qua lại đc, mỗi tội ko có driver wifi, lan ... các thứ tương thích ko đc nên chịu, em sẽ cố làm 1 bản openwrt tương thích sau, nói chung giờ dùng chủ yếu để debricking nếu các bác có lỡ .... =))))
+  ```
+  OpenWrt Wiki: TP-Link Archer VR1200v (v2)
+  https://openwrt.org/inbox/toh/tp-link/archer_vr1200v
+  ```
+
+---
+
+## 8. Giải mã firmware qua boa-temp
+
+Chạy lệnh trong shell của modem:
+
+```
 sed -i '1,$d' /tmp/auto_dump_boatemp.sh
 cat >> /tmp/auto_dump_boatemp.sh <<'EOF'
 #!/bin/sh
@@ -136,13 +158,25 @@ done
 EOF
 
 chmod +x /tmp/auto_dump_boatemp.sh
+```
 
+### Các bước tiếp theo
+1. Chạy script:
+   ```
+   sh /tmp/auto_dump_boatemp.sh
+   ```
+2. Đăng nhập web UI, upload file firmware cần dump và bấm **Upgrade**.
+3. Quay lại shell, kiểm tra `/tmp/yaffs/boa-dump.bin`.
+4. Tải file về (ví dụ qua tftp).
+5. Dùng `binwalk` hoặc `unsquashfs` để phân tích.
 
+**Lưu ý:**  
+Có thể sửa file `boa-temp` trong quá trình upgrade để ép flash firmware tùy chỉnh, 
+nhưng rủi ro brick rất cao nếu timing không chuẩn.
 
-- command trên sẽ tạo file auto_dump_boatemp.sh là file lệnh để dump được bản firmware đã giải mã, sau khi xong, hãy dùng lệnh
-- sh /tmp/auto_dump_boatemp.sh để chạy
-- lưu ý, ko tắt shell trong quá trình thực hiện dump, như thế sẽ làm code dừng và ko dump được,
-- bước tiếp theo, hãy đăng nhập tài khoản web, upload file firmware mà bạn muốn dump và bấm upgrade ( việc này cũng sẽ update hệ thống, hãy cẩn thận)
-sau đó, có thể truy cập lại shell, vào /tmp/yaffs để có file dump ( có thể dùng tftp để tải về )
-- sau đó có thể dùng tool binwalk hoặc únsquashfs để xem nội dung
-- có thể chỉnh sửa và repack lại, sau đó can thiệp vào quá trình update thông qua sửa đổi file boa-temp để ép router update firmware đã sửa ( lưu ý, ruit ro brick rất cao nếu ko timming chuẩn nhưng đây là phương pháp duy nhất để vượt qua mode ro của squáshfs, trong tương lai, admin sẽ cố tung ra 1 bản đã sửa sẵn để tắt ro cho mn xài)
+**Chú thích**
+- em đang phân tích cfg_manager thêm để có public key decrypt firmware mà ko cần thông qua dump nhưng mà chắc mất kha khá thời gian để có bản phần mềm, phần mềm này cũng là cái quản lý file romfile.cfg ( e cũng trích xuất key với iv giải mã từ chỗ này ), bác nào cần e sẽ upload lên để phân tích chung
+
+---
+
+END OF FILE
