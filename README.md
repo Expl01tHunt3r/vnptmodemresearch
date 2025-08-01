@@ -40,6 +40,7 @@ Người sử dụng hoàn toàn tự chịu trách nhiệm.
   ```
   Please press Enter to activate this console.
   ```
+  - Lưu ý nhỏ: bản ssh được xài khá cố nên các bác phải bật option insecure mới kết nối đc, và muốn dùng telnet/ssh thì phải sửa file romfile.cfg bằng tool và upload lại để mở firewall ( iptables )
 - Nhấn Enter, màn hình hiện `tc login:`.
 - Các tài khoản:
   - admin / VnT3ch@dm1n
