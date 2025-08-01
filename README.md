@@ -101,7 +101,8 @@ Xem mục "BOOT WRT" trong thư mục `doc`.
 ### 6.4 Mở telnet/ssh vĩnh viễn ( không mất sau reboot nhưng vẫn mất sau factory reset )
 - giải mã file romfile.cfg, tìm tới nơi quản lý cron, chèn thêm task cron mới với lệnh iptables -P INPUT ACCEPT ; iptables -P FORWARD ACCEPT ; iptables -P OUTPUT ACCEPT
 - cho chạy mỗi phút hoặc tuỳ sở thích, trông nó như này ( các bác nhớ sửa cho nó active = 1 )
-`<Crond>
+```
+<Crond>
 	<Entry0 Active="1" NAME="rb" COMMAND="*/1 * * * * iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT" />
 	<Entry1 Active="0" NAME="None" COMMAND="" />
 	<Entry2 Active="0" NAME="None" COMMAND="" />
@@ -116,7 +117,7 @@ Command_3="" Command_4="" Command_5=""
 Command_6="" Command_7=""
 Command_8="" />
 </Crond>
-`
+```
 - Sau đó up lên lại là xong
 
 
