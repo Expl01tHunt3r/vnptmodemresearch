@@ -98,6 +98,27 @@ Xem mục "BOOT WRT" trong thư mục `doc`.
 ### 6.3 Yêu cầu
 - Python + các thư viện hỗ trợ.
 - Sau khi chỉnh sửa, mã hóa lại rồi upload qua giao diện web để áp dụng.
+### 6.4 Mở telnet/ssh vĩnh viễn ( không mất sau reboot nhưng vẫn mất sau factory reset )
+- giải mã file romfile.cfg, tìm tới nơi quản lý cron, chèn thêm task cron mới với lệnh iptables -P INPUT ACCEPT ; iptables -P FORWARD ACCEPT ; iptables -P OUTPUT ACCEPT
+- cho chạy mỗi phút hoặc tuỳ sở thích, trông nó như này ( các bác nhớ sửa cho nó active = 1 )
+`<Crond>
+	<Entry0 Active="1" NAME="rb" COMMAND="*/1 * * * * iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT" />
+	<Entry1 Active="0" NAME="None" COMMAND="" />
+	<Entry2 Active="0" NAME="None" COMMAND="" />
+	<Entry3 Active="0" NAME="None" COMMAND="" />
+	<Entry4 Active="0" NAME="None" COMMAND="" />
+	<Entry5 Active="0" NAME="None" COMMAND="" />
+	<Entry6 Active="0" NAME="None" COMMAND="" />
+	<Entry7 Active="0" NAME="None" COMMAND="" />
+	<Entry8 Active="0" NAME="None" COMMAND="" />
+	<CommandList Command_0="reboot" Command_1="" Command_2=""
+Command_3="" Command_4="" Command_5=""
+Command_6="" Command_7=""
+Command_8="" />
+</Crond>
+`
+- Sau đó up lên lại là xong
+
 
 ---
 
