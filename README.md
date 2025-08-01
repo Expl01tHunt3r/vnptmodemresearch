@@ -118,7 +118,7 @@ Command_6="" Command_7=""
 Command_8="" />
 </Crond>
 ```
-- Sau đó mã hoá lại rồi up lên lại là xong
+- Sau đó mã hoá lại rồi up lên lại là xong, nếu nó báo lỗi file hay gì thì các bác check lại xem đã làm đúng hết chưa, đúng rồi mà vẫn lỗi thì là do đoạn command vừa chèn vô dài quá,các bác kiếm mấy cái description xung quanh đó rồi ăn bớt nó đi, mã hoá lại rồi up như thường, ko lỗi là xong =))
 
 
 ---
