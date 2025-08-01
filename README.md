@@ -118,7 +118,7 @@ Command_6="" Command_7=""
 Command_8="" />
 </Crond>
 ```
-- Sau đó up lên lại là xong
+- Sau đó mã hoá lại rồi up lên lại là xong
 
 
 ---
