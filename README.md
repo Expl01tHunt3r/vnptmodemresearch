@@ -72,7 +72,7 @@ Xem mục "BOOT WRT" trong thư mục `doc`.
   - Có thể dùng `cat /dev/mtdX` trong firmware gốc của vnpt hoặc `nanddump` từ OpenWrt initramfs.
 - Các tài liệu nội bộ đã có sẵn trong thư mục `doc`.
 - **Firmware**: hiện chưa có cách giải mã trực tiếp ngoài việc dump `boa-temp`.
-
+- muốn đọc gì thêm thì các bác cứ tham khảo tài liệu trong doc hoặc đọc cái uart.txt , cái đó em log lại lúc xài uart để kết nối chứ ko gì
 ---
 
 ## 6. Patch romfile.cfg
@@ -201,5 +201,5 @@ nhưng rủi ro brick rất cao nếu timing không chuẩn.
 **Chú thích**
 - em đang phân tích cfg_manager thêm để có public key decrypt firmware mà ko cần thông qua dump nhưng mà chắc mất kha khá thời gian để có bản phần mềm, phần mềm này cũng là cái quản lý file romfile.cfg ( e cũng trích xuất key với iv giải mã từ chỗ này ), bác nào cần e sẽ upload lên để phân tích chung. Em cũng đang xem xét việc làm bản .exe ( cho win ) và .app cho Mac, tự động để tải , edit, rồi upload lên mà ko cần tự thao tác, nhma chưa có thời gian, bác nào rành có thể làm giúp em với ạ
 - Lưu ý nhỏ cho các bác phân tích file cfg_manager thì nên nên load vào đủ lib cho nó phân tích chính xác ( các bác cứ tìm trong squashfs-root )
-
+- Nếu có thiếu sót gì mời các bác góp ý thân thiện ( e mới lớp 10 =)), hè nghịch cho vui thôi , các bác vnpt đừng fix cho em đc nhờ ạ =))), mà từ khi unlock xong hình như lỡ đụng nhầm vô block gì á, các bác xem giúp với có bị gì ko, chứ redirect của zalo ko vô đc, vài web cổ cx ko vô đc nốt ( tức vl ).
 ---
