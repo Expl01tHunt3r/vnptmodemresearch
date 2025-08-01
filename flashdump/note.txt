@@ -1,1 +1,1 @@
-
+bảng phân vùng cụ thể có thể tìm thấy trong uart.txt tại doc
