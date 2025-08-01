@@ -178,5 +178,6 @@ nhưng rủi ro brick rất cao nếu timing không chuẩn.
 
 **Chú thích**
 - em đang phân tích cfg_manager thêm để có public key decrypt firmware mà ko cần thông qua dump nhưng mà chắc mất kha khá thời gian để có bản phần mềm, phần mềm này cũng là cái quản lý file romfile.cfg ( e cũng trích xuất key với iv giải mã từ chỗ này ), bác nào cần e sẽ upload lên để phân tích chung. Em cũng đang xem xét việc làm bản .exe ( cho win ) và .app cho Mac, tự động để tải , edit, rồi upload lên mà ko cần tự thao tác, nhma chưa có thời gian, bác nào rành có thể làm giúp em với ạ
+- Lưu ý nhỏ cho các bác phân tích file cfg_manager thì nên nên load vào đủ lib cho nó phân tích chính xác ( các bác cứ tìm trong squashfs-root )
 
 ---
