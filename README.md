@@ -23,7 +23,7 @@ Người sử dụng hoàn toàn tự chịu trách nhiệm.
   - `boa-dump.bin`: firmware gốc ( gw020h ) trong quá trình upgrade qua web UI.
   - `squashfs.image`: phần squashfs đã được tách ( gw020h), có thể giải nén bằng `unsquashfs`.
   - firmware đã dump đc từ boa của gw040h
-  - squashfs-root ( đã giải mã ) trong relese
+  - squashfs-root ( đã giải mã ) trong https://github.com/Expl01tHunt3r/vnptgw020h/releases
 
 ---
 
