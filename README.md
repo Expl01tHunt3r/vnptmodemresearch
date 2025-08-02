@@ -141,6 +141,10 @@ Command_8="" />
   ```
 
  - Cảm ơn cjdelisle cho bản initramfs !
+ - em để file initramfs tại
+```
+https://github.com/Expl01tHunt3r/vnptgw020h/blob/main/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin
+```
 
 ---
 
