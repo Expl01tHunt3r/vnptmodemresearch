@@ -44,7 +44,7 @@ Người sử dụng hoàn toàn tự chịu trách nhiệm.
 - Nhấn Enter, màn hình hiện `tc login:`.
 - Các tài khoản:
   - admin / VnT3ch@dm1n
-  - operator / VnT3ch0per@tor
+  - operator / VnT3ch0per@tor ( chỉ đăng nhập qua UART )
   - customer / customer (quyền thấp)
 - Đăng nhập thành công: chạy `uname -a` để kiểm tra hệ thống.
 
@@ -60,7 +60,7 @@ Nếu muốn mở telnet/ssh vĩnh viễn, hãy tới mục Patch romfile.cfg
 ---
 
 ## 4. Boot OpenWrt initramfs (tùy chọn)
-Xem mục "BOOT WRT" trong thư mục `doc`.
+Xem mục "BOOT WRT".
 
 ---
 
@@ -133,11 +133,14 @@ Command_8="" />
 
 - Tham khảo:
 
-  -Đây là link của 1 chương trình openwrt đang dc phát triển cho modem VR1200v, nói chung là ko liên quan lắm nhưng chung soc nên dùng qua lại đc, mỗi tội ko có driver wifi, lan ... các thứ tương thích ko đc nên chịu, em sẽ cố làm 1 bản openwrt tương thích sau, nói chung giờ dùng chủ yếu để debricking nếu các bác có lỡ .... =))))
+  - Đây là link của 1 chương trình openwrt đang dc phát triển cho modem VR1200v, nói chung là ko liên quan lắm nhưng chung soc nên dùng qua lại đc, mỗi tội ko có driver wifi, lan ... các thứ tương thích ko đc nên chịu, em sẽ cố làm 1 bản openwrt tương thích sau, nói chung giờ dùng chủ yếu để debricking nếu các bác có lỡ .... =))))
+  - các bác cư vào đọc rồi làm theo hướng dẫn
   ```
   OpenWrt Wiki: TP-Link Archer VR1200v (v2)
   https://openwrt.org/inbox/toh/tp-link/archer_vr1200v
   ```
+
+ - Cảm ơn cjdelisle cho bản initramfs !
 
 ---
 
@@ -197,9 +200,12 @@ chmod +x /tmp/auto_dump_boatemp.sh
 **Lưu ý:**  
 Có thể sửa file `boa-temp` trong quá trình upgrade để ép flash firmware tùy chỉnh, 
 nhưng rủi ro brick rất cao nếu timing không chuẩn.
+- có thể kích hoạt upgrade thủ công qua việc chỉnh sửa nvram tên fw_upgrade qua tcapi ( nhớ commit sau khi set ) tuy nhiên phải qua đc bước check ( hiện giờ chưa có cách ).
 
 **Chú thích**
 - em đang phân tích cfg_manager thêm để có public key decrypt firmware mà ko cần thông qua dump nhưng mà chắc mất kha khá thời gian để có bản phần mềm, phần mềm này cũng là cái quản lý file romfile.cfg ( e cũng trích xuất key với iv giải mã từ chỗ này ), bác nào cần e sẽ upload lên để phân tích chung. Em cũng đang xem xét việc làm bản .exe ( cho win ) và .app cho Mac, tự động để tải , edit, rồi upload lên mà ko cần tự thao tác, nhma chưa có thời gian, bác nào rành có thể làm giúp em với ạ
 - Lưu ý nhỏ cho các bác phân tích file cfg_manager thì nên nên load vào đủ lib cho nó phân tích chính xác ( các bác cứ tìm trong squashfs-root )
 - Nếu có thiếu sót gì mời các bác góp ý thân thiện ( e mới lớp 10 =)), hè nghịch cho vui thôi , các bác vnpt đừng fix cho em đc nhờ ạ =))), mà từ khi unlock xong hình như lỡ đụng nhầm vô block gì á, các bác xem giúp với có bị gì ko, chứ redirect của zalo ko vô đc, vài web cổ cx ko vô đc nốt ( tức vl ).
+- e cũng đang phân tích 1 cái binary tên firmware, nhưng chưa có gì lắm, cái đó khá ngắn.
+- chỉ có vài vùng flash có thể đọc ghi thoải mái là yaffs với safegate, userdata ( đc mount vào tmp ), những chỗ đó sẽ ko mất sau factory reset / reboot
 ---
