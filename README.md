@@ -213,3 +213,19 @@ nhưng rủi ro brick rất cao nếu timing không chuẩn.
 - e cũng đang phân tích 1 cái binary tên firmware, nhưng chưa có gì lắm, cái đó khá ngắn.
 - chỉ có vài vùng flash có thể đọc ghi thoải mái là yaffs với safegate, userdata ( đc mount vào tmp ), những chỗ đó sẽ ko mất sau factory reset / reboot
 ---
+
+
+
+**Cập nhật**
+- Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà ko cần các bác phải cài này nọ, link là :
+```
+https://huggingface.co/spaces/Expl01tHunt3r/file-decoder
+```
+- do là free nên sẽ có lúc chập chờn, các bác chịu khó đợi, có thể xem status tại
+```
+https://stats.uptimerobot.com/U65yw18Rtl
+```
+
+
+
+
