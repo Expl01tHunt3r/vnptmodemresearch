@@ -2,7 +2,7 @@
 ===================================================
 
 ## 1. Mục tiêu dự án
-Dự án này tập trung vào nghiên cứu modem **GW020H** (và các model tương tự như GW040H, NS,...):
+Dự án này tập trung vào nghiên cứu modem **GW020H** (và các model tương tự như GW040H,...):
 - Truy cập **root shell** qua mạng LAN, file config hoặc UART.
 - Phân tích firmware gốc và các cơ chế bảo mật.
 - Hỗ trợ **debrick** thiết bị khi gặp sự cố trong quá trình thử nghiệm.
@@ -225,6 +225,7 @@ https://huggingface.co/spaces/Expl01tHunt3r/file-decoder
 ```
 https://stats.uptimerobot.com/U65yw18Rtl
 ```
+- Xác nhận ko sử dụng đc tool với mẫu NS, có thể là sử dụng key/iv khác
 
 
 
