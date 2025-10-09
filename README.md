@@ -1,4 +1,4 @@
-# VNPT GW020H Reverse Engineering & Rooting Project
+# VNPT GW020H (GW040-NS) Reverse Engineering & Rooting Project
 ===================================================
 
 ## 1. Mục tiêu dự án
@@ -91,7 +91,7 @@ Xem mục "BOOT WRT".
 ### 6.2 Giải mã & chỉnh sửa
 - File mã hóa bằng `cfg_manager` trong firmware.
 - Key/IV chung cho các modem GW đã được reverse.
-- Có thể giải mã, chỉnh sửa và mã hóa lại bằng `tools/romfileedit.py`.
+- Có thể giải mã, chỉnh sửa và mã hóa lại bằng `tools/romfileedit.py` (Lưu ý đúng model để decrypt hoặc encrypt, sai là bay hết config cũ là như mới :))
 - Tải thư viện cần thiết và nhập lệnh `python3 romfileedit.py` trên CMD ( Windows ) hay bất cứ shell nào đã có python.
 - Đã có hdsd code , chỉ cần chạy là có, em viết bằng tiếng anh do tiếng việt lỗi front.
 
