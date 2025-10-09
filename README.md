@@ -225,6 +225,7 @@ https://stats.uptimerobot.com/U65yw18Rtl
 ```
 - Xác nhận ko sử dụng đc tool với mẫu NS, có thể là sử dụng key/iv khác
 - Hiện đã có key/iv cho dòng NS, sẽ cải tiến code để có thêm option cho dòng NS
+- Xác nhậm tool edit romfile đã chạy được với các model GW020H , GW040H , GW040NS , GW240H
 
 ## Đóng góp:
 - Xin cảm ơn 2 bác @BussyBakks(https://github.com/BussyBakks) và @AppleSang(https://github.com/AppleSang) đã giúp em nghiên cứu thêm về key cho romfile.cfg dòng modem NS
