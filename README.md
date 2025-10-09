@@ -1,4 +1,4 @@
-# VNPT GW020H Reverse Engineering & Rooting Project
+# VNPT MODEM Reverse Engineering & Rooting Project
 ===================================================
 
 ## 1. Mục tiêu dự án
