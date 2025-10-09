@@ -4,3 +4,6 @@ Nhập đường dẫn tới file .cfg khi được hỏi
 Lưu ý:
 - khi giải mã, file sẽ có thêm đuôi .dec có thể mở bằng notepad hoặc bất cứ trình soạn văn bản nào, duôi này không có ý nghĩa với chương trình, chủ yếu tránh trùng tên
 - tương tự thế, file khi mã hoá lại sẽ có đuôi .enc, phải sửa lại thành .cfg ( bỏ cả đuôi .dec và .enc ) lưu ý vẫn giữ tên là romfile thì mới upload lên modem được, chú ý tránh nhầm với file cũ là ok
+
+(BussyBakks Update)
+file tool chia ra 2 model, 1 cái cho modem có model đuôi -NS và cái cho đuôi -H, chọn đúng file mà giải không giải được thì thua :PPP
