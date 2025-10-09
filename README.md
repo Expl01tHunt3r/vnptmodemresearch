@@ -2,7 +2,7 @@
 ===================================================
 
 ## 1. Mục tiêu dự án
-Dự án này tập trung vào nghiên cứu modem **GW020H** (và các model tương tự như GW040H,...):
+Dự án này tập trung vào nghiên cứu modem **GW020H** (và các model dòng H tương tự như GW040H,...) cũng như các dòng NS ( và HS trong tương lai):
 - Truy cập **root shell** qua mạng LAN, file config hoặc UART.
 - Phân tích firmware gốc và các cơ chế bảo mật.
 - Hỗ trợ **debrick** thiết bị khi gặp sự cố trong quá trình thử nghiệm.
@@ -89,8 +89,8 @@ Xem mục "BOOT WRT".
 - **Lưu ý:** Không nên chia sẻ file này vì chứa thông tin nhạy cảm.
 
 ### 6.2 Giải mã & chỉnh sửa
-- File mã hóa bằng `cfg_manager` trong firmware.
-- Key/IV chung cho các modem GW đã được reverse.
+- File mã hóa bằng `cfg_manager` trong firmware ( đối với các dòng H ) và `cfg` đối với dòng NS.
+- Key/IV chung cho các modem GW đã được reverse, 2 dòng H và NS xài key/iv riêng biệt.
 - Có thể giải mã, chỉnh sửa và mã hóa lại bằng `tools/romfileedit.py`.
 - Tải thư viện cần thiết và nhập lệnh `python3 romfileedit.py` trên CMD ( Windows ) hay bất cứ shell nào đã có python.
 - Đã có hdsd code , chỉ cần chạy là có, em viết bằng tiếng anh do tiếng việt lỗi front.
@@ -207,10 +207,8 @@ nhưng rủi ro brick rất cao nếu timing không chuẩn.
 - có thể kích hoạt upgrade thủ công qua việc chỉnh sửa nvram tên fw_upgrade qua tcapi ( nhớ commit sau khi set ) tuy nhiên phải qua đc bước check ( hiện giờ chưa có cách ).
 
 **Chú thích**
-- em đang phân tích cfg_manager thêm để có public key decrypt firmware mà ko cần thông qua dump nhưng mà chắc mất kha khá thời gian để có bản phần mềm, phần mềm này cũng là cái quản lý file romfile.cfg ( e cũng trích xuất key với iv giải mã từ chỗ này ), bác nào cần e sẽ upload lên để phân tích chung. Em cũng đang xem xét việc làm bản .exe ( cho win ) và .app cho Mac, tự động để tải , edit, rồi upload lên mà ko cần tự thao tác, nhma chưa có thời gian, bác nào rành có thể làm giúp em với ạ
-- Lưu ý nhỏ cho các bác phân tích file cfg_manager thì nên nên load vào đủ lib cho nó phân tích chính xác ( các bác cứ tìm trong squashfs-root )
-- Nếu có thiếu sót gì mời các bác góp ý thân thiện ( e mới lớp 10 =)), hè nghịch cho vui thôi , các bác vnpt đừng fix cho em đc nhờ ạ =))), mà từ khi unlock xong hình như lỡ đụng nhầm vô block gì á, các bác xem giúp với có bị gì ko, chứ redirect của zalo ko vô đc, vài web cổ cx ko vô đc nốt ( tức vl ).
-- e cũng đang phân tích 1 cái binary tên firmware, nhưng chưa có gì lắm, cái đó khá ngắn.
+- Lưu ý nhỏ cho các bác phân tích file cfg_manager thì nên nên load vào đủ lib cho nó phân tích chính xác ( các bác cứ tìm trong squashfs-root/lib )
+- Nếu có thiếu sót gì mời các bác góp ý thân thiện ( e mới lớp 10 =)), hè nghịch cho vui thôi , các bác vnpt đừng fix cho em đc nhờ ạ =)))
 - chỉ có vài vùng flash có thể đọc ghi thoải mái là yaffs với safegate, userdata ( đc mount vào tmp ), những chỗ đó sẽ ko mất sau factory reset / reboot
 ---
 
@@ -226,6 +224,10 @@ https://huggingface.co/spaces/Expl01tHunt3r/file-decoder
 https://stats.uptimerobot.com/U65yw18Rtl
 ```
 - Xác nhận ko sử dụng đc tool với mẫu NS, có thể là sử dụng key/iv khác
+- Hiện đã có key/iv cho dòng NS, sẽ cải tiến code để có thêm option cho dòng NS
+
+## Đóng góp:
+- Xin cảm ơn 2 bác @BussyBakks(https://github.com/BussyBakks) và @AppleSang(https://github.com/AppleSang) đã giúp em nghiên cứu thêm về key cho romfile.cfg dòng modem NS
 
 
 
