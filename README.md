@@ -212,6 +212,40 @@ nhưng rủi ro brick rất cao nếu timing không chuẩn, không biết offse
 - Nếu có thiếu sót gì mời các bác góp ý thân thiện , các bác vnpt đừng fix cho em đc nhờ ạ =)))
 - chỉ có vài vùng flash có thể đọc ghi thoải mái là yaffs với safegate, userdata ( đc mount vào tmp ), những chỗ đó sẽ ko mất sau factory reset / reboot
 ---
+## 9. Decode file .asp (trên dòng firware mới)
+- Trên các dòng firmware mới ( chưa biết chính xác từ khi nào ), các file .asp trong cgi-bin sẽ bị mã hoá, để tiện lợi cho việc mod firmware cần phải decode được file, trong khi nghiên cứu phát hiện file chỉ được mã hoá đơn giản bằng việc đảo bit, có thể decode bằng cách đảo bit lại
+
+```
+#!/usr/bin/env python3
+import sys
+import os
+
+def invert_file(input_path, output_path):
+    """Đảo bit từng byte (b ^ 0xFF) — tự giải mã hoặc mã hóa."""
+    with open(input_path, "rb") as fin, open(output_path, "wb") as fout:
+        while True:
+            chunk = fin.read(1024)
+            if not chunk:
+                break
+            fout.write(bytes((b ^ 0xFF) for b in chunk))
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: vnptt_decode.py <input_file> <output_file>")
+        sys.exit(1)
+
+    inp, out = sys.argv[1], sys.argv[2]
+
+    if not os.path.exists(inp):
+        print(f"Error: File '{inp}' not found.")
+        sys.exit(1)
+
+    invert_file(inp, out)
+```
+- Trên đây là code python để thực hiện đảo bit, chạy code sẽ có hdsd
+- Khi mod file asp, để tương thích với quy trình hoạt động cần phải encode và flash thay vào chỗ file cũ
+
+
 
 
 
@@ -226,6 +260,7 @@ https://stats.uptimerobot.com/U65yw18Rtl
 ```
 - Hiện đã có key/iv cho dòng NS, đã cải tiến code để có thêm option cho dòng NS
 - Xác nhậm tool edit romfile đã chạy được với các model GW020H , GW040H , GW040NS , GW240H
+- Đã tìm được cách decode file .asp trong cgi-bin
 
 ## Đóng góp:
 - Xin cảm ơn 2 bác @BussyBakks(https://github.com/BussyBakks) và @AppleSang(https://github.com/AppleSang) đã giúp em nghiên cứu thêm về key cho romfile.cfg dòng modem NS
