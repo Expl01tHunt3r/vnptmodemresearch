@@ -41,7 +41,7 @@ Người sử dụng hoàn toàn tự chịu trách nhiệm.
   ```
   Please press Enter to activate this console.
   ```
-  - Lưu ý nhỏ: bản ssh được xài khá cố nên các bác phải bật option insecure mới kết nối được ( với dòng 020h ), và muốn dùng telnet/ssh thì phải sửa file romfile.cfg bằng tool và upload lại để mở firewall ( iptables với dòng H) hoặc có thể mở theo hướng dẫn với model NS
+  - Lưu ý nhỏ: bản ssh được xài khá cũ nên phải bật option insecure mới kết nối được ( với dòng 020h ), và muốn dùng telnet/ssh thì phải sửa file romfile.cfg bằng tool và upload lại để mở firewall ( iptables với dòng H) hoặc có thể mở theo hướng dẫn với model NS
 - Nhấn Enter, màn hình hiện `tc login:`.
 - Các tài khoản:
   - admin / VnT3ch@dm1n
@@ -206,6 +206,7 @@ chmod +x /tmp/auto_dump_boatemp.sh
 Có thể sửa file `boa-temp` trong quá trình upgrade để ép flash firmware tùy chỉnh, 
 nhưng rủi ro brick rất cao nếu timing không chuẩn, không biết offset chính xác hay ghi đè file quan trọng.
 - có thể kích hoạt upgrade thủ công qua việc chỉnh sửa nvram tên fw_upgrade qua tcapi ( commit sau khi set ) tuy nhiên phải qua được bước check ( hiện giờ chưa có cách ).
+- Chi tiết về cách mở telnet trên dòng NS có thể được tìm thấy trong tài liệu tại `/doc`.
 
 **Chú thích**
 - Nếu có thiếu sót gì mời các bác góp ý thân thiện , các bác vnpt đừng fix cho em đc nhờ ạ =)))
