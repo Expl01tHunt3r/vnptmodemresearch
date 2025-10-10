@@ -1,12 +1,16 @@
-# VNPT MODEM Reverse Engineering & Rooting Project
-===================================================
+<div align="center">
+  <h2>VNPT MODEM</h2>
+  <p>Reverse Engineering & Rooting Project</p>
+</div>
+##
 
 ## 1. Mục tiêu dự án
-Dự án này tập trung vào nghiên cứu modem **GW020H** (và các model dòng H tương tự như GW040H,...) cũng như các dòng NS ( và HS trong tương lai):
-- Truy cập **root shell** qua mạng LAN,chỉnh sửa file config hoặc UART.
+Dự án này tập trung vào nghiên cứu modem dòng H ([GW120-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw120-h), [*GW020-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw020-h), [GW240-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw240-h), [GW040-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-h)) cũng như các dòng NS ([*GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns), [XSW050-NS](https://www.vnpt-technology.vn/vi/product_detail/xgs-pon-ont-igate-xsw050-ns), [XSW250-NS](https://www.vnpt-technology.vn/vi/product_detail/igate-xsw250-ns-wifi-6)) và các dòng HS trong tương lai:
+- Truy cập **root shell** qua mạng LAN từ việc chỉnh sửa file config, UART, các phím tắt ẩn.....
 - Phân tích firmware gốc và các cơ chế bảo mật.
 - Mod firmware
 - Hướng dẫn **debrick** thiết bị khi gặp sự cố trong quá trình thử nghiệm.
+> * là các mẫu modem đã được thử nghiệm và có kết quả
 
 **⚠️ Miễn trừ trách nhiệm:** 
 Tất cả nội dung chỉ nhằm mục đích nghiên cứu, học tập. 
@@ -16,15 +20,15 @@ Người sử dụng hoàn toàn tự chịu trách nhiệm.
 ---
 
 ## 2. Nội dung trong repo
-- `flashdump/mtd0.bin` ... `mtd10.bin`: Dump Nand từ firmware v1 của model GW-020H
+- [flashdump](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/flashdump): Dump Nand từ firmware v1 của model GW-020H
 - Bản **OpenWrt initramfs** tương thích SoC: dùng để debrick hoặc mở shell tạm.
-- **Tài liệu kỹ thuật nội bộ** VNPT (tham khảo).
+- [Tài liệu kỹ thuật nội bộ của GW040-NS](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/doc/861030466-GWX40-NS-Thong-Tin-San-Pham-v1-0-17-04-2025.pdf) (tham khảo).
 - Các script, ghi chú, công cụ root & truy cập shell.
-- Dump firmware đã được strip trong `squashfs-modified`:
-  - `boa-dump.bin`: firmware gốc ( gw020h ) trong quá trình upgrade qua web UI.
-  - `squashfs.image`: phần squashfs đã được tách ( gw020h), có thể giải nén bằng `unsquashfs`.
-  - firmware đã dump đc từ boa của gw040h
-  - squashfs-root ( đã giải mã ) trong https://github.com/Expl01tHunt3r/vnptmodemresearch/releases
+- Dump firmware đã được strip trong [squashfs-modified](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/squashfs-modified):
+  - `boa-dump.bin`: firmware gốc (GW020-H) trong quá trình upgrade qua web UI.
+  - `squashfs.image`: phần squashfs đã được tách (GW020-H), có thể giải nén bằng `unsquashfs`.
+  - Firmware đã dump đc từ boa của GW040-H
+  - squashfs-root ( đã giải mã ) tại [đây](https://github.com/Expl01tHunt3r/vnptmodemresearch/releases)
 
 ---
 
@@ -34,14 +38,16 @@ Người sử dụng hoàn toàn tự chịu trách nhiệm.
 - Chuẩn bị USB-UART (khuyến nghị chip CH340) và dây jumper.
 - Trên bo mạch gần đèn LED sẽ có 3 chân: `RX`, `TX`, `GND`.
 - Kết nối đúng để tránh hỏng phần cứng.
-- Lưu ý đảm bảo kết nối tốt dây ( có thể hàn nếu muốn )
+- Lưu ý đảm bảo kết nối tốt dây (có thể hàn nếu muốn).
 
 ### 3.2 Mở nguồn và đăng nhập
 - Khi boot lên và truy cập bằng uart hay khi telnet/ssh, sẽ thấy :
   ```
   Please press Enter to activate this console.
   ```
-  - Lưu ý nhỏ: bản ssh được xài khá cũ nên phải bật option insecure mới kết nối được ( với dòng 020h ), và muốn dùng telnet/ssh thì phải sửa file romfile.cfg bằng tool và upload lại để mở firewall ( iptables với dòng H) hoặc có thể mở theo hướng dẫn với model NS
+  - Lưu ý:
+  + Bản ssh được xài khá cũ nên phải bật option insecure mới kết nối được (với dòng 020h) và muốn dùng telnet/ssh thì phải sửa file romfile.cfg bằng tool và upload lại để mở firewall (iptables với dòng H)
+  + Với model NS: Nhấn nút WPS trước và ấn nút Reset sau khi đang nhấn giữ WPS, sau 5-6s đèn PON sẽ nhấp nháy là đã mở Telnet thành công
 - Nhấn Enter, màn hình hiện `tc login:`.
 - Các tài khoản:
   - admin / VnT3ch@dm1n
@@ -212,40 +218,6 @@ nhưng rủi ro brick rất cao nếu timing không chuẩn, không biết offse
 - Nếu có thiếu sót gì mời các bác góp ý thân thiện , các bác vnpt đừng fix cho em đc nhờ ạ =)))
 - chỉ có vài vùng flash có thể đọc ghi thoải mái là yaffs với safegate, userdata ( đc mount vào tmp ), những chỗ đó sẽ ko mất sau factory reset / reboot
 ---
-## 9. Decode file .asp (trên dòng firware mới)
-- Trên các dòng firmware mới ( chưa biết chính xác từ khi nào ), các file .asp trong cgi-bin sẽ bị mã hoá, để tiện lợi cho việc mod firmware cần phải decode được file, trong khi nghiên cứu phát hiện file chỉ được mã hoá đơn giản bằng việc đảo bit, có thể decode bằng cách đảo bit lại
-
-```
-#!/usr/bin/env python3
-import sys
-import os
-
-def invert_file(input_path, output_path):
-    """Đảo bit từng byte (b ^ 0xFF) — tự giải mã hoặc mã hóa."""
-    with open(input_path, "rb") as fin, open(output_path, "wb") as fout:
-        while True:
-            chunk = fin.read(1024)
-            if not chunk:
-                break
-            fout.write(bytes((b ^ 0xFF) for b in chunk))
-
-if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: vnptt_decode.py <input_file> <output_file>")
-        sys.exit(1)
-
-    inp, out = sys.argv[1], sys.argv[2]
-
-    if not os.path.exists(inp):
-        print(f"Error: File '{inp}' not found.")
-        sys.exit(1)
-
-    invert_file(inp, out)
-```
-- Trên đây là code python để thực hiện đảo bit, chạy code sẽ có hdsd
-- Khi mod file asp, để tương thích với quy trình hoạt động cần phải encode và flash thay vào chỗ file cũ
-
-
 
 
 
@@ -260,7 +232,6 @@ https://stats.uptimerobot.com/U65yw18Rtl
 ```
 - Hiện đã có key/iv cho dòng NS, đã cải tiến code để có thêm option cho dòng NS
 - Xác nhậm tool edit romfile đã chạy được với các model GW020H , GW040H , GW040NS , GW240H
-- Đã tìm được cách decode file .asp trong cgi-bin
 
 ## Đóng góp:
 - Xin cảm ơn 2 bác @BussyBakks(https://github.com/BussyBakks) và @AppleSang(https://github.com/AppleSang) đã giúp em nghiên cứu thêm về key cho romfile.cfg dòng modem NS
