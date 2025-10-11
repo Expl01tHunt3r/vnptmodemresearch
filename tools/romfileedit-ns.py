@@ -96,7 +96,7 @@ def atomic_process(inp_path, func, mode_label):
 
 def main():
     if len(sys.argv) != 3:
-        print("Usage: python3 romfile_crypto.py /path/to/file <mode>")
+        print("Usage: python3 romfileedit-ns.py /path/to/file <mode>")
         print(" mode: 1 = encrypt   0 = decrypt")
         sys.exit(1)
 
