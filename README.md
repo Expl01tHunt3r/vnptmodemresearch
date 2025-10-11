@@ -166,6 +166,7 @@ chmod +x /tmp/userdata/auto_dump_boatemp.sh
 ---
 ## Cập nhật
 * Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà ko cần các bác phải cài này cài nọ https://huggingface.co/spaces/Expl01tHunt3r/file-decoder
+	* (hoặc dùng hosting Việt Nam với ping chỉ = 15ms!! https://cfgdecoder.fkrystal.qzz.io) 
 * do là free nên sẽ có lúc chập chờn, các bác chịu khó đợi, có thể xem status tại https://stats.uptimerobot.com/U65yw18Rtl
 * Hiện đã có key/iv cho dòng NS, đã cải tiến code để có thêm option cho dòng NS
 * Xác nhậm tool edit romfile đã chạy được với các model GW020H , GW040H , GW040NS , GW240H
