@@ -25,7 +25,14 @@
 	* Firmware đã dump đc từ boa của GW040-H
 	* squashfs-root(đã giải mã) tại [đây](https://github.com/Expl01tHunt3r/vnptmodemresearch/releases)
 ---
-## 3: <ins>Hướng dẫn</ins>
+## 3: <ins>Hướng dẫn mở shell</ins>
+
+> [!WARNING]  
+> **⚠️ CẢNH BÁO ⚠️**  
+> Việc mở shell có thể vô tình tạo ra lỗ hổng ngay trên hệ thống mạng của bạn!  
+> Hãy chắc chắn rằng chỉ có **BẠN** được phép truy cập vào.  
+> Bằng việc bạn đặt mật khẩu đăng nhập vào WiFi khó đoán!
+
 ### 3.1: UART
 * Chuẩn bị USB-UART (khuyến nghị chip CH340) và dây jumper.
 * Trên bo mạch gần đèn LED sẽ có 3 chân: `RX`, `TX`, `GND`.
