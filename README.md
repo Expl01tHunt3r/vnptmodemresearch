@@ -1,21 +1,23 @@
 <div align="center">
-  <h2>VNPT MODEM</h2>
+  <h1 style="font-weight:900; font-size:48px;">VNPT MODEM</h1>
   <p>Reverse Engineering & Rooting Project</p>
 </div>
-##
+
 
 ## 1. Mục tiêu dự án
-Dự án này tập trung vào nghiên cứu modem dòng H ([GW120-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw120-h), [*GW020-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw020-h), [GW240-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw240-h), [GW040-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-h)) cũng như các dòng NS ([*GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns), [XSW050-NS](https://www.vnpt-technology.vn/vi/product_detail/xgs-pon-ont-igate-xsw050-ns), [XSW250-NS](https://www.vnpt-technology.vn/vi/product_detail/igate-xsw250-ns-wifi-6)) và các dòng HS trong tương lai:
+Dự án này tập trung vào nghiên cứu modem dòng H ([GW120-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw120-h), [*GW020-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw020-h), [*GW240-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw240-h), [*GW040-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-h)) cũng như các dòng NS ([*GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns), [XSW050-NS](https://www.vnpt-technology.vn/vi/product_detail/xgs-pon-ont-igate-xsw050-ns), [XSW250-NS](https://www.vnpt-technology.vn/vi/product_detail/igate-xsw250-ns-wifi-6)) và các dòng HS trong tương lai:
 - Truy cập **root shell** qua mạng LAN từ việc chỉnh sửa file config, UART, các phím tắt ẩn.....
 - Phân tích firmware gốc và các cơ chế bảo mật.
 - Mod firmware
 - Hướng dẫn **debrick** thiết bị khi gặp sự cố trong quá trình thử nghiệm.
-> * là các mẫu modem đã được thử nghiệm và có kết quả
+> Các mẫu modem được đánh dấu * là các mẫu modem đã được thử nghiệm và có kết quả.
 
-**⚠️ Miễn trừ trách nhiệm:** 
-Tất cả nội dung chỉ nhằm mục đích nghiên cứu, học tập. 
-Không khuyến khích sử dụng vào các hoạt động vi phạm pháp luật hay xâm phạm hệ thống mạng. 
-Người sử dụng hoàn toàn tự chịu trách nhiệm.
+> [!CAUTION]
+> **⚠️ Miễn trừ trách nhiệm ⚠️**
+> Tất cả nội dung chỉ nhằm mục đích nghiên cứu, học tập. 
+> Không khuyến khích sử dụng vào các hoạt động vi phạm pháp luật hay xâm phạm hệ thống mạng. 
+> Người sử dụng hoàn toàn tự chịu trách nhiệm.
+
 
 ---
 
@@ -34,6 +36,12 @@ Người sử dụng hoàn toàn tự chịu trách nhiệm.
 
 ## 3. Hướng dẫn truy cập UART và mở shell
 
+> [!WARNING]
+> **⚠️ CẢNH BÁO ⚠️**
+> Việc mở shell có thể vô tình tạo ra lỗ hỏng ngay trên hệ thống mạng của bạn!
+> Hãy chắc chắn rằng chỉ có **BẠN** được phép truy cập vào.
+> Bằng việc bạn đặt mật khẩu đăng nhập vào WiFi khó đoán!
+
 ### 3.1 Kết nối UART
 - Chuẩn bị USB-UART (khuyến nghị chip CH340) và dây jumper.
 - Trên bo mạch gần đèn LED sẽ có 3 chân: `RX`, `TX`, `GND`.
@@ -45,15 +53,15 @@ Người sử dụng hoàn toàn tự chịu trách nhiệm.
   ```
   Please press Enter to activate this console.
   ```
-  - Lưu ý:
+- Lưu ý:
   + Bản ssh được xài khá cũ nên phải bật option insecure mới kết nối được (với dòng 020h) và muốn dùng telnet/ssh thì phải sửa file romfile.cfg bằng tool và upload lại để mở firewall (iptables với dòng H)
-  + Với model NS: Nhấn nút WPS trước và ấn nút Reset sau khi đang nhấn giữ WPS, sau 5-6s đèn PON sẽ nhấp nháy là đã mở Telnet thành công
+  + Với model NS: Nhấn nút WPS trước và ấn nút Reset sau khi đang nhấn giữ WPS, sau khi nhấn cả hai nút trong tầm 5-6s đèn PON sẽ nhấp nháy là đã mở Telnet thành công. Nếu đang ấn mà đèn LOS nhấp nháy đỏ lên thì **NGAY LẬP TỨC** thả các nút ra và chờ router reboot và thực hiện lại.
 - Nhấn Enter, màn hình hiện `tc login:`.
 - Các tài khoản:
   - admin / VnT3ch@dm1n
   - operator / VnT3ch0per@tor ( chỉ đăng nhập qua UART )
   - customer / customer (quyền thấp)
-  - user3/ ???? (quyền thấp, chỉ đăng nhập quản trị web, chỉ có trên model NS, chưa xác định đầy đủ)
+  - user3 / ???? (quyền thấp, chỉ đăng nhập quản trị web, chỉ có trên model NS, chưa xác định đầy đủ)
 - Khi đăng nhập thành công sẽ vào trực tiếp shell
 
 ### 3.3 Mở Telnet/SSH tạm thời (tùy chọn với uart)
@@ -62,23 +70,30 @@ iptables -P INPUT ACCEPT
 iptables -P FORWARD ACCEPT
 iptables -P OUTPUT ACCEPT
 ```
+hoặc muốn mở mỗi port SSH thì...
+(Hoặc nếu bạn nhập 3 câu trên nhưng không mở port SSH thì câu dưới nó hoạt động - Xác nhận chạy trên GW040-NS)
+```
+iptables -I INPUT -p tcp --dport 22 -j ACCEPT
+```
+Thay số 22 về 21 thì mở port FTP.
+
 Sau đó có thể telnet tới 192.168.1.1 (hoặc SSH nếu hệ thống hỗ trợ).
-Nếu muốn mở telnet/ssh vĩnh viễn, hãy tới mục Patch romfile.cfg hoặc với dòng NS hãy thực hiện theo hướng dẫn
+Nếu muốn mở telnet/ssh vĩnh viễn, hãy tới mục [Patch romfile.cfg](https://github.com/Expl01tHunt3r/vnptmodemresearch#6-patch-romfilecfg).
 
 ---
 
 ## 4. Boot OpenWrt (initramfs) (tùy chọn)
-Xem mục "BOOT WRT".
+Xem mục [BOOT WRT](https://github.com/Expl01tHunt3r/vnptmodemresearch#7-debricking-v%E1%BB%9Bi-openwrt-boot-wrt).
 
 ---
 
-## 5. Ghi chú kỹ thuật ( với model GW020H )
+## 5. Ghi chú kỹ thuật (với model GW020H)
 
 - SoC: **MediaTek EN751221**
 - Flash: **128MB SPI NAND** (F50L1G41LB hoặc tương đương, có nhiều loại nand và SoC đc hỗ trợ bởi firmware này, có thể thấy trong /userfs/profile.cfg)
 - Dump NAND:
   - Có thể dùng `cat /dev/mtdX` trong firmware gốc của vnpt hoặc `nanddump` từ OpenWrt initramfs.
-- Các tài liệu nội bộ đã có trong thư mục `doc` của repo này.
+- Các tài liệu nội bộ đã có trong thư mục [doc](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/doc) của repo này.
 - **Firmware**: hiện chưa có cách giải mã trực tiếp ngoài việc dump `boa-temp`.
 ---
 
@@ -96,18 +111,21 @@ Xem mục "BOOT WRT".
 - **Lưu ý:** Không nên chia sẻ file này vì chứa thông tin nhạy cảm.
 
 ### 6.2 Giải mã & chỉnh sửa
-- File mã hóa bằng `cfg_manager` trong firmware ( đối với các dòng H ) và `cfg` (đối với dòng NS).
+- File mã hóa bằng `cfg_manager` trong firmware (đối với các dòng H) và `cfg` (đối với dòng NS).
 - Key/IV chung cho các modem GW đã được reverse, 2 dòng H và NS xài key/iv riêng biệt.
-- Có thể giải mã, chỉnh sửa và mã hóa lại bằng `tools/romfileedit.py` hoặc `tools/romfileedit-ns.py`.
-- Tải thư viện cần thiết và nhập lệnh `python3 romfileedit.py` trên CMD ( Windows ) hay bất cứ shell nào đã có python.
-- Đã có hdsd code , chỉ cần chạy code sẽ được hướng dẫn
+- Có thể giải mã, chỉnh sửa và mã hóa lại bằng [tools/romfileedit.py](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/tools/romfileedit.py) hoặc [tools/romfileedit-ns.py](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/tools/romfileedit-ns.py).
+- Tải thư viện cần thiết và nhập lệnh `python3 romfileedit(-ns).py` trên CMD (Windows) hay bất cứ shell nào đã có python.
+- Đã có hướng dẫn sử dụng code, chỉ cần chạy code sẽ được hướng dẫn.
 
 ### 6.3 Yêu cầu
 - Python + các thư viện hỗ trợ.
 - Sau khi chỉnh sửa, mã hóa lại rồi upload qua giao diện web để áp dụng.
-### 6.4 Mở telnet/ssh vĩnh viễn ( không mất sau reboot nhưng vẫn mất sau factory reset )
-- giải mã file romfile.cfg, tìm tới nơi quản lý cron, chèn thêm task cron mới với lệnh iptables -P INPUT ACCEPT ; iptables -P FORWARD ACCEPT ; iptables -P OUTPUT ACCEPT
-- cho chạy mỗi phút hoặc tuỳ, trông nó như này ( lưu ý sửa active = 1 )
+### 6.4 Mở telnet/ssh vĩnh viễn (không mất sau reboot nhưng vẫn mất sau factory reset)
+- giải mã file romfile.cfg, tìm tới nơi quản lý cron, chèn thêm task cron mới với lệnh
+```
+iptables -P INPUT ACCEPT ; iptables -P FORWARD ACCEPT ; iptables -P OUTPUT ACCEPT
+```
+- Cho chạy mỗi phút hoặc tuỳ, trông nó như này (lưu ý sửa active = 1)
 ```
 <Crond>
 	<Entry0 Active="1" NAME="rb" COMMAND="*/1 * * * * iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT" />
@@ -125,7 +143,7 @@ Command_6="" Command_7=""
 Command_8="" />
 </Crond>
 ```
-- Sau đó mã hoá lại và restore ở giao diện quản trị web, nếu báo lỗi file hoặc bất gì khác thì hãy check lại xem đã làm đúng hết chưa, đúng rồi mà vẫn lỗi thì là do đoạn command vừa chèn vô quá dài,có thể kiếm mấy cái description xung quanh đó rồi xoá bớt, mã hoá lại rồi up như thường.
+- Sau đó mã hoá lại và restore ở giao diện quản trị web, nếu báo lỗi file hoặc bất gì khác thì hãy check lại xem đã làm đúng hết chưa, đúng rồi mà vẫn lỗi thì là do đoạn command vừa chèn vô quá dài, có thể kiếm mấy cái description xung quanh đó rồi xoá bớt, mã hoá lại rồi up như thường.
 
 
 ---
@@ -140,25 +158,19 @@ Command_8="" />
 
 - Tham khảo:
 
-  - Đây là link của 1 bản fỉmware openwrt đang được phát triển cho modem VR1200v, chung SoC nên có thể xài được, tuy nhiên không có driver wifi, lan ... và các thành phần tương thích, trong tương lai sẽ mod 1 bản openwrt tương thích sau, hiện tại chỉ để debricking
-  - Hãy đọc là làm theo hướng dẫn ( Mục Debricking )
-  ```
-  OpenWrt Wiki: TP-Link Archer VR1200v (v2)
-  https://openwrt.org/inbox/toh/tp-link/archer_vr1200v
-  ```
+  - Dưới đây là link của 1 bản firmware OpenWRT đang được phát triển cho modem VR1200v, chung SoC nên có thể xài được, tuy nhiên không có driver WiFi ,Lan...
+  - Trong tương lai sẽ mod 1 bản OpenWRT tương thích sau, hiện tại chỉ để debricking.
+  - Hãy đọc và làm theo hướng dẫn tại mục [Debricking](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v#debricking) của Router TP-Link Archer VR1200v đến từ OpenWRT.
 
- - Cảm ơn @cjdelisle cho bản initramfs !
- - file initramfs tại ( cho trường hợp không còn file nữa )
-```
-https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin
-```
+ - Cảm ơn [@cjdelisle](https://github.com/cjdelisle) cho bản [initramfs](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin)!
 
 ---
 
 ## 8. Giải mã firmware qua boa-temp
 
-Chạy lệnh trong shell của modem:
-
+<details>
+<summary>Chạy lệnh trong shell của modem</summary>
+	
 ```
 sed -i '1,$d' /tmp/auto_dump_boatemp.sh
 cat >> /tmp/auto_dump_boatemp.sh <<'EOF'
@@ -197,6 +209,8 @@ EOF
 
 chmod +x /tmp/auto_dump_boatemp.sh
 ```
+</details>
+
 
 ### Các bước tiếp theo
 1. Chạy script:
@@ -211,30 +225,24 @@ chmod +x /tmp/auto_dump_boatemp.sh
 **Lưu ý:**  
 Có thể sửa file `boa-temp` trong quá trình upgrade để ép flash firmware tùy chỉnh, 
 nhưng rủi ro brick rất cao nếu timing không chuẩn, không biết offset chính xác hay ghi đè file quan trọng.
-- có thể kích hoạt upgrade thủ công qua việc chỉnh sửa nvram tên fw_upgrade qua tcapi ( commit sau khi set ) tuy nhiên phải qua được bước check ( hiện giờ chưa có cách ).
-- Chi tiết về cách mở telnet trên dòng NS có thể được tìm thấy trong tài liệu tại `/doc`.
+- Có thể kích hoạt upgrade thủ công qua việc chỉnh sửa nvram tên fw_upgrade qua tcapi (commit sau khi set) tuy nhiên phải qua được bước check (hiện giờ chưa có cách).
 
 **Chú thích**
-- Nếu có thiếu sót gì mời các bác góp ý thân thiện , các bác vnpt đừng fix cho em đc nhờ ạ =)))
-- chỉ có vài vùng flash có thể đọc ghi thoải mái là yaffs với safegate, userdata ( đc mount vào tmp ), những chỗ đó sẽ ko mất sau factory reset / reboot
+- Nếu có thiếu sót gì mời các bác góp ý thân thiện, các bác VNPT đừng fix cho em được nhờ ạ =)))
+- Chỉ có vài vùng flash có thể đọc ghi thoải mái là yaffs, safegate, userdata (Được mount vào /tmp), những chỗ đó sẽ ko mất sau Factory Reset / Reboot ở các dòng -H.
+- Đối với dòng NS thì chỉ có /tmp/userdata là giữ được dữ liệu sau khi Reboot.
+> Các bạn có thể thử trong còn chỗ nào lưu được không? Hoặc có gì sai sót không!
 ---
 
 
 
 **Cập nhật**
-- Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà ko cần các bác phải cài này nọ, link là :
-```
-https://huggingface.co/spaces/Expl01tHunt3r/file-decoder
-```
-- do là free nên sẽ có lúc chập chờn, các bác chịu khó đợi, có thể xem status tại
-```
-https://stats.uptimerobot.com/U65yw18Rtl
-```
+- Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà không cần các bác phải cài này nọ tại [đây](https://huggingface.co/spaces/Expl01tHunt3r/file-decoder)
+- Do là free nên sẽ có lúc chập chờn, các bác chịu khó đợi, có thể xem status tại [đây](https://stats.uptimerobot.com/U65yw18Rtl)
 - Hiện đã có key/iv cho dòng NS, đã cải tiến code để có thêm option cho dòng NS
-- Xác nhậm tool edit romfile đã chạy được với các model GW020H , GW040H , GW040NS , GW240H
 
 ## Đóng góp:
-- Xin cảm ơn 2 bác @BussyBakks(https://github.com/BussyBakks) và @AppleSang(https://github.com/AppleSang) đã giúp em nghiên cứu thêm về key cho romfile.cfg dòng modem NS
+- Xin cảm ơn 2 bác [@BussyBakks](https://github.com/BussyBakks) và [@AppleSang](https://github.com/AppleSang) đã giúp em nghiên cứu thêm về key cho romfile.cfg dòng modem NS
 
 
 
