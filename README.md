@@ -3,7 +3,7 @@
 ***<h4 align="center">Không gì là không thể :)</h4>***
 
 ## 1: <ins>Mục tiêu</ins>
-* Nghiên cứu về các modem nhà 4 chữ (VNPT) (hiện tại đang nghiên cứu các dòng -H, -NS, có thể dòng -HS trong tương lai ~~gần~~)
+* Nghiên cứu về các modem nhà mạng 4 chữ (VNPT) (hiện tại đang nghiên cứu các dòng -H, -NS, có thể dòng -HS trong tương lai ~~gần~~)
 * Phá firmware, tìm hiểu cơ chế encryption trong firmware (nếu ra và rảnh thì cố mod OpenWRT qua luôn)
 * Vọc vạch hỏng modem thì có file để debrick
   
@@ -44,14 +44,14 @@
   Please press Enter to activate this console.
   ```
   * Lưu ý:
-  + Bản SSH được xài cực cổ lỗ sĩ nên phải bật option insecure (?) mới kết nối được (với dòng GW020H), và muốn dùng telnet/ssh thì phải sửa file romfile.cfg bằng tool và upload lại để mở firewall (iptables với dòng H)
-  + Với model NS: Nhấn nút WPS trước và ấn nút Reset sau khi đang nhấn giữ WPS, sau khi nhấn cả hai nút trong tầm 5-6s đèn PON sẽ nhấp nháy là đã mở Telnet thành công. Nếu đang ấn mà đèn LOS nhấp nháy đỏ lên thì **NGAY LẬP TỨC** thả các nút ra và chờ router reboot và thực hiện lại.
+  = Bản SSH được xài cực cổ lỗ sĩ nên phải bật option insecure (?) mới kết nối được (với dòng GW020H), và muốn dùng telnet/ssh thì phải sửa file romfile.cfg bằng tool và upload lại để mở firewall (iptables với dòng H)
+  = Với model NS: Nhấn nút WPS trước và ấn nút Reset sau khi đang nhấn giữ WPS, sau khi nhấn cả hai nút trong tầm 5-6s đèn PON sẽ nhấp nháy là đã mở Telnet thành công. Nếu đang ấn mà đèn LOS nhấp nháy đỏ lên thì **NGAY LẬP TỨC** thả các nút ra và chờ router reboot và thực hiện lại.
 * Nếu đã mở telnet và connect vào thì sẽ có: `tc login:`
 * Các tài khoản:
   * admin / VnT3ch@dm1n (như root do full quyền)
   * operator / VnT3ch0per@tor (only UART)
   * customer / customer (quyền thấp)
-  * user3/ ???? (quyền thấp, chỉ đăng nhập quản trị web, chỉ có trên model NS, chưa xác định đầy đủ)
+  * user3 / ???? (quyền thấp, chỉ đăng nhập quản trị web, chỉ có trên model NS, chưa xác định đầy đủ)
 * Khi đăng nhập thành công sẽ vào trực tiếp shell mặc định (BusyBox Shell)
 ### 3.3: Telnet/SSH tạm thời (nếu đang sài UART)
 * Gõ 3 lệnh sau vào terminal
@@ -60,8 +60,13 @@ iptables -P INPUT ACCEPT
 iptables -P FORWARD ACCEPT
 iptables -P OUTPUT ACCEPT
 ```
+hoặc muốn mở mỗi port SSH thì...
+(Hoặc nếu bạn nhập 3 câu trên nhưng không mở port SSH thì câu dưới nó hoạt động - Xác nhận chạy trên GW040-NS)
+```
+iptables -I INPUT -p tcp --dport 22 -j ACCEPT
+```
 * Xong connect bằng IP gateway (.1.1 hoặc .0.1 tuỳ mạng nội bộ)
-* Còn muốn mở vĩnh viễn thì phải patch romfile.cfg, hoặc làm theo cách mở theo hướng dẫn với modem -NS
+* Nếu muốn mở telnet/ssh vĩnh viễn, hãy tới mục [Patch romfile.cfg](https://github.com/Expl01tHunt3r/vnptmodemresearch#4-patch-romfilecfg).
 ---
 ## 4: <ins>Patch romfile.cfg</ins>
 * `romfile.cfg` là file config lấy từ:
@@ -79,7 +84,7 @@ iptables -P OUTPUT ACCEPT
 * Có thể giải mã bằng tool trong repo (**Lưu ý: chọn đúng model để decrypt đúng file. Sai sẽ không đọc được**)
 * Hướng dẫn sử dụng đã có trong tool, chạy tool với 0 argument sẽ in hướng dẫn
 ### 4.2: Yêu cầu để sử dụng tool
-* Python (đã test từ bản 3.11.6 và có thể chạy từ 3.11.6 đổ lên) và có cài package pycryptodome (pip install pycryptodome)
+* Python (đã test từ bản 3.11.6 và có thể chạy từ 3.11.6 đổ lên) và có cài package pycryptodome `pip install pycryptodome`
 * *chỉ vậy thôi*
 ### 4.3: Mở Telnet/SSH vĩnh viễn (*không mất sau reboot nhưng vẫn mất sau khi factory reset.*)
 * 1: Decrypt ``romfile.cfg``
@@ -114,17 +119,12 @@ iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT
     	* Khởi động lại và restore cấu hình (`romfile.cfg`).
 
 * Tham khảo:
-	* Đây là link của 1 bản fỉmware openwrt đang được phát triển cho modem VR1200v, chung SoC nên có thể xài được, tuy nhiên không có driver wifi, lan ... và các thành phần tương thích, trong tương lai sẽ mod 1 bản openwrt tương thích sau, hiện tại chỉ để debricking
-	* Hãy đọc là làm theo hướng dẫn ( Mục Debricking )
-  		```
-  		OpenWrt Wiki: TP-Link Archer VR1200v (v2)
-  		https://openwrt.org/inbox/toh/tp-link/archer_vr1200v
-  		```
-* Cảm ơn @cjdelisle (này thua không biết username git của ổng) cho bản initramfs !
-* file initramfs tại (cho trường hợp không còn file nữa)
-```
-https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin
-```
+
+  * Dưới đây là link của 1 bản firmware OpenWRT đang được phát triển cho modem VR1200v, chung SoC nên có thể xài được, tuy nhiên không có driver WiFi ,Lan...
+  * Trong tương lai sẽ mod 1 bản OpenWRT tương thích sau, hiện tại chỉ để debricking.
+  * Hãy đọc và làm theo hướng dẫn tại mục [Debricking](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v#debricking) của Router TP-Link Archer VR1200v đến từ OpenWRT.
+
+ * Cảm ơn [@cjdelisle](https://github.com/cjdelisle) cho bản [initramfs](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin)!
 ---
 ## 6: <ins>Decode firmware từ `/tmp/boa-temp`</ins>
 * Chạy command sau trong shell của modem
