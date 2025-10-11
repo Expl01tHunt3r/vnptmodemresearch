@@ -44,8 +44,8 @@
   Please press Enter to activate this console.
   ```
   * Lưu ý:
-  =   Bản SSH được xài cực cổ lỗ sĩ nên phải bật option insecure (?) mới kết nối được (với dòng GW020H), và muốn dùng telnet/ssh thì phải sửa file romfile.cfg bằng tool và upload lại để mở firewall (iptables với dòng H)
-  = Với model NS: Nhấn nút WPS trước và ấn nút Reset sau khi đang nhấn giữ WPS, sau khi nhấn cả hai nút trong tầm 5-6s đèn PON sẽ nhấp nháy là đã mở Telnet thành công. Nếu đang ấn mà đèn LOS nhấp nháy đỏ lên thì **NGAY LẬP TỨC** thả các nút ra và chờ router reboot và thực hiện lại.
+  - Bản SSH được xài cực cổ lỗ sĩ nên phải bật option insecure (?) mới kết nối được (với dòng GW020H), và muốn dùng telnet/ssh thì phải sửa file romfile.cfg bằng tool và upload lại để mở firewall (iptables với dòng H)
+  - Với model NS: Nhấn nút WPS trước và ấn nút Reset sau khi đang nhấn giữ WPS, sau khi nhấn cả hai nút trong tầm 5-6s đèn PON sẽ nhấp nháy là đã mở Telnet thành công. Nếu đang ấn mà đèn LOS nhấp nháy đỏ lên thì **NGAY LẬP TỨC** thả các nút ra và chờ router reboot và thực hiện lại.
 * Nếu đã mở telnet và connect vào thì sẽ có: `tc login:`
 * Các tài khoản:
   * admin / VnT3ch@dm1n (như root do full quyền)
