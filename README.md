@@ -169,6 +169,7 @@ EOF
 chmod +x /tmp/auto_dump_boatemp.sh
 ```
 </details>
+
 * Chạy script `/tmp/userdata/auto_dump_boatemp.sh`
 * Upgrade firmware như bình thường
 * Sau đó quay lại shell, lấy file `/tmp/userdata/firm-dump.bin` rồi có thể dùng `binwalk` hoặc `unsquashfs` để analyze
