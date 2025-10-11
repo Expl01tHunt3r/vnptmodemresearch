@@ -157,11 +157,12 @@ chmod +x /tmp/userdata/auto_dump_boatemp.sh
 * **Lưu ý**
 	* Có thể sửa file `boa-temp` trong quá trình upgrade để ép flash firmware tùy chỉnh, nhưng rủi ro brick rất cao nếu timing không chuẩn, không biết offset chính xác hay ghi đè file quan trọng.
 	* Có thể kích hoạt upgrade thủ công qua việc chỉnh sửa nvram tên fw_upgrade qua tcapi (commit sau khi set) tuy nhiên phải qua được bước check (hiện giờ thì thua).
+---
 ## 7: <ins>ASP Decode (dòng -NS)</ins>
 * Trên các dòng firmware model -NS (chưa biết chính xác từ khi nào), các file .asp trong cgi-bin sẽ bị mã hoá, để tiện lợi cho việc mod firmware cần phải decode được file, trong khi nghiên cứu phát hiện file chỉ được mã hoá đơn giản bằng việc đảo bit, có thể decode bằng cách đảo bit lại
 * code python để decode asp có trong `tools/asp-decoder.py`, chạy code sẽ có hướng dẫn
 * Khi mod file asp, để tương thích với quy trình hoạt động cần phải encode và flash thay vào chỗ file cũ
-
+---
 ## Cập nhật
 * Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà ko cần các bác phải cài này cài nọ https://huggingface.co/spaces/Expl01tHunt3r/file-decoder
 * do là free nên sẽ có lúc chập chờn, các bác chịu khó đợi, có thể xem status tại https://stats.uptimerobot.com/U65yw18Rtl
