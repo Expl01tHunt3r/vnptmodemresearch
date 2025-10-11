@@ -69,7 +69,7 @@ iptables -P OUTPUT ACCEPT
 * Có thể giải mã bằng tool trong repo (**Lưu ý: chọn đúng model để decrypt đúng file. Sai sẽ không đọc được**)
 * Hướng dẫn sử dụng đã có trong tool, chạy tool với 0 argument sẽ in hướng dẫn
 ### 4.2: Yêu cầu để sử dụng tool
-* Python (đã test từ bản 3.11.6 và có thể chạy từ 3.11.6 đổ lên) và có cài package pycryptodome
+* Python (đã test từ bản 3.11.6 và có thể chạy từ 3.11.6 đổ lên) và có cài package pycryptodome (pip install pycryptodome)
 * *chỉ vậy thôi*
 ### 4.3: Mở Telnet/SSH vĩnh viễn (*không mất sau reboot nhưng vẫn mất sau khi factory reset.*)
 * 1: Decrypt ``romfile.cfg``
