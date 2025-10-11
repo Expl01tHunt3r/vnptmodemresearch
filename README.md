@@ -7,10 +7,11 @@
 * Phá firmware, tìm hiểu cơ chế encryption trong firmware (nếu ra và rảnh thì cố mod OpenWRT qua luôn)
 * Vọc vạch hỏng modem thì có file để debrick
   
-**⚠️ Miễn trừ trách nhiệm:** 
-Tất cả nội dung chỉ nhằm mục đích nghiên cứu, học tập.
-Không khuyến khích sử dụng vào các hoạt động vi phạm pháp luật hay xâm phạm hệ thống mạng. 
-Người sử dụng hoàn toàn tự chịu trách nhiệm.
+> [!CAUTION]
+> **⚠️ Miễn trừ trách nhiệm ⚠️**<br>
+> Tất cả nội dung chỉ nhằm mục đích nghiên cứu, học tập.<br>
+> Không khuyến khích sử dụng vào các hoạt động vi phạm pháp luật hay xâm phạm hệ thống mạng.<br>
+> Người sử dụng hoàn toàn tự chịu trách nhiệm.
 
 #### *(mấy anh dev bên vnpt có thấy repo này đừng fix giùm em 😭)*
 ---
