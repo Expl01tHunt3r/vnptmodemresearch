@@ -178,9 +178,9 @@ chmod +x /tmp/auto_dump_boatemp.sh
 	* Có thể kích hoạt upgrade thủ công qua việc chỉnh sửa nvram tên fw_upgrade qua tcapi (commit sau khi set) tuy nhiên phải qua được bước check (hiện giờ thì thua).
 ---
 ## 7: <ins>ASP Decode (dòng -NS)</ins>
-* Trên các dòng firmware model -NS (chưa biết chính xác từ khi nào), các file .asp trong cgi-bin sẽ bị mã hoá, để tiện lợi cho việc mod firmware cần phải decode được file, trong khi nghiên cứu phát hiện file chỉ được mã hoá đơn giản bằng việc đảo bit, có thể decode bằng cách đảo bit lại
-* code python để decode asp có trong `tools/asp-decoder.py`, chạy code sẽ có hướng dẫn
-* Khi mod file asp, để tương thích với quy trình hoạt động cần phải encode và flash thay vào chỗ file cũ
+* Trên các dòng firmware model -NS (chưa biết chính xác từ khi nào), các file .asp trong cgi-bin sẽ bị mã hoá, để tiện lợi cho việc mod firmware cần phải decode được file, trong khi nghiên cứu phát hiện file chỉ được mã hoá đơn giản bằng việc đảo bit, có thể decode bằng cách đảo bit lại.
+* Code python để decode asp có trong `tools/asp-decoder.py`, chạy code sẽ có hướng dẫn.
+* Khi mod file ASP, để tương thích với quy trình hoạt động cần phải encode và flash thay vào chỗ file cũ.
 ---
 ## Cập nhật
 * Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà không cần các bác phải cài này nọ tại [đây](https://huggingface.co/spaces/Expl01tHunt3r/file-decoder)
