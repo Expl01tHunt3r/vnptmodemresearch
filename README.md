@@ -16,14 +16,15 @@
 #### *(mấy anh dev bên vnpt có thấy repo này đừng fix giùm em 😭)*
 ---
 ## 2: <ins>Content</ins>
-* [`flashdump/*`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/flashdump) NAND dump của fw model GW-020H
-* [`openwrt-initramfs-en751221/*`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/openwrt-initramfs-en751221) dùng để debrick nếu vọc vạch cháy firmware
-* [`tools/*`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/tools) các tool để decrypt và encrypt romfile.cfg
-* Dump firmware đã được strip trong `squashfs-modified`:
-	* `boa-dump.bin`: firmware gốc ( gw020h ) trong quá trình upgrade qua web UI.
-	* `squashfs.image`: phần squashfs đã được tách ( gw020h), có thể giải nén bằng `unsquashfs`.
-	* firmware đã dump đc từ boa của gw040h
-	* squashfs-root ( đã giải mã ) trong https://github.com/Expl01tHunt3r/vnptmodemresearch/releases
+- [flashdump](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/flashdump): Dump Nand từ firmware v1 của model GW-020H
+- Bản **OpenWrt initramfs** tương thích SoC: dùng để debrick hoặc mở shell tạm.
+- [Tài liệu kỹ thuật nội bộ của GW040-NS](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/doc/861030466-GWX40-NS-Thong-Tin-San-Pham-v1-0-17-04-2025.pdf) (tham khảo).
+- Các script, ghi chú, công cụ root & truy cập shell.
+- Dump firmware đã được strip trong [squashfs-modified](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/squashfs-modified):
+  - `boa-dump.bin`: firmware gốc (GW020-H) trong quá trình upgrade qua web UI.
+  - `squashfs.image`: phần squashfs đã được tách (GW020-H), có thể giải nén bằng `unsquashfs`.
+  - Firmware đã dump đc từ boa của GW040-H
+  - squashfs-root ( đã giải mã ) tại [đây](https://github.com/Expl01tHunt3r/vnptmodemresearch/releases)
 ---
 ## 3: <ins>Hướng dẫn</ins>
 ### 3.1: UART
