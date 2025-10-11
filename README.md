@@ -182,6 +182,13 @@ chmod +x /tmp/auto_dump_boatemp.sh
 * Code python để decode asp có trong `tools/asp-decoder.py`, chạy code sẽ có hướng dẫn.
 * Khi mod file ASP, để tương thích với quy trình hoạt động cần phải encode và flash thay vào chỗ file cũ.
 ---
+## 8: <ins>Ứng dụng</ins>
+* AdGuardHome
+* Caddy
+* Btop
+> Sẽ có hướng dẫn cài sắp tới
+
+
 ## Cập nhật
 * Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà không cần các bác phải cài này nọ tại [đây](https://huggingface.co/spaces/Expl01tHunt3r/file-decoder)
 	* (hoặc dùng hosting Việt Nam với ping chỉ = 15ms!! https://cfgdecoder.fkrystal.qzz.io) 
