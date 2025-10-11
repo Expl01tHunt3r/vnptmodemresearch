@@ -3,8 +3,8 @@
 romfile_crypto.py
 
 Usage:
-  Encrypt: python3 romfile_crypto.py /path/to/file 1
-  Decrypt: python3 romfile_crypto.py /path/to/file 0
+  Encrypt: python3 romfileedit-ns.py /path/to/file 1
+  Decrypt: python3 romfileedit-ns.py /path/to/file 0
 
 Notes:
  - Algorithm: AES-256-CBC
