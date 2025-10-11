@@ -1,3 +1,3 @@
-Đây là bản dump cho firmware ver 6 ( mới nhất ) cho modem gw020h và gw040h ver 9
+Đây là bản dump cho firmware ver 6 ( mới nhất ) cho modem gw020h và gw040h ver 9 (-H) và modem gw040-ns (-NS)
 - Các bản dump trên có thể được chỉnh sửa và pack lại, sau đó up lên modem, timing chuẩn và chèn vào trước khi lệnh ghi mtd được thực thi, lưu ý phải đảm bảo dung lượng file trùng với file cũ ( có thể xoá bớt các note lặt vặt để lấy thêm dung lương chỉnh sửa, đồng thời phải timing chuẩn để không làm brick hệ thống )
 - địa chỉ dump là /tmp/boa-temp ( chưa biết có khác biệt giưã các modem không phải là GW không, có thể các modem Dasan có cơ chế khác ( dự đoán theo code asp ) )
