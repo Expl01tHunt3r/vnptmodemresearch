@@ -127,12 +127,16 @@ iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT
  * Cảm ơn [@cjdelisle](https://github.com/cjdelisle) cho bản [initramfs](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin)!
 ---
 ## 6: <ins>Decode firmware từ `/tmp/boa-temp`</ins>
-* Chạy command sau trong shell của modem
-```bash
-sed -i '1,$d' /tmp/userdata/auto_dump_boatemp.sh
-cat >> /tmp/userdata/auto_dump_boatemp.sh <<'EOF'
+<details>
+<summary>Chạy lệnh trong shell của modem</summary>
+	
+```
+sed -i '1,$d' /tmp/auto_dump_boatemp.sh
+cat >> /tmp/auto_dump_boatemp.sh <<'EOF'
 #!/bin/sh
-out="/tmp/userdata/firm-dump.bin"
+out="/tmp/yaffs/boa-dump.bin"
+mkdir -p /tmp/yaffs
+
 echo "[*] Waiting for /tmp/boa-temp to complete upload..."
 last_size=0
 stable_count=0
@@ -141,6 +145,7 @@ while true; do
     if [ -f /tmp/boa-temp ]; then
         set -- $(ls -l /tmp/boa-temp 2>/dev/null)
         size=$5
+
         if [ "$size" -gt 100000 ]; then
             if [ "$size" -eq "$last_size" ]; then
                 stable_count=`expr $stable_count + 1`
@@ -148,6 +153,8 @@ while true; do
                 stable_count=0
             fi
             last_size=$size
+
+            # Nếu không đổi 2 lần liên tiếp (2 giây) => upload xong
             if [ "$stable_count" -ge 2 ]; then
                 cp /tmp/boa-temp "$out"
                 echo "[+] Dumped boa-temp ($size bytes) to $out"
@@ -159,8 +166,9 @@ while true; do
 done
 EOF
 
-chmod +x /tmp/userdata/auto_dump_boatemp.sh
+chmod +x /tmp/auto_dump_boatemp.sh
 ```
+</details>
 * Chạy script `/tmp/userdata/auto_dump_boatemp.sh`
 * Upgrade firmware như bình thường
 * Sau đó quay lại shell, lấy file `/tmp/userdata/firm-dump.bin` rồi có thể dùng `binwalk` hoặc `unsquashfs` để analyze
@@ -174,9 +182,9 @@ chmod +x /tmp/userdata/auto_dump_boatemp.sh
 * Khi mod file asp, để tương thích với quy trình hoạt động cần phải encode và flash thay vào chỗ file cũ
 ---
 ## Cập nhật
-* Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà ko cần các bác phải cài này cài nọ https://huggingface.co/spaces/Expl01tHunt3r/file-decoder
+* Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà không cần các bác phải cài này nọ tại [đây](https://huggingface.co/spaces/Expl01tHunt3r/file-decoder)
 	* (hoặc dùng hosting Việt Nam với ping chỉ = 15ms!! https://cfgdecoder.fkrystal.qzz.io) 
-* do là free nên sẽ có lúc chập chờn, các bác chịu khó đợi, có thể xem status tại https://stats.uptimerobot.com/U65yw18Rtl
+* Do là free nên sẽ có lúc chập chờn, các bác chịu khó đợi, có thể xem status tại [đây](https://stats.uptimerobot.com/U65yw18Rtl)
 * Hiện đã có key/iv cho dòng NS, đã cải tiến code để có thêm option cho dòng NS
 * Xác nhậm tool edit romfile đã chạy được với các model GW020H , GW040H , GW040NS , GW240H
 * Đã tìm được cách decode file .asp trong cgi-bin
