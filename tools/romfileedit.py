@@ -1,126 +1,126 @@
 #!/usr/bin/env python3
-import sys, os
+"""
+romfile_crypto.py
+
+Usage:
+  Encrypt: python3 romfileedit-h.py /path/to/file 1
+  Decrypt: python3 romfileedit-h.py /path/to/file 0
+
+Notes:
+ - Algorithm: AES-256-CBC
+ - Key  (hex): 774257516156556C4B6D62354E774171394E47325634414D5A41454478513D3D
+ - IV   (hex): 2b6656744e5432514271484d5a7a4f50
+ - Encryption processes plaintext in chunks of 0x400 (1024) bytes,
+   each chunk encrypted independently with the same key & IV.
+ - Decryption reads ciphertext chunks (up to 0x410 bytes) and decrypts
+   each independently; PKCS#7 unpad is applied only to the final chunk.
+Requirements:
+  pip install pycryptodome
+"""
+import os
+import sys
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 
-# --- CẤU HÌNH KEY/IV CHO CÁC DÒNG ---
-CONFIGS = {
-    "H": {
-        "key_hex": "774257516156556C4B6D62354E774171394E47325634414D5A41454478513D3D",
-        "iv": b"+fVtNT2QBqHMZzOP",
-        "algo": "EVP_aes_256_cbc"
-    },
-    "NS": {
-        "key_hex": "2f52536c386d4d70373073554a506a7841327a54773152377272752f6e673d3d",
-        "iv_hex": "3530397a30567641743057452f573745",
-        "algo": "EVP_aes_256_cbc"
-    }
-}
+# --- Config from analysis ---
+KEY_HEX = "774257516156556C4B6D62354E774171394E47325634414D5A41454478513D3D"
+IV_HEX  = "2b6656744e5432514271484d5a7a4f50"
 
-BLOCK_SIZE = AES.block_size  # 16
-CHUNK_SIZE = 0x400           # 1024
+KEY = bytes.fromhex(KEY_HEX)
+IV  = bytes.fromhex(IV_HEX)
 
+PLAINTEXT_CHUNK = 0x400  # 1024 bytes read for encrypt
+MAX_CIPHER_CHUNK = 0x410 # max ciphertext chunk size read for decrypt (may be smaller for last chunk)
 
-# --- HÀM MÃ HÓA / GIẢI MÃ ---
-def encrypt_stream(fin, fout, key, iv):
-    cipher = AES.new(key, AES.MODE_CBC, iv)
-    buffer = b""
+# --- Helpers ---
+def validate_key_iv():
+    if len(KEY) != 32:
+        raise SystemExit("ERROR: key length != 32 bytes.")
+    if len(IV) != 16:
+        raise SystemExit("ERROR: iv length != 16 bytes.")
+
+def encrypt_stream(fin, fout):
+    """Read plaintext in chunks and write ciphertext (each chunk encrypted independently)."""
     while True:
-        chunk = fin.read(CHUNK_SIZE)
-        if not chunk:
+        plain = fin.read(PLAINTEXT_CHUNK)
+        if not plain:
             break
-        buffer += chunk
-        while len(buffer) >= CHUNK_SIZE:
-            fout.write(cipher.encrypt(buffer[:CHUNK_SIZE]))
-            buffer = buffer[CHUNK_SIZE:]
-    fout.write(cipher.encrypt(pad(buffer, BLOCK_SIZE)))
+        cipher = AES.new(KEY, AES.MODE_CBC, IV)
+        ct = cipher.encrypt(pad(plain, AES.block_size))
+        fout.write(ct)
 
+def decrypt_stream_chunked(fin, fout):
+    """
+    Decrypt chunked ciphertext when each encrypted chunk was produced independently
+    with the same IV. We don't know chunk boundaries exactly beforehand, so we use
+    a 2-buffer approach: read current chunk and peek next chunk to decide if current
+    is last. Unpad only the final decrypted chunk.
+    """
+    # Read first chunk
+    cur = fin.read(MAX_CIPHER_CHUNK)
+    if not cur:
+        return  # empty input
 
-def decrypt_stream(fin, fout, key, iv):
-    cipher = AES.new(key, AES.MODE_CBC, iv)
-    buffer = b""
     while True:
-        chunk = fin.read(CHUNK_SIZE)
-        if not chunk:
+        nxt = fin.read(MAX_CIPHER_CHUNK)
+        # decrypt current
+        cipher = AES.new(KEY, AES.MODE_CBC, IV)
+        plain = cipher.decrypt(cur)
+        if nxt:
+            # not the last chunk; write raw decrypted bytes (should be full blocks)
+            fout.write(plain)
+            cur = nxt
+            continue
+        else:
+            # cur is the last encrypted chunk -> attempt unpad
+            try:
+                plain = unpad(plain, AES.block_size)
+            except ValueError as e:
+                raise SystemExit(f"ERROR: PKCS#7 unpad failed on final chunk: {e}")
+            fout.write(plain)
             break
-        buffer += chunk
-        # Khi buffer có >= 2 blocks, giải mã phần trước, giữ lại 1 block chờ unpad
-        while len(buffer) >= BLOCK_SIZE * 2:
-            n = (len(buffer) // BLOCK_SIZE - 1) * BLOCK_SIZE
-            fout.write(cipher.decrypt(buffer[:n]))
-            buffer = buffer[n:]
-    decrypted = cipher.decrypt(buffer)
-    fout.write(unpad(decrypted, BLOCK_SIZE))
 
+def atomic_process(inp_path, func, mode_label):
+    dirname = os.path.dirname(inp_path) or "."
+    basename = os.path.basename(inp_path)
+    out_name = basename + (".enc" if mode_label == "encrypt" else ".dec")
+    out_path = os.path.join(dirname, out_name)
+    tmp_path = out_path + ".tmp"
 
-def process_file(path, encrypt: bool, key: bytes, iv: bytes, algo_name: str):
-    out_ext = ".enc" if encrypt else ".dec"
-    out_path = path + out_ext
+    with open(inp_path, "rb") as fin, open(tmp_path, "wb") as fout:
+        func(fin, fout)
 
-    # Kiểm tra trước khi decrypt
-    if not encrypt:
-        size = os.path.getsize(path)
-        if size % BLOCK_SIZE != 0:
-            print(f"ERROR: Ciphertext length ({size}) is not a multiple of {BLOCK_SIZE}.")
-            sys.exit(1)
+    # atomic replace
+    os.replace(tmp_path, out_path)
+    return out_path
 
-    try:
-        with open(path, "rb") as fin, open(out_path, "wb") as fout:
-            print(f"Algorithm: {algo_name}")
-            print("Encrypting..." if encrypt else "Decrypting...")
-            if encrypt:
-                encrypt_stream(fin, fout, key, iv)
-            else:
-                decrypt_stream(fin, fout, key, iv)
-    except FileNotFoundError:
-        print(f"ERROR: File not found: {path}")
-        sys.exit(1)
-    except PermissionError:
-        print(f"ERROR: Permission denied reading/writing file.")
-        sys.exit(1)
-    except ValueError as e:
-        print(f"ERROR: Crypto error: {e}")
-        sys.exit(1)
-    except Exception as e:
-        print(f"ERROR: Unexpected error: {e}")
-        sys.exit(1)
-    else:
-        print(f"Output written to: {out_path}")
-
-
-# --- MAIN ---
 def main():
-    try:
-        # --- CHỌN DÒNG ---
-        model = input("Use for model H or NS? ").strip().upper()
-        if model not in CONFIGS:
-            print("ERROR: Invalid choice (must be 'H' or 'NS').")
-            sys.exit(1)
-
-        conf = CONFIGS[model]
-
-        # --- CHUẨN BỊ KEY/IV ---
-        key = bytes.fromhex(conf["key_hex"])
-        iv = conf["iv"] if "iv" in conf else bytes.fromhex(conf["iv_hex"])
-        algo = conf["algo"]
-
-        # --- HỎI FILE & CHẾ ĐỘ ---
-        path = input("Enter path to file: ").strip()
-        if not os.path.isfile(path):
-            print("ERROR: Not a file or does not exist.")
-            sys.exit(1)
-
-        mode = input("Enter 0 to decrypt, 1 to encrypt: ").strip()
-        if mode not in ("0", "1"):
-            print("ERROR: Invalid choice (must be 0 or 1).")
-            sys.exit(1)
-
-        process_file(path, encrypt=(mode == "1"), key=key, iv=iv, algo_name=algo)
-
-    except KeyboardInterrupt:
-        print("\nOperation cancelled by user.")
+    if len(sys.argv) != 3:
+        print("Usage: python3 romfileedit-h.py /path/to/file <mode>")
+        print(" mode: 1 = encrypt   0 = decrypt")
         sys.exit(1)
 
+    inp = sys.argv[1]
+    mode = sys.argv[2]
+
+    if not os.path.isfile(inp):
+        print("ERROR: input file does not exist or is not a regular file.")
+        sys.exit(1)
+
+    if mode not in ("0", "1"):
+        print("ERROR: mode must be '1' (encrypt) or '0' (decrypt).")
+        sys.exit(1)
+
+    validate_key_iv()
+
+    if mode == "1":
+        print(f"Encrypting '{inp}' -> '{inp}.enc' (chunked AES-256-CBC)")
+        out = atomic_process(inp, encrypt_stream, "encrypt")
+    else:
+        print(f"Decrypting '{inp}' -> '{inp}.dec' (chunked AES-256-CBC)")
+        out = atomic_process(inp, decrypt_stream_chunked, "decrypt")
+
+    print("Done. Output:", out)
 
 if __name__ == "__main__":
     main()
