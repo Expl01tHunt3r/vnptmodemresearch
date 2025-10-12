@@ -130,7 +130,7 @@ iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT
 <details>
 <summary>Chạy lệnh trong shell của modem</summary>
 	
-```bash
+```shell
 sed -i '1,$d' /tmp/auto_dump_boatemp.sh
 cat >> /tmp/auto_dump_boatemp.sh <<'EOF'
 #!/bin/sh
