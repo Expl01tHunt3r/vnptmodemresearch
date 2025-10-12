@@ -190,7 +190,7 @@ chmod +x /tmp/auto_dump_boatemp.sh
 * Khi mod file ASP, để tương thích với quy trình hoạt động cần phải encode và flash thay vào chỗ file cũ.
 ---
 ## 8: <ins>Ứng dụng</ins>
-* AdGuardHome
+* [AdGuardHome](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/AdGuard/README.md)
 * Caddy
 * Btop
 > Sẽ có hướng dẫn cài sắp tới
