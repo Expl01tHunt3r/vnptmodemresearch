@@ -94,11 +94,17 @@ iptables -I INPUT -p tcp --dport 22 -j ACCEPT
 ```bash
 iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT
 ```
+Hoặc (trong trường hợp dấu ";" bị đánh là không hợp lệ )
+```bash
+iptables -I INPUT -p tcp --dport 22 -j ACCEPT
+```
+
+
 * Trông nó sẽ như thế này (ở đây `/1 * * * *` nghĩa là lệnh sẽ chạy mỗi phút)
 ```xml
 <Crond>
 <CommandList Command_0="reboot" Command_1="" Command_2="" Command_3="" Command_4="" Command_5="" Command_6="" Command_7="" Command_8="" /> 
-<Entry0 Active="1" NAME="rb" COMMAND="*/1 * * * * iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT" />
+<Entry0 Active="1" NAME="rb" COMMAND="*/1 * * * * iptables -I INPUT -p tcp --dport 22 -j ACCEPT" />
 <Entry1 Active="0" NAME="None" COMMAND="" />
 <Entry2 Active="0" NAME="None" COMMAND="" />
 <Entry3 Active="0" NAME="None" COMMAND="" />
