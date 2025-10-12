@@ -13,7 +13,7 @@ def invert_file(input_path, output_path):
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Usage: vnptt_decode.py <input_file> <output_file>")
+        print("Usage: asp-decoder.py <input_file> <output_file>")
         sys.exit(1)
 
     inp, out = sys.argv[1], sys.argv[2]
