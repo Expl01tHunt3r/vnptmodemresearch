@@ -121,7 +121,7 @@ iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT
 * Tham khảo:
 
   * Dưới đây là link của 1 bản firmware OpenWRT đang được phát triển cho modem VR1200v, chung SoC nên có thể xài được, tuy nhiên không có driver WiFi ,Lan...
-  * Trong tương lai sẽ mod 1 bản OpenWRT tương thích sau, hiện tại chỉ để debricking.
+  * Trong tương lai sẽ mod 1 bản OpenWRT tương thích sau, hiện tại chỉ để debrick.
   * Hãy đọc và làm theo hướng dẫn tại mục [Debricking](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v#debricking) của Router TP-Link Archer VR1200v đến từ OpenWRT.
 
  * Cảm ơn [@cjdelisle](https://github.com/cjdelisle) cho bản [initramfs](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin)!
@@ -130,7 +130,7 @@ iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT
 <details>
 <summary>Chạy lệnh trong shell của modem</summary>
 	
-```
+```bash
 sed -i '1,$d' /tmp/auto_dump_boatemp.sh
 cat >> /tmp/auto_dump_boatemp.sh <<'EOF'
 #!/bin/sh
