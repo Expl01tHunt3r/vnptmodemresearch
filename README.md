@@ -32,6 +32,7 @@
 > Việc mở shell có thể vô tình tạo ra lỗ hổng ngay trên hệ thống mạng của bạn!  
 > Hãy chắc chắn rằng chỉ có **BẠN** được phép truy cập vào.  
 > Bằng việc bạn đặt mật khẩu đăng nhập vào WiFi khó đoán!
+> Hoặc đơn giản hơn hãy sử dụng passwd và đổi pass ngay sau khi vào shell (nhớ đổi cho tất cả tài khoản), nếu không có thể thiết lập whitelist được quyền truy cập
 
 ### 3.1: UART
 * Chuẩn bị USB-UART (khuyến nghị chip CH340) và dây jumper.
