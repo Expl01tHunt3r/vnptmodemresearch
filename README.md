@@ -112,8 +112,8 @@ iptables -F INPUT; iptables -F FORWARD; iptables -F OUTPUT
 ---
 ## 5: <ins>Debrick với OpenWRT initramfs</ins>
 * Khi modem bị brick:
-	* 1. Thử reboot, restart boa nếu còn shell.
-	* 2. Nếu không truy cập được:
+	* Thử reboot, restart boa nếu còn shell.
+	* Nếu không truy cập được shell nốt:
     	* Dùng OpenWrt initramfs để boot tạm (qua UART).
     	* Flash lại các file mtdX.bin từ backup.
     	* Khởi động lại và restore cấu hình (`romfile.cfg`).
