@@ -135,7 +135,7 @@ iptables -I INPUT -p tcp --dport 22 -j ACCEPT
 ---
 ## 6: <ins>Decode firmware từ `/tmp/boa-temp`</ins>
 <details>
-<summary>Chạy lệnh trong shell của modem</summary>
+<summary>Chạy lệnh trong shell của modem(click to expand)</summary>
 	
 ```shell
 sed -i '1,$d' /tmp/auto_dump_boatemp.sh
