@@ -43,7 +43,7 @@ mkdir -p /tmp/userdata/AdGuard
 cd /tmp/userdata/AdGuard
 /userfs/bin/curl -k -o ca-certificates.crt https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/main/AdGuard/ca-certificates.crt
 export SSL_CERT_FILE=/tmp/userdata/AdGuard/ca-certificates.crt
-echo "AppleSang" > AdGuardHome.yaml
+echo "" > AdGuardHome.yaml
 echo -e "\033[32m[OK]\033[0m Đã tạo thành công thư mục chứa config!"
 cd /tmp/SafeGate
 /userfs/bin/curl -fSL -o AdGuardHome_linux_armv5.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_armv5.tar.gz
