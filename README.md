@@ -35,7 +35,7 @@
 > Hoặc đơn giản hơn hãy sử dụng passwd và đổi pass ngay sau khi vào shell (nhớ đổi cho tất cả tài khoản), nếu không có thể thiết lập whitelist được quyền truy cập
 
 ### 3.1: UART
-* Chuẩn bị USB-UART (khuyến nghị chip CH340) và dây jumper.
+* Chuẩn bị USB-UART (khuyến nghị chip CH340 hoặc FT232BL cho mấy khứa đỗ nghèo khỉ) và dây jumper.
 * Trên bo mạch gần đèn LED sẽ có 3 chân: `RX`, `TX`, `GND`.
 * Kết nối đúng để tránh hỏng phần cứng.
 * Lưu ý đảm bảo kết nối tốt dây (có thể hàn cho lành)
@@ -177,9 +177,13 @@ chmod +x /tmp/auto_dump_boatemp.sh
 ```
 </details>
 
-* Chạy script `/tmp/userdata/auto_dump_boatemp.sh`
+> [!NOTE]
+> Trong dòng -NS thì sẽ không có mount yaffs nên khi chạy script đó trên dòng -NS thì file đã dump vẫn sẽ bị mất khi upgrade xong  
+> Khuyên đổi cái output path từ `/tmp/yaffs/*` qua `/tmp/userdata/*` nếu chạy trên dòng -NS
+
+* Chạy script `/tmp/auto_dump_boatemp.sh`
 * Upgrade firmware như bình thường
-* Sau đó quay lại shell, lấy file `/tmp/userdata/firm-dump.bin` rồi có thể dùng `binwalk` hoặc `unsquashfs` để analyze
+* Sau khi reboot xong, quay lại shell, lấy file `/tmp/userdata/boa-dump.bin` (`/tmp/yaffs/boa-dump.bin` nếu dòng -H) rồi có thể dùng `binwalk` hoặc `unsquashfs` để analyze
 * **Lưu ý**
 	* Có thể sửa file `boa-temp` trong quá trình upgrade để ép flash firmware tùy chỉnh, nhưng rủi ro brick rất cao nếu timing không chuẩn, không biết offset chính xác hay ghi đè file quan trọng.
 	* Có thể kích hoạt upgrade thủ công qua việc chỉnh sửa nvram tên fw_upgrade qua tcapi (commit sau khi set) tuy nhiên phải qua được bước check (hiện giờ thì thua).
@@ -198,7 +202,7 @@ chmod +x /tmp/auto_dump_boatemp.sh
 
 ## Cập nhật
 * Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà không cần các bác phải cài này nọ tại [đây](https://huggingface.co/spaces/Expl01tHunt3r/file-decoder)
-	* (hoặc dùng hosting Việt Nam với ping chỉ = 15ms!! https://cfgdecoder.fkrystal.qzz.io) 
+	* (hoặc dùng hosting Việt Nam với ping chỉ = 15ms!! -> https://cfgdecoder.fkrystal.qzz.io) 
 * Do là free nên sẽ có lúc chập chờn, các bác chịu khó đợi, có thể xem status tại [đây](https://stats.uptimerobot.com/U65yw18Rtl)
 * Hiện đã có key/iv cho dòng NS, đã cải tiến code để có thêm option cho dòng NS
 * Xác nhận tool edit romfile đã chạy được với các model [GW020-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw020-h), [GW240-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw240-h), [GW040-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-h), [GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns) 
