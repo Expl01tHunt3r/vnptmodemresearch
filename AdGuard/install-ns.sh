@@ -51,9 +51,6 @@ tar -xzf AdGuardHome_linux_armv5.tar.gz
 rm AdGuardHome_linux_armv5.tar.gz
 cd AdGuardHome
 chmod +x AdGuardHome
-for pid in $(grep -l ':0035' /proc/*/net/tcp /proc/*/net/udp 2>/dev/null | cut -d'/' -f2); do
-    kill -9 $pid
-done
 echo -e "\033[32m[OK]\033[0m Đã tải file AdGuard thành công!"
 echo -e "\033[32m[OK]\033[0m Đã cài thành công! Ấn Enter để chạy script và sau tầm 10s bạn có thể đóng phiên SSH này!"
 ./AdGuardHome -c /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/SafeGate
