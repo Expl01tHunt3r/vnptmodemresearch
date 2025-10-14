@@ -77,12 +77,8 @@ chmod +x AdGuardHome
 kill -9 $(pidof dnsmasq)
 echo -e "\033[32m[OK]\033[0m Đã cài thành công!"
 echo -e "\033[32m[OK]\033[0m Đã chạy AdGuard thành công!"
-./AdGuardHome -w /tmp/SafeGate
-echo "Bắt đầu di chuyển config!"
-mv /tmp/SafeGate/AdGuardHome/AdGuardHome.yaml /tmp/userdata/AdGuard/
-echo -e "\033[32m[OK]\033[0m Di chuyển config thành công!"
-kill -9 $(pidof dnsmasq)
+echo -e "\033[31;43mBạn Có Thể Đóng Phiên SSH Này Và Tạo Phiên SSH Mới!\033[0m"
 rm /tmp/userdata/AdGuard.sh
-/tmp/SafeGate/AdGuardHome/AdGuardHome -c /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/SafeGate
+./AdGuardHome -c  /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/SafeGate
 
 
