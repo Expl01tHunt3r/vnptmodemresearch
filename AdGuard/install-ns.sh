@@ -48,13 +48,13 @@ echo "" > AdGuardHome.yaml
 echo -e "\033[32m[OK]\033[0m Đã tạo thành công thư mục chứa config!"
 cd /tmp/SafeGate
 /userfs/bin/curl -fSL -o AdGuardHome_linux_armv5.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_armv5.tar.gz
+echo -e "\033[32m[OK]\033[0m Đã tải file AdGuard thành công!"
 tar -xzf AdGuardHome_linux_armv5.tar.gz
 rm AdGuardHome_linux_armv5.tar.gz
 cd AdGuardHome
 chmod +x AdGuardHome
 kill -9 $(pidof dnsmasq)
-echo -e "\033[32m[OK]\033[0m Đã tải file AdGuard thành công!"
-echo -e "\033[32m[OK]\033[0m Đã cài thành công! Ấn Enter để chạy script và sau tầm 10s bạn có thể đóng phiên SSH này!"
+echo -e "\033[32m[OK]\033[0m Đã cài thành công!"
 ./AdGuardHome -c /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/SafeGate
 
 
