@@ -34,6 +34,7 @@ echo -e "  ╚═══╝  ╚═╝  ╚═══╝╚═╝        ╚═╝
 echo ""
 echo -e "############################################################"
 echo "        Cảm ơn bạn đã sử dụng script của chúng mình!"
+echo ""
 echo -e "\033[41;37mBạn Hãy Chắc Chắn Đã Đọc Đầy Đủ Tất Cả Cảnh Báo Ở Trên Trang Github!\033[0m"
 echo ""
 echo "        Ấn Enter Để Bắt Đầu Quá Trình Cài Đặt!"
