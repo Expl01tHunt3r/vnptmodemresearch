@@ -25,8 +25,8 @@
 	* Firmware đã dump đc từ boa của GW040-H
 	* squashfs-root(đã giải mã) tại [đây](https://github.com/Expl01tHunt3r/vnptmodemresearch/releases)
 ---
-## 3: <ins>Hướng dẫn mở shell</ins>
-
+## 3: <ins>Shell và những người bạn (TTY, SSH, ...)</ins>
+* Mục này sẽ hướng dẫn mở shell (console) của router, nếu đã có thì bỏ qua, còn chưa thì tiếp~~
 > [!WARNING]  
 > **⚠️ CẢNH BÁO ⚠️**  
 > Việc mở shell có thể vô tình tạo ra lỗ hổng ngay trên hệ thống mạng của bạn!  
