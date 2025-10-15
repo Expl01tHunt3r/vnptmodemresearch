@@ -4,7 +4,7 @@
 ## 1: <ins>Yêu Cầu</ins>
 <img src="https://avatars.githubusercontent.com/u/30082422" width="128" height="128" alt="adguard" align="right" />
 
-* Bạn Phải Kích Hoạt Được Telnet/SSH Trên Router VNPT Đã Đề Cập Ở [Đây](https://github.com/Expl01tHunt3r/vnptmodemresearch)!
+* Bạn Phải Kích Hoạt Được Telnet/SSH Trên Router VNPT Đã Đề Cập Ở [Đây](https://github.com/Expl01tHunt3r/vnptmodemresearch#3-h%C6%B0%E1%BB%9Bng-d%E1%BA%ABn-m%E1%BB%9F-shell)!
 * Có Hiểu Biết Về Networking Và Biết Ứng Phó Những Lỗi Xảy Ra!
 * Phải Có Thông Tin Để Truy Cập Được Trang Gateway Để Chỉnh Router!
 
