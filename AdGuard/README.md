@@ -78,9 +78,20 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
 
 * Và Bạn Đóng Phiên SSH/Telnet Đấy Để Cho AdGuard Luôn Chạy Nền!
 
-## 6: <ins>"FAQs"</ins>
-
-
+## 6: <ins>FAQs</ins>
+* **?: Tại Sao Lại Phải Chạy Script Sau Khi Cúp Điện?**
+  * Bởi Vì Các File AdGuardHome(Trừ Config) Thì Đều Lưu Ở /tmp/SafeGate, Mà Ở Đấy Lại Lưu Dữ Liệu Ở RAM Nên Sau Khi Reboot Mọi Thứ Sẽ Mất!
+* **?: Tại Sao Các Số Liệu Của AdGuardHome Đều Về 0 Khi Khởi Động Lại?**
+  * Như Ở Trên, Cả File Database Đều Lưu Tại /tmp/SafeGate Nên Nó Cũng Sẽ Mất Khi Restart!
+  > Lỗi chi tiết hơn: Là chỗ lưu /tmp/userdata/AdGuard/data nó không hỗ trợ nmap(2) vì format không hỗ trợ, cần bạn nào tìm hiểu phương pháp lưu các file database!
+* **?: Tại Sao Lại Phải Set ```Secondary DNS``` Là Máy Chủ DNS Public Bên Thứ 3?**
+  * Nếu Như Bạn Chưa Kịp Cài Lại AdGuardHome, Router Sẽ Quay DNS Từ ```Secondary DNS``` Để Nhà Bạn Vẫn Tiếp Tục Kết Nối Với Mạng!
+* **?: Ở Bước [Quay DNS](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/AdGuard#2-quay-dns) Và Tại Mục ```Secondary DNS``` Mình Có Thể Set DNS Khác Không?**
+  * Được Chứ! Bạn Có Thể Set Các DNS Public Như `1.1.1.1`, `8.8.4.4`, [`94.140.14.14`](https://adguard-dns.io/vi/public-dns.html)...
+* **?: Tại Sao Điện Thoại Mình Lại Không Được Chặn Quảng Cáo Từ AdGuardHome?**
+  * Bạn Hãy Vào ```Cài Đặt -> Kết Nối -> Cài Đặt Kết Nối Khác``` Và Chỉnh ```DNS Riêng Tư``` Thành ```Tắt```
+  > Đấy là cách chỉnh dựa trên điện thoại Samsung, các điện thoại Android khác lẫn IPhone cũng sẽ có cách <br>
+  > Cứ tra google là được mà
 
 
 
