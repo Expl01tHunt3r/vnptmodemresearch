@@ -11,6 +11,11 @@
 > [!CAUTION]
 > **Bạn Phải Tự Chịu Trách Nhiệm Hậu Quả Nếu Làm Sai Các Bước Được Hướng Dẫn Trong Này**.<br>
 
+> [!CAUTION]
+> Hiện Tại Chỉ Có Xác Nhận Là Chạy Tốt Trên [GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns), Cần Được Mọi Người Thử Nghiệm Tiếp!
+> Hiện Tại Có Vài Dòng Model H Sẽ Bị Khởi Động Lại Khi Chạy Script, Chưa Rõ Như Nào, Nếu Bạn Chạy Trên Dòng H Thì Hãy Cẩn Thận Nhé!
+
+
 ## 2: <ins>Quay DNS</ins>
 * Trước Hết Bạn Đăng Nhập Vào Trang Gateway. <br>
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7a6a5ea0-7edc-488f-9211-5007ddc9eff7" />
