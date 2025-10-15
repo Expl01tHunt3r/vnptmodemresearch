@@ -57,5 +57,5 @@ cd AdGuardHome
 chmod +x AdGuardHome
 kill -9 $(pidof dnsmasq)
 echo -e "\033[32m[OK]\033[0m Đã chạy AdGuard thành công!"
-echo -e "\033[31;43mBạn Có Thể Đóng Phiên SSH Này Và Tạo Phiên SSH Mới!\033[0m"
+echo -e "\033[32mBạn Hãy Đóng Phiên SSH/Telnet Này Để AdGuard Luôn Chạy Nền Nhé!\033[0m"
 ./AdGuardHome -c  /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/SafeGate
