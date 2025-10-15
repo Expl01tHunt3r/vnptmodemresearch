@@ -4,6 +4,7 @@
 ## 1: <ins>Yêu Cầu</ins>
 * Bạn Phải Kích Hoạt Được Telnet/SSH Trên Router VNPT
 <img src="https://avatars.githubusercontent.com/u/30082422" width="128" height="128" alt="adguard" align="right" />
+
 * Có Hiểu Biết Về Networking Và Biết Ứng Phó Những Lỗi Xảy Ra!
 * Phải Có Thông Tin Để Truy Cập Được Trang Gateway Để Chỉnh Router!
 
