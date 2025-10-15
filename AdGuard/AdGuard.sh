@@ -33,7 +33,7 @@ echo ""
 echo ""
 echo -e "\033[31;43mScript Make By AppleSang With <3\033[0m"
 echo ""
-echo ""
+echo -e "${BLUE}Github:${RESET} https://github.com/Expl01tHunt3r/vnptmodemresearch"
 echo ""
 echo ""
 # AdGuard - màu xanh lá
