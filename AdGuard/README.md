@@ -1,6 +1,7 @@
 <h1 align="center">AdGuard Installer</h1>
 <h4 align="center">Nhưng Mà Cho Các Router VNPT</h4>
 <img src="https://avatars.githubusercontent.com/u/30082422" width="128" height="128" alt="adguard" align="right" />
+
 ## 1: <ins>Yêu Cầu</ins>
 * Bạn Phải Kích Hoạt Được Telnet/SSH Trên Router VNPT
 * Có Hiểu Biết Về Networking Và Biết Ứng Phó Những Lỗi Xảy Ra!
