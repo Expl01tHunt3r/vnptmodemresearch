@@ -94,6 +94,8 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
   > Cứ tra google là được mà
 * **?: Mình Tới Bước `Máy Chủ DNS` Của AdGuardHome Nhưng Nó Báo Lỗi `Port 53 Đang Bị Sử Dụng`?**
   * Bạn Mở Một Shell VNPT Mới Và Nhập Lệnh `kill -9 $(pidof dnsmasq)` Sau Đó Reload Lại Trang Và Tiếp Tục Setup!
+* **?: "Mình Gập Vấn Đề Khác Về AdGuardHome!"**
+  * Bạn Cứ Mở [Issue](https://github.com/Expl01tHunt3r/vnptmodemresearch/issues) Mới Với Title Tag [AdGuard] Để Được Hỗ Trợ Nhé :3
 
 
 
