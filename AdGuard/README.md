@@ -1,4 +1,5 @@
-
+<h1 align="center">AdGuard Installer</h1>
+<h4 align="center">Nhưng Mà Cho Các Router VNPT</h4>
 
 
 Bạn có thể chạy trình cài đặt bằng cách copy lệnh dưới và paste trong phiên SSH/Telnet của VNPT!
