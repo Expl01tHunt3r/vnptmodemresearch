@@ -2,7 +2,7 @@
 <h4 align="center">Nhưng Mà Cho Các Router VNPT</h4>
 <img src="https://avatars.githubusercontent.com/u/30082422" width="128" height="128" alt="adguard" align="right" />
 <img width="128" height="128" alt="image" src="
-https://www.vnpt-technology.vn/front/images/favicon.png" align="left"/>
+https://vnpt-technology.vn/front/images/favicon.png" align="left"/>
 
 Bạn có thể chạy trình cài đặt bằng cách copy lệnh dưới và paste trong phiên SSH/Telnet của VNPT!
 ```
