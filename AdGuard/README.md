@@ -13,7 +13,7 @@
 
 ## 2: <ins>Quay DNS</ins>
 * Trước Hết Bạn Đăng Nhập Vào Trang Gateway. <br>
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9acfd885-1bfe-42f3-a7c6-c4ca0401e477" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7a6a5ea0-7edc-488f-9211-5007ddc9eff7" />
 
 * Tiếp Đến Hãy Vào Tab ```Network -> LAN``` . <br>
 <img width="1293" height="138" alt="image" src="https://github.com/user-attachments/assets/6f84ff0b-a85d-4c7d-874a-f77686e58129" />
