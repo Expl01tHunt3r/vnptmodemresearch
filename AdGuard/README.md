@@ -46,7 +46,8 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
 
 * Chọn port cho AdGuardHome WebUI (khác port 80 và 443 là được) <br>
  *ở đây sài 88*
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b010a066-c1b9-4af4-956a-e5b99bc7beca" />
+<img width="1366" height="768" alt="hideip" src="https://github.com/user-attachments/assets/bd6c3c20-6a75-4ab5-810f-1fd3472f96cb" />
+
 
 * Thiết lập account quản trị của AdGuardHome (giống của WebUI cũng được) 
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/5c31d559-8cc8-4bdd-bced-3c77ad7d71b7" />
