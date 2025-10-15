@@ -12,7 +12,7 @@
 > **Bạn Phải Tự Chịu Trách Nhiệm Hậu Quả Nếu Làm Sai Các Bước Được Hướng Dẫn Trong Này**.<br>
 
 > [!WARNING]
-> Hiện Tại Chỉ Có Xác Nhận Là Chạy Tốt Trên [GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns), Cần Được Mọi Người Thử Nghiệm Tiếp!
+> Hiện Tại Chỉ Có Xác Nhận Là Chạy Tốt Trên [GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns), Cần Được Mọi Người Thử Nghiệm Tiếp! <br>
 > Hiện Tại Có Vài Dòng Model H Sẽ Bị Khởi Động Lại Khi Chạy Script, Chưa Rõ Như Nào, Nếu Bạn Chạy Trên Dòng H Thì Hãy Cẩn Thận Nhé!
 
 
