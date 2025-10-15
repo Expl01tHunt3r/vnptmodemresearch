@@ -63,7 +63,7 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9a8792c2-c2d3-4db9-8c37-e770308dd6d9" />
 
 ## 5: <ins>"Mất Điện"</ins>
-> Tại Sao Lại Có Mục Này? Ở ``FAQ`` Sẽ Lý Giải!
+> Tại Sao Lại Có Mục Này? Ở [FAQ](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/AdGuard/README.md#6-faqs) Sẽ Lý Giải!
 * Bạn Sẽ Tiến Hành SSH/Telnet Vào Cục Router VNPT Lại
 <img width="456" height="133" alt="image" src="https://github.com/user-attachments/assets/551a9f3e-c71c-4d89-b95a-c597a9e4d88f" />
 
@@ -92,6 +92,8 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
   * Bạn Hãy Vào ```Cài Đặt -> Kết Nối -> Cài Đặt Kết Nối Khác``` Và Chỉnh ```DNS Riêng Tư``` Thành ```Tắt```
   > Đấy là cách chỉnh dựa trên điện thoại Samsung, các điện thoại Android khác lẫn IPhone cũng sẽ có cách <br>
   > Cứ tra google là được mà
+* **?: Mình Tới Bước `Máy Chủ DNS` Của AdGuardHome Nhưng Nó Báo Lỗi `Port 53 Đang Bị Sử Dụng`?**
+  * Bạn Mở Một Shell VNPT Mới Và Nhập Lệnh `kill -9 $(pidof dnsmasq)` Sau Đó Reload Lại Trang Và Tiếp Tục Setup!
 
 
 
