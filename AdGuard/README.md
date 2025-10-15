@@ -101,7 +101,7 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
   * Mở shell và nhập `kill -9 $(pidof dnsmasq)` xong reload và tiếp tục 
 * **?: "Vấn đề khác của AdGuardHome mà trên kia không có!"**
   * Tạo [Issue](https://github.com/Expl01tHunt3r/vnptmodemresearch/issues) với title có đề `[AdGuard]` đầu để hỗ trợ
- 
+<img width="27" height="27" align="left" alt="image" src="https://www.vnpt-technology.vn/front/images/favicon.png" /> 
 <h4 align="center">The End</h4>
 <h6 align="right">AppleSang With 🍎</h6>
 <h6 align="right">Edited by BussyBakks with my ass</h6>
