@@ -102,7 +102,7 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
 * **?: "Mình Gập Vấn Đề Khác Về AdGuardHome!"**
   * Bạn Cứ Mở [Issue](https://github.com/Expl01tHunt3r/vnptmodemresearch/issues) Mới Với Title Tag [AdGuard] Để Được Hỗ Trợ Nhé :3
  
-<h4 align="center" style="font-style: italic;">The End</h4>
+<h4 align="center">The End</h4>
 <h6 align="right">AppleSang With 🍎</h6>
 
 
