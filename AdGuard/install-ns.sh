@@ -78,7 +78,7 @@ chmod +x AdGuardHome
 kill -9 $(pidof dnsmasq)
 echo -e "\033[32m[OK]\033[0m Đã cài thành công!"
 echo -e "\033[31;43mBạn vào trang http://$(ip addr show br0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1):3000 Để Hoàn Tất Thiết Lập Nhé!\033[0m"
-echo -e "\033[32mBạn Có thể Đóng Phiên SSH Này!\033[0m"
+echo -e "\033[32mBạn Hãy Đóng Phiên SSH/Telnet Này Để AdGuard Luôn Chạy Nền Nhé!\033[0m"
 rm /tmp/userdata/AdGuard.sh
 ./AdGuardHome -c  /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/SafeGate
 
