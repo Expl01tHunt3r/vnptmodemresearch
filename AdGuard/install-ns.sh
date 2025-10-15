@@ -1,8 +1,8 @@
 #!/bin/sh
 
-GREEN='\033[32m'   # AdGuard
-BLUE='\033[34m'    # VNPT
-RESET='\033[0m'    # Reset về mặc định
+GREEN='\033[32m'   
+BLUE='\033[34m'   
+RESET='\033[0m'    
 echo ""
 echo ""
 echo ""
@@ -37,7 +37,6 @@ echo ""
 echo ""
 echo -e "############################################################"
 echo ""
-# AdGuard - màu xanh lá
 echo -e "${GREEN} █████╗ ██████╗  ██████╗ ██╗   ██╗ █████╗ ██████╗ ██████"
 echo -e "██╔══██╗██╔══██╗██╔════╝ ██║   ██║██╔══██╗██╔══██╗██╔══██╗    "
 echo -e "███████║██║  ██║██║  ███╗██║   ██║███████║██████╔╝██║  ██║    "
@@ -45,8 +44,6 @@ echo -e "██╔══██║██║  ██║██║   ██║██
 echo -e "██║  ██║██████╔╝╚██████╔╝╚██████╔╝██║  ██║██║  ██║██████╔╝     "
 echo -e "╚═╝  ╚═╝╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝      ${RESET}"
 
-
-# VNPT - màu xanh dương
 echo -e "${BLUE}██╗   ██╗███╗   ██╗██████╗ ████████╗"
 echo -e "██║   ██║████╗  ██║██╔══██╗╚══██╔══╝"
 echo -e "██║   ██║██╔██╗ ██║██████╔╝   ██║   "
@@ -80,8 +77,8 @@ cd AdGuardHome
 chmod +x AdGuardHome
 kill -9 $(pidof dnsmasq)
 echo -e "\033[32m[OK]\033[0m Đã cài thành công!"
-echo -e "\033[32m[OK]\033[0m Đã chạy AdGuard thành công!"
-echo -e "\033[31;43mBạn Có Thể Đóng Phiên SSH Này Và Tạo Phiên SSH Mới!\033[0m"
+echo -e "\033[31;43mBạn vào trang http://$(ip addr show br0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1):3000 Để Hoàn Tất Thiết Lập Nhé!\033[0m"
+echo -e "\033[32mBạn Có thể Đóng Phiên SSH Này!\033[0m"
 rm /tmp/userdata/AdGuard.sh
 ./AdGuardHome -c  /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/SafeGate
 
