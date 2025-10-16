@@ -13,7 +13,7 @@
 > Không khuyến khích sử dụng vào các hoạt động vi phạm pháp luật hay xâm phạm hệ thống mạng.<br>
 > Người sử dụng hoàn toàn tự chịu trách nhiệm.
 
-#### *(mấy anh dev bên vnpt có thấy repo này đừng fix giùm em 😭)*
+#### Mong được các anh dev bên VNPT chiếu cố.
 ---
 ## 2: <ins>Content</ins>
 * [`flashdump/*`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/flashdump) NAND dump của firmware model GW-020H
