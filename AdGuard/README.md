@@ -1,5 +1,6 @@
 <h1 align="center">AdGuardHome Installer</h1>
 <h4 align="center">nhưng là cho dòng 4 chữ~</h4>
+<img width="27" height="27" alt="image" align="right" src="https://github.com/user-attachments/assets/de8413fe-b942-487b-a6d8-3f5111d292c9" />
 
 > [!NOTE]
 > Chúng mình không phải dev trong project AdGuardHome  
@@ -101,7 +102,6 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
   * Mở shell và nhập `kill -9 $(pidof dnsmasq)` xong reload và tiếp tục 
 * **?: "Vấn đề khác của AdGuardHome mà trên kia không có!"**
   * Tạo [Issue](https://github.com/Expl01tHunt3r/vnptmodemresearch/issues) với title có đề `[AdGuard]` đầu để hỗ trợ
-<img width="27" height="27" alt="image" align="left" src="https://github.com/user-attachments/assets/de8413fe-b942-487b-a6d8-3f5111d292c9" />
 <h4 align="center">The End</h4>
 <h6 align="right">AppleSang With 🍎</h6>
 <h6 align="right">Edited by BussyBakks with my ass</h6>
