@@ -197,6 +197,7 @@ chmod +x /tmp/auto_dump_boatemp.sh
 * [AdGuardHome](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/AdGuard/README.md)
 * Caddy
 * Btop
+* ddns-updater
 > Sẽ có hướng dẫn cài sắp tới
 
 
