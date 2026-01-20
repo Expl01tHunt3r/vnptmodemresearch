@@ -96,7 +96,16 @@ ssh admin@[gateway-ip]
 * `romfile.cfg` được encrypt bằng bộ mã hoá EVP_aes_256_cbc bởi binary `cfg_manager` (dòng -H) và `/userfs/bin/cfg` (dòng -NS,-XS)
 * Key/IV của 2 dòng -H và -NS đã được reverse. 2 dòng sài 2 key/IV khác nhau riêng đối với dòng -XS sử dụng PKCS7 với private key đã được dump
 * Có thể giải mã bằng tool trong repo (**Lưu ý: chọn đúng model để decrypt đúng file. Sai sẽ không đọc được, model cho dòng XS đang được code**)
-* Cách này còn có thể sử dụng để thêm script autostartup mà không phải cài patch (tuy nhiên chỉ hiệu quả với dòng -H do dòng -NS có cơ chế kiểm tra file backup khá nghiêm nên sẽ không chấp nhận file backup sau chỉnh sửa, dòng -XS có crc32 để check nhưng vẫn patch được (dùng để patch password bằng cách thay hash khác)
+* Cách này còn có thể sử dụng để thêm script autostartup mà không phải cài patch (tuy nhiên chỉ hiệu quả với dòng -H do dòng -NS có cơ chế kiểm tra file backup khá nghiêm nên sẽ không chấp nhận file backup sau chỉnh sửa, dòng -XS cũng có cách để pack lại sau edit
+	+ Cụ thể, với dòng -XS sau khi tải romfile.cfg từ webui thì có thể dùng command ( cài openssl ) hoặc tool python ( dùng cho trường hợp lấy config từ các dump mtd ) ```openssl smime -decrypt -inform DER -in path/to/romfile.cfg -out /whatever/romfile.cfd.dec -inkey ~/Desktop/romfile/original/romfile_encrypt_privatekey.pem ```
+ 	+ File privatekey.pem trên đã được up trong repo
+	+ Sau khi chỉnh sửa xong ( bạn có thể thay hash của các tài khoản để đặt lại mật khẩu tuỳ thích, tool để gen hash đã có trong tools của repo này ) bạn phải pack ( encrypt ) lại file .cfg bằng lệnh ```openssl smime -encrypt -inform DER -outform DER \
+  -in /path/to/modified/romfile.cfg \
+  -out /whatever/path/tp/outfile/romfile.cfg \
+  /path/to/romfile_encrypt_cert.pem```
+	+ file cert.pem trên là public key tương ứng với private key, có sẵn trong modem, hiện đã up lên repo này, bạn có thể tìm tại cùng thư mục với private key 
+	+ Xong! bạn có thể upload file backup và enjoy !
+
 * Hướng dẫn sử dụng đã có trong tool, chạy tool với argument trống sẽ in hướng dẫn
 ### 4.2: Yêu cầu để sử dụng tool
 * Python (đã test từ bản 3.11.6 và có thể chạy từ 3.11.6 đổ lên, thực ra hầu hết các bản mới đều có thể chạy được) và có cài package pycryptodome `pip install pycryptodome`
