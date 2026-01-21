@@ -100,14 +100,21 @@ ssh [user]@[gateway-ip]
 * Key/IV của 2 dòng -H và -NS đã được reverse. 2 dòng sài 2 key/IV khác nhau riêng đối với dòng -XS sử dụng PKCS7 với private key đã được dump (chi tiết xem trong code dùng để decrypt/encrypt romfile )
 * Có thể giải mã bằng tool trong repo (**Lưu ý: chọn đúng model để decrypt đúng file. Sai sẽ không đọc được, model cho dòng XS đang được code, xài tạm command trên máy để thay thế !**)
 * Cách này còn có thể sử dụng để thêm script autostartup mà không phải cài patch (tuy nhiên chỉ hiệu quả với dòng -H do dòng -NS có cơ chế kiểm tra file backup khá nghiêm nên sẽ không chấp nhận file backup sau chỉnh sửa, dòng -XS cũng có cách để pack lại sau edit
-	+ Cụ thể, với dòng -XS sau khi tải romfile.cfg từ webui thì có thể dùng command ( cài openssl ) hoặc tool python ( dùng cho trường hợp lấy config từ các dump mtd ) để decrypt ```openssl smime -decrypt -inform DER -in path/to/romfile.cfg -out /whatever/romfile.cfd.dec -inkey ~/Desktop/romfile/original/romfile_encrypt_privatekey.pem ```
- 	+ File privatekey.pem trên đã được up trong repo, lưu ý trỏ tới đúng file
-	+ Sau khi chỉnh sửa xong ( bạn có thể thay hash của các tài khoản để đặt lại mật khẩu tuỳ thích, đây chính là cách để có được admin shell trên model -XS hiện tại ), tool để gen hash đã có trong tools của repo này ), sau đó bạn phải pack ( encrypt ) lại file .cfg bằng lệnh ```openssl smime -encrypt -inform DER -outform DER \
+	+ Cụ thể, với dòng -XS sau khi tải romfile.cfg từ webui thì có thể dùng command ( cài openssl ) hoặc tool python ( dùng cho trường hợp lấy config từ các dump mtd ) để decrypt
+```bash
+openssl smime -decrypt -inform DER -in path/to/romfile.cfg -out /whatever/romfile.cfd.dec -inkey ~/Desktop/romfile/original/romfile_encrypt_privatekey.pem
+```
+
+   + File privatekey.pem trên đã được up trong repo, lưu ý trỏ tới đúng file
+   + Sau khi chỉnh sửa xong ( bạn có thể thay hash của các tài khoản để đặt lại mật khẩu tuỳ thích, đây chính là cách để có được admin shell trên model -XS hiện tại ), tool để gen hash đã có trong tools của repo này ), sau đó bạn phải pack ( encrypt ) lại file .cfg bằng lệnh
+```bash
+openssl smime -encrypt -inform DER -outform DER \
   -in /path/to/modified/romfile.cfg \
   -out /whatever/path/tp/outfile/romfile.cfg \
-  /path/to/romfile_encrypt_cert.pem```
-	+ file cert.pem trên là public key tương ứng với private key, có sẵn trong modem, hiện đã up lên repo này, bạn có thể tìm tại cùng thư mục với private key 
-	+ Xong! bạn có thể upload file backup và enjoy !
+  /path/to/romfile_encrypt_cert.pem
+```
+   + file cert.pem trên là public key tương ứng với private key, có sẵn trong modem, hiện đã up lên repo này, bạn có thể tìm tại cùng thư mục với private key 
+   + Xong! bạn có thể upload file backup và enjoy !
 
 * Hướng dẫn sử dụng đã có trong tool, chạy tool với argument trống sẽ in hướng dẫn
 ### 4.2: Yêu cầu để sử dụng tool
