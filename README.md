@@ -102,7 +102,7 @@ ssh [user]@[gateway-ip]
 * Cách này còn có thể sử dụng để thêm script autostartup mà không phải cài patch (tuy nhiên chỉ hiệu quả với dòng -H do dòng -NS có cơ chế kiểm tra file backup khá nghiêm nên sẽ không chấp nhận file backup sau chỉnh sửa, dòng -XS cũng có cách để pack lại sau edit
 	+ Cụ thể, với dòng -XS sau khi tải romfile.cfg từ webui thì có thể dùng command ( cài openssl ) hoặc tool python ( dùng cho trường hợp lấy config từ các dump mtd ) để decrypt
 ```bash
-openssl smime -decrypt -inform DER -in path/to/romfile.cfg -out /whatever/romfile.cfd.dec -inkey ~/Desktop/romfile/original/romfile_encrypt_privatekey.pem
+openssl smime -decrypt -inform DER -in path/to/romfile.cfg -out /whatever/romfile.cfd.dec -inkey path/to/romfile_encrypt_privatekey.pem
 ```
 
    + File privatekey.pem trên đã được up trong repo, lưu ý trỏ tới đúng file
