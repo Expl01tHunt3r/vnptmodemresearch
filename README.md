@@ -260,3 +260,5 @@ chmod +x /tmp/auto_dump_boatemp.sh
 
 ## Đóng góp:
 - Xin cảm ơn 2 bạn [@BussyBakks](https://github.com/BussyBakks) và [@AppleSang](https://github.com/AppleSang) đã giúp em nghiên cứu thêm về key cho romfile.cfg dòng modem NS và cài các ứng dụng
+
+<p align="center">Made with ❤️ by Expl01tHunt3r</p>
