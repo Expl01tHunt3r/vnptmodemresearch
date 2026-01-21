@@ -52,15 +52,15 @@
   - Cách 3 (nếu bạn nhớ/biết password đăng nhập web quản trị) Bạn hãy tìm tới mục ACL và tắt nó đi ... thế là xong rồi.
 * Nếu đã mở telnet và connect vào thì sẽ có: `tc login:`
 * Các tài khoản:
-  * admin / VnT3ch@dm1n (như root do full quyền)
+  * admin / VnT3ch@dm1n (như root do full quyền,telnet,ssh,ftp)
   * operator / VnT3ch0per@tor (only UART)
-  * customer / customer (quyền thấp)
-  * user3 / ???? (quyền thấp, chỉ đăng nhập quản trị web, có trên model NS, XS, chưa xác định đầy đủ)
+  * customer / customer (quyền thấp,telnet,ssh)
+  * user3 / star ( web, disable by default, quyền thấp, model -NS)
 * Riêng cho dòng -XS
   * customer / customer (quyền thấp, telnet)
   * admin / $2$7c1ae60c120167530ca98a32c5323d9b89cff5bb (hash, chưa tìm ra pass chính xác, telnet, console, ftp) ( `1234` , `s2@We3%Dc#` , `admin4444` )
-  * operator / $1$y....DM.$7eLwNxxQmjB1WmfB.ancV/ (hash, chưa tìm ra pass chính xác, web)
-  * user3 / star ( web, disable by default)
+  * operator / $1$y....DM.$7eLwNxxQmjB1WmfB.ancV/ (hash, chưa tìm ra pass chính xác, web) ('oper@tor')
+  * user3 / star ( web, disable by default, quyền thấp)
 
 * Khi đăng nhập thành công sẽ vào trực tiếp shell mặc định (BusyBox Shell), bạn nên đổi mật khẩu bằng **passwd** để tránh người khác có thể vào được shell.
 ### 3.3: Telnet/SSH tạm thời (nếu đang sài UART)
