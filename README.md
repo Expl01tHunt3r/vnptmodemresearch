@@ -60,7 +60,7 @@
   * customer / customer (quyền thấp, telnet)
   * admin / $2$7c1ae60c120167530ca98a32c5323d9b89cff5bb (hash, chưa tìm ra pass chính xác, telnet, console, ftp) ( `1234` , `s2@We3%Dc#` , `admin4444` )
   * operator / $1$y....DM.$7eLwNxxQmjB1WmfB.ancV/ (hash, chưa tìm ra pass chính xác, web)
-  * user3 / $2$298720016d05adc5a15da940aad9b44cf100bbeb (hash, chưa tìm ra pass, web, disable by default) ( `aDm8H%MdA` , `12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678` , `123456` )
+  * user3 / star ( web, disable by default)
 
 * Khi đăng nhập thành công sẽ vào trực tiếp shell mặc định (BusyBox Shell), bạn nên đổi mật khẩu bằng **passwd** để tránh người khác có thể vào được shell.
 ### 3.3: Telnet/SSH tạm thời (nếu đang sài UART)
