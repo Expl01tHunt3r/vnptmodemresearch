@@ -6,8 +6,14 @@
 # Note: Startup script for AdGuardHome
 
 if [ ! -e /tmp/AdGuardHome ]; then
-    while ! ping -c 1 github.com >/dev/null 2>&1; do
-        sleep 5
+    while true; do
+    WAN_IP=$(ip -4 addr show dev ppp8 | awk '/inet / {print $2}' | cut -d/ -f1)
+
+    if [ -n "$WAN_IP" ]; then
+        break
+    fi
+
+    sleep 5
     done
 
     export SSL_CERT_FILE=/tmp/userdata/AdGuard/ca.crt
