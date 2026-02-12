@@ -6,9 +6,14 @@
 # Note: Startup script for AdGuardHome
 
 if [ ! -e /tmp/AdGuardHome ]; then
+    while ! ping -c 1 github.com >/dev/null 2>&1; do
+        sleep 5
+    done
+
     export SSL_CERT_FILE=/tmp/userdata/AdGuard/ca.crt
     cd /tmp/ || exit 1
-    /userfs/bin/curl -s -fSL -o AdG_armv5l.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_armv5.tar.gz
+    /userfs/bin/curl -s -fSL -o AdG_armv5l.tar.gz \
+    https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_armv5.tar.gz
     tar -xzf AdG_armv5l.tar.gz
     rm AdG_armv5l.tar.gz
     cd AdGuardHome || exit 1
