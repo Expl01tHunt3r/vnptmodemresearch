@@ -6,16 +6,7 @@
 # Note: Startup script for AdGuardHome
 
 if [ ! -e /tmp/AdGuardHome ]; then
-    while true; do
-    WAN_IP=$(ip -4 addr show dev ppp8 | awk '/inet / {print $2}' | cut -d/ -f1)
-
-    if [ -n "$WAN_IP" ]; then
-        break
-    fi
-
-    sleep 5
-    done
-
+    sleep 180
     export SSL_CERT_FILE=/tmp/userdata/AdGuard/ca.crt
     cd /tmp/ || exit 1
     /userfs/bin/curl -s -fSL -o AdG_armv5l.tar.gz \
