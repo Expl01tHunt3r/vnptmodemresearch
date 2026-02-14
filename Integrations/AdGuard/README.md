@@ -106,6 +106,16 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
   * Mở shell và nhập `kill -9 $(pidof dnsmasq)` xong reload và tiếp tục
 * **?: Có nên update khi AdGuard có bản update không?**
   * Bạn **KHÔNG CẦN** làm đâu, mà muốn thì cứ restart router là được-Trong trường hợp đã bật AutoRun
+* **?: Tại sao không có AdGuardHome sau khi khởi động lại router mặc dù tôi đã bật [AutoRun](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun)?**
+  * Bạn xem thử có đã cài [AutoRun](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun) chưa bằng việc gõ lệnh `cat /etc/safegate/safegate.sh` và phải ra ouput như ảnh <img width="341" height="56" alt="image" src="https://github.com/user-attachments/assets/a6d7e1e6-f2a0-42f9-8500-b70c9e547c14" />
+  * Và xem trong `/tmp/userdata/AdGuard/` có file `startup.sh` không
+  * Nếu không có:
+    * AutoRun: Đọc [AutoRun](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun)
+    * Startup AdGuard: Chạy lệnh
+    * ```sh
+      cd /tmp/userdata/AdGuard && /userfs/bin/curl -s -k -o startup.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/AdGuard/startup.sh && chmod +x startup.sh
+      ```
+
 * **?: "Vấn đề khác của AdGuardHome mà trên kia không có!"**
   * Tạo [Issue](https://github.com/Expl01tHunt3r/vnptmodemresearch/issues) với title có đề `[AdGuard]` đầu để hỗ trợ
 <h4 align="center">The End</h4>
