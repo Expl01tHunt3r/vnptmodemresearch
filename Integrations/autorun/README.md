@@ -36,7 +36,7 @@ cd /tmp/SafeGate/ && /userfs/bin/curl -s -k -o autorun.sh https://raw.githubuser
 
 * chờ....
 * chờ....
-* xong rồi đó, giờ router sẽ chạy những lệnh trong file `/tmp/userdata/startup.sh` khi vừa khởi động lên (vẫn chưa mốc thời gian chạy lên là khi nào)
+* xong rồi đó, giờ router sẽ chạy những lệnh trong file `/tmp/userdata/startup.sh` khi vừa khởi động lên
 * nếu bạn muốn edit thì chỉ có thể xài `echo` hoặc `sed`
 * còn cách sử dụng autorun thì nó sẽ tự chạy mỗi lần router mất điện, thế thôi hỏi làm chi?
 * Tuy nhiên bạn nên nhớ khi thêm script trong startup.sh *tuyệt đối* không được để rò output ra, nếu không sẽ fail và phải cài lại từ đầu
