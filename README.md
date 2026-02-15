@@ -249,6 +249,14 @@ chmod +x /tmp/auto_dump_boatemp.sh
 * [VOZ](http://voz.vn/t/vnptmodemresearch-%E2%80%94-nghien-cuu-firmware-root-modem-vnpt-can-anh-em-chung-tay.1159218)
 * [Github](https://github.com/Expl01tHunt3r/vnptmodemresearch/discussions/10)
 * ~~Discord~~
+---
+## 11: <ins>Những mục tiêu sắp tới</ins>
+* Cài được OpenWRT
+* Tuỳ chỉnh chức năng cho nút WPS/WLan có những tính năng khác (Như lấy IP mới trong vòng 5s,...)
+* Dễ dàng điều khiển led để báo hiệu những thông tin khác (Như mức sử dụng CPU, cảnh báo khi gần hết RAM,...)
+* Cài được một loại VPN nào đó
+* Optimize để đạt hiệu năng router tốt hơn (Ép xung, loại bỏ tính năng thừa,...)
+* Custom được firmware để dễ dàng phát triển hơn (Như custom Web-UI, thêm bớt tính năng)
 ## Cập nhật
 * Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà không cần các bác phải cài này nọ tại [đây](https://huggingface.co/spaces/Expl01tHunt3r/file-decoder)
 	* (hoặc dùng hosting Việt Nam với ping chỉ = 15ms!! -> https://cfgdecoder.fkrystal.qzz.io) 
