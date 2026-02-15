@@ -11,10 +11,12 @@ RED='\033[31m'
 RESET='\033[0m'
 YELLOW='\033[33m'
 CYAN='\033[36m'
-if [ ! -d /etc/safegatea ]; then
+if [ ! -d /etc/safegate ]; then
+    echo -e "\n\n"
     echo -e "${RED}Can't run this patch"
     echo -e "${RED}You must read about this for resolve this issue!"
-    echo -e "${GREEN}https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun#1-y%C3%AAu-c%E1%BA%A7u"
+    echo -e "${GREEN}https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun#1-y%C3%AAu-c%E1%BA%A7u${RESET}"
+    echo -e "\n\n"
     exit 1
 fi
 echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
