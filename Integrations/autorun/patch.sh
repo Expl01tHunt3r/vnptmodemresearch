@@ -11,7 +11,12 @@ RED='\033[31m'
 RESET='\033[0m'
 YELLOW='\033[33m'
 CYAN='\033[36m'
-
+if [ ! -d /etc/safegatea ]; then
+    echo -e "${RED}Can't run this patch"
+    echo -e "${RED}You must read about this for resolve this issue!"
+    echo -e "${GREEN}https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun#1-y%C3%AAu-c%E1%BA%A7u"
+    exit 1
+fi
 echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 echo -e "\033[31;43mScript Make By AppleSang With <3\033[0m\n"
 echo -e "${RED}############################################################\n"
