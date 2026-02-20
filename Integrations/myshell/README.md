@@ -3,7 +3,7 @@
 <h6 align="left">AppleSang, D:20/M:02/Y:2026</h6>
 
 ## 1: <ins>Yêu cầu</ins>
-<img width="128" height="128" alt="image" src="https://www.svgrepo.com/show/361365/terminal-bash.svg" align="right" />
+<img width="128" height="128" alt="image" src="https://e7.pngegg.com/pngimages/39/202/png-clipart-bash-shell-command-line-interface-ls-shell-rectangle-logo.png" align="right" />
 
 * Mở được Telnet/SSH trên router đã đề cập ở [ngoài kia](https://github.com/Expl01tHunt3r/vnptmodemresearch?tab=readme-ov-file#3-shell-v%C3%A0-nh%E1%BB%AFng-ng%C6%B0%E1%BB%9Di-b%E1%BA%A1n-tty-ssh-)
 
