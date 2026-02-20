@@ -15,5 +15,5 @@ if [ ! -e /tmp/AdGuardHome ]; then
     cd AdGuardHome || exit 1
     chmod +x AdGuardHome
     pidof dnsmasq >/dev/null && kill $(pidof dnsmasq)
-    ./AdGuardHome -c /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/
+    ./AdGuardHome -c /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/ --no-check-update
 fi
