@@ -17,12 +17,18 @@ if [ ! -f /tmp/userdata/startup.sh ]; then
     echo -e "\n\n"
     echo -e "${YELLOW}!! ${RED}Can't run this patch ${YELLOW}!!"
     echo -e "${RED}You must read about this for resolve this issue!"
-    echo -e "${GREEN}https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun#1-y%C3%AAu-c%E1%BA%A7u${RESET}"
+    echo -e "${GREEN}https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/myshell#1-y%C3%AAu-c%E1%BA%A7u${RESET}"
     echo -e "\n\n"
     exit 1
 fi
 # show text
-
+echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+echo -e "\033[31;43mScript Make By AppleSang With <3\033[0m\n"
+echo -e "${RED}############################################################\n"
+echo -e "${GREEN} https://github.com/Expl01tHunt3r/vnptmodemresearch\n"
+echo -e "${RED}############################################################\n"
+echo -e "        ${YELLOW}Press enter to confirm for patch ${CYAN}myshell${RESET}"
+read _
 # Create 3 file: config.sh // startup.sh // banner.txt in folder myshell
 
 # result
