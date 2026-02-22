@@ -16,6 +16,8 @@
 > Hiện tại chỉ có dòng [GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns) đã confirm chạy okay  
 > Còn dòng -H thì đang không có để test .-. 
 > Nếu bạn có thì vui lòng liên hệ [Discord](https://discordapp.com/users/1086149348414464041) để góp vui :)
+>
+> Này chỉ áp dụng với SSH, còn telnet thì không có gì cả:D
 
 ## 2: <ins>Cài Đặt</ins>
 * SSH/Telnet vào router  
