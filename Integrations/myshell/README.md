@@ -33,6 +33,10 @@ cd /tmp/ && /userfs/bin/curl -s -k -o myshell.sh https://raw.githubusercontent.c
 <img width="979" height="512" alt="image" src="https://github.com/user-attachments/assets/b59fce83-0d68-4dda-8897-5606870da177" />
 
 
-* 1/ Mở telnet và nhập /tmp/userdata/myshell/startup.sh
+* 1/ Mở telnet và nhập /tmp/userdata/myshell/startup.sh | nếu bạn cố nhập trong ssh thì sẽ không thể kết nối lại bằng ssh đâu
 * 2/ Khởi động lại router là xong
+* và đây là sau khi patch
+<img width="378" height="508" alt="image" src="https://github.com/user-attachments/assets/5239c697-0ca1-4bfa-8298-33924fa3c87a" />
+
+* bạn có thể tuỳ ý thêm thắt gì ở trong ``/tmp/userdata/myshell/config.sh`` cũng được nhưng bắt buộc cuối file phải có dòng ``exec /bin/sh`` không thì sẽ hỏng luôn ấy
 
