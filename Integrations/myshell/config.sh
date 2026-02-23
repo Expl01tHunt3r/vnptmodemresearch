@@ -1,6 +1,6 @@
 #!/bin/sh
 # this for btop, i'm sure it very useful
-export XDG_CONFIG_HOME=/tmp/userdata/btop/
+export XDG_CONFIG_HOME=/tmp/userdata/btop/config
 export PATH=/tmp/userdata/btop:$PATH
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
