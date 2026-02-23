@@ -38,7 +38,9 @@ btop
 * đây là sự khác nhau khi:
 * chưa cài
 <img width="979" height="512" alt="image" src="https://github.com/user-attachments/assets/ff63ab8d-b475-4f9e-b233-d5fe7a0468db" />
+
 * đã cài font
+
 <img width="859" height="512" alt="image" src="https://github.com/user-attachments/assets/d86cdb3a-a727-421f-bae0-38004cba43a5" />
 
 
