@@ -31,8 +31,6 @@ cd /tmp/ && /userfs/bin/curl -s -k -o myshell.sh https://raw.githubusercontent.c
 <img width="979" height="512" alt="image" src="https://github.com/user-attachments/assets/20345d34-b2a4-45a8-a034-a19a3c6271c6" />
 * và sau khi chạy xong thì bạn có 2 hướng để apply patch
 <img width="979" height="512" alt="image" src="https://github.com/user-attachments/assets/b59fce83-0d68-4dda-8897-5606870da177" />
-* ._.
-```
-1/ Mở telnet và nhập /tmp/userdata/myshell/startup.sh
-2/ Khởi động lại router là xong
-```
+* 1/ Mở telnet và nhập /tmp/userdata/myshell/startup.sh
+* 2/ Khởi động lại router là xong
+
