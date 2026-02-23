@@ -31,7 +31,7 @@ done
 GREEN='\033[32m'
 RESET='\033[0m'
 YELLOW='\033[33m'
-echo -e "${GREEN}✅ Login successfully"
+echo -e "${GREEN}✓ Login successfully"
 echo -e "\n"
 echo -e "${YELLOW}=============================================${RESET}"
 echo -e ""
