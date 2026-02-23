@@ -19,15 +19,13 @@ TEMP=$(/usr/bin/cputemp | awk '{print $3}')
 
 
 
-echo -e "Login successfully"
-echo -e "\n"
-echo -e "============================================="
-echo -e ""
+echo ""
+echo "============================================="
+echo ""
 echo "Uptime: $(echo "${H}h ${M}m ${S}s")"
 echo "CPU: ${CPU}% | ${TEMP}°C"
 echo "Load AVG: ${LOAD}"
 echo "RAM: ${MEM_USED}MB/${MEM_TOTAL}MB"
-echo -e ""
-echo -e "============================================="
-echo -e "\n"
+echo ""
+echo "============================================="
 exec /bin/sh
