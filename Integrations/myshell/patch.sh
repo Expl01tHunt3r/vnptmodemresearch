@@ -39,4 +39,4 @@ cd myshell
 echo "sh /tmp/userdata/myshell/startup.sh" >> /tmp/userdata/startup.sh
 echo -e "${GREEN}Patch completed!${RESET}"
 echo -e "${CYAN}You need open telnet and type ${YELLOW}/tmp/userdata/myshell/startup.sh${RESET}"
-echo -e "${CYAN}Or just restart router to apply change!"
+echo -e "${CYAN}Or just restart router to apply change!${RESET}"
