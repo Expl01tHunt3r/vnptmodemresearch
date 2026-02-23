@@ -15,7 +15,7 @@ CYAN='\033[36m'
 # Check req
 if [ ! -d /tmp/userdata/myshell ]; then
     echo -e "\n\n"
-    echo -e "${YELLOW}!! ${RED}Can't run this patch ${YELLOW}!!"
+    echo -e "${YELLOW}!! ${RED}Can't run this install ${YELLOW}!!"
     echo -e "${RED}You must read about this for resolve this issue!"
     echo -e "${GREEN}https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/master/Integrations/btop/README.md#1-y%C3%AAu-c%E1%BA%A7u${RESET}"
     echo -e "\n\n"
