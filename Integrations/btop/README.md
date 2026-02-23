@@ -26,7 +26,7 @@ cd /tmp && /userfs/bin/curl -k -o install-btop.sh https://raw.githubusercontent.
 
 * Và thế là xong. Chạy btop bằng cách nhập shell sau:
 ```sh
-/tmp/userdata/btop/btop --force-utf
+btop
 ```
 
 ## 6: <ins>FAQs</ins>
