@@ -18,18 +18,16 @@ LOAD=$(awk '{print $1}' /proc/loadavg)
 TEMP=$(/usr/bin/cputemp | awk '{print $3}')
 
 
-GREEN='\033[32m'
-RESET='\033[0m'
-YELLOW='\033[33m'
-echo -e "${GREEN}Login successfully"
+
+echo -e "Login successfully"
 echo -e "\n"
-echo -e "${YELLOW}=============================================${RESET}"
+echo -e "============================================="
 echo -e ""
 echo "Uptime: $(echo "${H}h ${M}m ${S}s")"
 echo "CPU: ${CPU}% | ${TEMP}°C"
 echo "Load AVG: ${LOAD}"
 echo "RAM: ${MEM_USED}MB/${MEM_TOTAL}MB"
 echo -e ""
-echo -e "${YELLOW}=============================================${RESET}"
+echo -e "============================================="
 echo -e "\n"
 exec /bin/sh
