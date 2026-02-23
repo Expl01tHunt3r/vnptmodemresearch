@@ -41,4 +41,4 @@ cd /tmp/ && /userfs/bin/curl -s -k -o myshell.sh https://raw.githubusercontent.c
 * bạn có thể tuỳ ý thêm thắt gì ở trong ``/tmp/userdata/myshell/config.sh`` cũng được nhưng bắt buộc cuối file phải có dòng ``exec /bin/sh`` không thì sẽ hỏng luôn ấy
 
 
-### sed -i '\|^sh /tmp/userdata/myshell/startup\.sh$|d' /tmp/userdata/startup.sh
+<h6> sed -i '\|^sh /tmp/userdata/myshell/startup\.sh$|d' /tmp/userdata/startup.sh </h6>
