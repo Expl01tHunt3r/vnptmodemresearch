@@ -240,9 +240,7 @@ chmod +x /tmp/auto_dump_boatemp.sh
 * [Btop](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/btop)
 > Đã có hướng dẫn cài trong README của các phần ứng dụng
 ---
-## 9: Patch autostartup ( với các dòng NS )
-* Phần patch này dành cho dòng -NS (do các dòng H đã có thể edit romfile để chạy script qua crontab )
-* patch này sẽ cho phép chạy script tuỳ chỉnh khi modem khởi động lại, hiện đang dùng để hỗ trợ khởi động AdGuardHome.
+## 9: Patch ( Với các dòng NS )
 * [autorun](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun)
 * [myshell](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/myshell) 
 ---
