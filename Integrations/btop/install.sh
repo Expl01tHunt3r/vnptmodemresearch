@@ -34,7 +34,7 @@ cd /tmp/userdata
 mkdir -p btop
 cd btop
 mkdir -p config
-/userfs/bin/curl -Lk -o btop https://github.com/Expl01tHunt3r/vnptmodemresearch/raw/refs/heads/master/Integrations/btop/btop
+/userfs/bin/curl -s -k -o btop https://github.com/Expl01tHunt3r/vnptmodemresearch/raw/refs/heads/master/Integrations/btop/btop
 chmod 777 btop
 echo -e "${GREEN}Btop have been installed."
-echo -e "${GREEN}Type ${CYAN}btop${GREEN} to use!"
+echo -e "${GREEN}Type ${CYAN}btop${GREEN} to use!${RESET}"
