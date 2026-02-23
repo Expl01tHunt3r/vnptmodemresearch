@@ -16,22 +16,12 @@ MEM_USED=$(expr $MEM_TOTAL - $MEM_FREE)
 CPU=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print int(usage)}')
 LOAD=$(awk '{print $1}' /proc/loadavg)
 TEMP=$(/usr/bin/cputemp | awk '{print $3}')
-NETINFO=""
-for IF in $(grep ":" /proc/net/dev | awk -F: '{print $1}' | sed 's/ //g' | grep -v "^lo$"); do
-    LINE=$(grep "$IF" /proc/net/dev | awk -F: '{print $2}')
-    RX=$(echo $LINE | awk '{print int($1/1024/1024)}')
-    TX=$(echo $LINE | awk '{print int($9/1024/1024)}')
 
-    if [ "$RX" -ne 0 ] || [ "$TX" -ne 0 ]; then
-        NETINFO="$NETINFO
-$IF: Download ${RX}MB | Upload ${TX}MB"
-    fi
-done
 
 GREEN='\033[32m'
 RESET='\033[0m'
 YELLOW='\033[33m'
-echo -e "${GREEN}✓ Login successfully"
+echo -e "${GREEN}Login successfully"
 echo -e "\n"
 echo -e "${YELLOW}=============================================${RESET}"
 echo -e ""
@@ -39,9 +29,6 @@ echo "Uptime: $(echo "${H}h ${M}m ${S}s")"
 echo "CPU: ${CPU}% | ${TEMP}°C"
 echo "Load AVG: ${LOAD}"
 echo "RAM: ${MEM_USED}MB/${MEM_TOTAL}MB"
-echo -e ""
-echo -e "${YELLOW}=============================================${RESET}"
-echo "${NETINFO}"
 echo -e ""
 echo -e "${YELLOW}=============================================${RESET}"
 echo -e "\n"
