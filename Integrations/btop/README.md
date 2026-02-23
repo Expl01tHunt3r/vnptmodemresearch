@@ -9,6 +9,7 @@
 ## 1: <ins>Yêu cầu</ins>
 
 * Mở được Telnet/SSH trên router đã đề cập ở [ngoài kia](https://github.com/Expl01tHunt3r/vnptmodemresearch?tab=readme-ov-file#3-shell-v%C3%A0-nh%E1%BB%AFng-ng%C6%B0%E1%BB%9Di-b%E1%BA%A1n-tty-ssh-)
+* Đã cài patch [myshell](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/master/Integrations/myshell/README.md)
 
 > [!WARNING]
 > Hiện tại chỉ có dòng [GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns) đã confirm chạy okay  
