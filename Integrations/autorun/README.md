@@ -27,7 +27,7 @@
 
 * Paste lệnh dưới vào shell
 ```sh
-cd /tmp/SafeGate/ && /userfs/bin/curl -s -k -o autorun.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/autorun/patch.sh && chmod +x autorun.sh && sh autorun.sh
+cd /tmp/ && /userfs/bin/curl -s -k -o autorun.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/autorun/patch.sh && chmod +x autorun.sh && sh autorun.sh
 ```
 
 * Bấm **Enter** 
