@@ -36,6 +36,7 @@ cd myshell
 /userfs/bin/curl -s -k -o config.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/myshell/config.sh && chmod +x config.sh
 /userfs/bin/curl -s -k -o startup.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/myshell/startup.sh && chmod +x startup.sh
 /userfs/bin/curl -s -k -o sh.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/myshell/sh.sh && chmod +x sh.sh
+/userfs/bin/curl -s -k -o banner.txt https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/myshell/banner.txt
 echo "/tmp/userdata/myshell/startup.sh" >> /tmp/userdata/startup.sh
 echo -e "${GREEN}Patch completed!${RESET}"
 echo -e "${CYAN}You need reconnect to use!${RESET}"
