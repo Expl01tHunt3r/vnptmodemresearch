@@ -30,5 +30,13 @@ echo -e "${RED}############################################################\n"
 echo -e "        ${YELLOW}Press enter to confirm for patch ${CYAN}myshell${RESET}"
 read _
 # Create 3 file: config.sh // startup.sh // banner.txt in folder myshell
-
-# result
+cd /tmp/userdata
+mkdir -p myshell
+cd myshell
+/userfs/bin/curl -s -k -o config.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/myshell/config.sh && chmod +x config.sh
+/userfs/bin/curl -s -k -o startup.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/myshell/startup.sh && chmod +x startup.sh
+/userfs/bin/curl -s -k -o sh.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/myshell/sh.sh && chmod +x sh.sh
+echo "/tmp/userdata/myshell/startup.sh" >> /tmp/userdata/startup.sh
+echo -e "${GREEN}Patch completed!${RESET}"
+echo -e "${CYAN}You need reconnect to use!${RESET}"
+/tmp/userdata/myshell/startup.sh
