@@ -28,10 +28,20 @@ $IF: Download ${RX}MB | Upload ${TX}MB"
     fi
 done
 
-echo "============================================="
+GREEN='\033[32m'
+RESET='\033[0m'
+YELLOW='\033[33m'
+echo -e "${GREEN} Login successfully"
+echo -e "\n\n"
+echo -e "${YELLOW}=============================================${RESET}"
+echo -e "\n"
 echo "Uptime: $(echo "${H}h ${M}m ${S}s")"
 echo "CPU: ${CPU}% | ${TEMP}°C"
 echo "Load AVG: ${LOAD}"
 echo "RAM: ${MEM_USED}MB/${MEM_TOTAL}MB"
-echo "============================================="
+echo -e "\n"
+echo -e "${YELLOW}=============================================${RESET}"
 echo "${NETINFO}"
+echo -e "\n"
+echo -e "${YELLOW}=============================================${RESET}"
+exec /bin/sh
