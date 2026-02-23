@@ -19,7 +19,7 @@
 ### 2.1: Bước đầu cài đặt
 * Paste đống lệnh này vào shell
 ```sh
-cd /tmp && /userfs/bin/curl -k -o install-btop.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/btop/install.sh && chmod +x install-btop.sh && sh install-btop.sh
+cd /tmp && /userfs/bin/curl -s -k -o install-btop.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/btop/install.sh && chmod +x install-btop.sh && sh install-btop.sh
 ```
 * Chờ cho đến khi dòng này được print ra  
 <img width="585" height="50" alt="image" src="https://github.com/user-attachments/assets/166ca458-fdc5-4cce-a271-878a292a2d4c" />
