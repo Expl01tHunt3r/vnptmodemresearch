@@ -21,6 +21,9 @@
 ```sh
 cd /tmp && /userfs/bin/curl -s -k -o install-btop.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/btop/install.sh && chmod +x install-btop.sh && sh install-btop.sh
 ```
+
+<img width="979" height="512" alt="image" src="https://github.com/user-attachments/assets/fbd97aac-4620-4160-9234-2d33793ffa2e" />
+* Ấn enter để xác nhận cài
 * Chờ cho đến khi dòng này được print ra  
 <img width="585" height="50" alt="image" src="https://github.com/user-attachments/assets/166ca458-fdc5-4cce-a271-878a292a2d4c" />
 
