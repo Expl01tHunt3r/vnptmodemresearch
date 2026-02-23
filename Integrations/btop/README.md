@@ -2,7 +2,7 @@
 <img width="349" height="98" alt="image" src="https://github.com/user-attachments/assets/678652c5-d011-4e3b-9bb7-037ffa8b979a" />
 </div>
 <h4 align="center">nhưng là cho dòng 4 chữ~</h4>
-<h6 align="left">AppleSang, D:02/M:01/Y:2026</h6>
+<h6 align="left">AppleSang, D:23/M:02/Y:2026</h6>
 <h6 align="left">BussyBakks, D:09/M:01/Y:2026</h6>
 <img width="27" height="27" alt="image" align="right" src="https://github.com/user-attachments/assets/de8413fe-b942-487b-a6d8-3f5111d292c9" />
 
@@ -31,9 +31,19 @@ cd /tmp && /userfs/bin/curl -s -k -o install-btop.sh https://raw.githubuserconte
 ```sh
 btop
 ```
+### 2.2: Cài font
+* bạn hãy cài font này để sử dụng btop nhé
+* https://fonts.google.com/specimen/Cascadia+Mono
+* và bạn cài xong hãy chọn font để apply
+* đây là sự khác nhau khi:
+* chưa cài
+<img width="979" height="512" alt="image" src="https://github.com/user-attachments/assets/ff63ab8d-b475-4f9e-b233-d5fe7a0468db" />
+* đã cài font
+<img width="859" height="512" alt="image" src="https://github.com/user-attachments/assets/d86cdb3a-a727-421f-bae0-38004cba43a5" />
+
 
 ## 6: <ins>FAQs</ins>
-**ờ thì có gì để nói đâu?**
+Cứ tạo issue với [btop] để giải đáp
 <h4 align="center">The End</h4>
 <h6 align="right">AppleSang With 🍎</h6>
 
