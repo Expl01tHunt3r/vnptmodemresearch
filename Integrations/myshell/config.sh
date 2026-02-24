@@ -21,14 +21,53 @@ TEMP=$(/usr/bin/cputemp | awk '{print $3}')
 GREEN='\033[32m'
 RESET='\033[0m'
 YELLOW='\033[33m'
+CYAN='\033[36m'
 echo -e "${GREEN}Login successfully"
 echo -e "\n"
 echo -e "${YELLOW}=============================================${RESET}"
 echo -e ""
-echo "Uptime: $(echo "${H}h ${M}m ${S}s")"
-echo "CPU: ${CPU}% | ${TEMP}°C"
-echo "Load AVG: ${LOAD}"
-echo "RAM: ${MEM_USED}MB/${MEM_TOTAL}MB"
+echo "${CYAN}Uptime:${RESET} $(echo "${H}h ${M}m ${S}s")"
+echo "${CYAN}CPU:${RESET} ${CPU}% | ${TEMP}°C"
+echo "${CYAN}Load AVG:${RESET} ${LOAD}"
+echo "${CYAN}RAM:${RESET} ${MEM_USED}MB/${MEM_TOTAL}MB"
+echo -e ""
+echo -e "${YELLOW}=============================================${RESET}"
+echo -e ""
+echo -e "${CYAN}List device connecting to your network:${RESET}"
+/userfs/bin/tcapi show DhcpLease 2>/dev/null | awk '
+/\[IP = / {
+    ip=$3
+    gsub(/\]/,"",ip)
+}
+/\[HostName = / {
+    name=$3
+    gsub(/\]/,"",name)
+
+    split(ip, o, ".")
+    key = o[1]*16777216 + o[2]*65536 + o[3]*256 + o[4]
+
+    count++
+    iplist[count] = ip
+    namelist[count] = name
+    keylist[count] = key
+}
+
+END {
+    for (i=1; i<=count; i++) {
+        for (j=i+1; j<=count; j++) {
+            if (keylist[i] > keylist[j]) {
+                tmp=keylist[i]; keylist[i]=keylist[j]; keylist[j]=tmp
+                tmp=iplist[i]; iplist[i]=iplist[j]; iplist[j]=tmp
+                tmp=namelist[i]; namelist[i]=namelist[j]; namelist[j]=tmp
+            }
+        }
+    }
+
+    for (i=1; i<=count; i++) {
+        printf "%-20s %s\n", namelist[i], iplist[i]
+    }
+}
+'
 echo -e ""
 echo -e "${YELLOW}=============================================${RESET}"
 echo -e "\n"
