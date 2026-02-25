@@ -1,2 +1,2 @@
-export TERMINFO=/tmp/terminfo
-/tmp/SafeGate/nano
+* export TERMINFO=/tmp/terminfo
+* /tmp/SafeGate/nano
