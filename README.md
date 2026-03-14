@@ -41,6 +41,7 @@
 ### 3.1: UART
 *Nếu bạn không thể kết nối qua UART cũng đừng lo, có cách không phải con thiệp phần cứng mà vẫn vào được shell cho cả dòng -H, -NS, -XS
 * Chuẩn bị USB-UART (khuyến nghị chip CH340 hoặc FT232BL cho mấy khứa đỗ nghèo khỉ) và dây jumper.
+* [Mở vỏ router](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/doc/disassemble) ra để thấy bo mạch
 * Trên bo mạch gần đèn LED sẽ có 3 chân: `RX`, `TX`, `GND`.
 * Kết nối đúng để tránh hỏng phần cứng (tự google xem hướng dẫn đi).
 * Lưu ý đảm bảo kết nối tốt dây (có thể hàn cho lành)
