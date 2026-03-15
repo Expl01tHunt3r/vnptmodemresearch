@@ -1,0 +1,7 @@
+echo "0 0" > led_internet
+echo "1" > led_switch_button
+echo "1" > led_xpon
+echo "0" > led_xpon
+echo "2" > led_xpon
+echo "67 3 2 1 0" > led_def
+echo "13 6 2 0 0" > led_def
