@@ -156,7 +156,7 @@ Ngoài lệnh này mọi người có thể thêm các lệnh khác nếu muốn
 * Sau đó encrypt lại và upload lên gateway webUI là được
 ---
 ## 5: <ins>Debrick với OpenWRT initramfs</ins>
-* Khi modem bị brick:
+* (Cho dòng -H) Khi modem bị brick:
 	* Thử reboot (busybox reboot), restart boa nếu còn shell.
  	* Thử tắt bằng nút nguồn của router và bật lại
 	* Nếu không truy cập được shell nốt:
@@ -165,9 +165,12 @@ Ngoài lệnh này mọi người có thể thêm các lệnh khác nếu muốn
     	* Flash lại các file mtdX.bin từ backup.
     	* Khởi động lại và restore cấu hình (`romfile.cfg`), hoặc nếu muốn chắc hơn thì hãy tải lại firmware và update qua webUI 1 lần nữa.
 
+
+*(Cho dòng -NS) Vui lòng search openwrt 1 trong các router sau Netis NX31 , Xiaomi AX3000T,JCG Q30 PRO , làm theo hướng dẫn là có thể flash OpenWRT và sau đó muốn flash lại stock hay tiếp tục giữ để dùng là tuỳ bạn. Thêm nữa, với dòng -NS , bạn có thể dùng các loại rom sau: OpenWRT, ImmortalWRT, Keenetic, Gecoos, Netis, .. ( nói chung là các dòng rom mà model vAP 32x6v1 của viettel chạy được thì con này chạy được, và mọi hướng dẫn có thể làm theo model trên )
+
 * Tham khảo:
 
-  * Dưới đây là link của 1 bản firmware OpenWRT đang được phát triển cho modem VR1200v, chung SoC nên có thể xài được, tuy nhiên không có driver WiFi ,Lan...
+  * Dưới đây là link của 1 bản firmware OpenWRT đang được phát triển cho modem VR1200v, chung SoC với dòng -H nên có thể xài được, tuy nhiên không có driver WiFi ,LAN...
   * Trong tương lai sẽ mod 1 bản OpenWRT tương thích sau, hiện tại chỉ để debrick.
   * Hãy đọc và làm theo hướng dẫn tại mục [Debricking](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v#debricking) của Router TP-Link Archer VR1200v đến từ OpenWRT.
 
@@ -251,7 +254,7 @@ chmod +x /tmp/auto_dump_boatemp.sh
 * ~~Discord~~
 ---
 ## 11: <ins>Những mục tiêu sắp tới</ins>
-* Cài được OpenWRT
+* Cài được OpenWRT (đã ok cho dòng -NS)
 * Tuỳ chỉnh chức năng cho nút WPS/WLan có những tính năng khác (Như lấy IP mới trong vòng 5s,...)
 * Dễ dàng điều khiển led để báo hiệu những thông tin khác (Như mức sử dụng CPU, cảnh báo khi gần hết RAM,...)
 * Cài được một loại VPN nào đó
