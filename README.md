@@ -166,7 +166,12 @@ Ngoài lệnh này mọi người có thể thêm các lệnh khác nếu muốn
     	* Khởi động lại và restore cấu hình (`romfile.cfg`), hoặc nếu muốn chắc hơn thì hãy tải lại firmware và update qua webUI 1 lần nữa.
 
 
-*(Cho dòng -NS) Vui lòng search openwrt 1 trong các router sau Netis NX31 , Xiaomi AX3000T,JCG Q30 PRO , làm theo hướng dẫn là có thể flash OpenWRT và sau đó muốn flash lại stock hay tiếp tục giữ để dùng là tuỳ bạn. Thêm nữa, với dòng -NS , bạn có thể dùng các loại rom sau: OpenWRT, ImmortalWRT, Keenetic, Gecoos, Netis, .. ( nói chung là các dòng rom mà model vAP 32x6v1 của viettel chạy được thì con này chạy được, và mọi hướng dẫn có thể làm theo model trên )
+* (Cho dòng -NS) Vui lòng search [OpenWRT](https://openwrt.org/) một trong các router sau:
+    *  [Netis NX31](https://openwrt.org/toh/netis/nx31)
+    *  [Xiaomi AX3000T](https://openwrt.org/inbox/toh/xiaomi/ax3000t)
+    *  [JCG Q30 PRO](https://openwrt.org/toh/jcg/q30_pro)
+* Và làm theo hướng dẫn là có thể flash OpenWRT và sau đó muốn flash lại stock hay tiếp tục giữ để dùng là tuỳ bạn
+* Bạn có thể dùng các loại rom sau: OpenWRT, ImmortalWRT, Keenetic, Gecoos, Netis, ... (Nói chung là các dòng rom mà model vAP 32x6v1 của Viettel chạy được thì con này chạy được, và mọi hướng dẫn có thể làm theo model trên)
 
 * Tham khảo:
 
