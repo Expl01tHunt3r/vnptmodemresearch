@@ -1,0 +1,3 @@
+/userfs/bin/tcapi set Autoexec_Entry cmd1 "sh /tmp/userdata/startup.sh"
+/userfs/bin/tcapi commit Autoexec_Entry
+/userfs/bin/tcapi save
