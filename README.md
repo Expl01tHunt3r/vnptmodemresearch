@@ -65,9 +65,10 @@
 * Khi đăng nhập thành công sẽ vào trực tiếp shell mặc định (BusyBox Shell)
 ### 3.3: Telnet/SSH 
 > [!TIP]
-> Trong phần này mình sẽ gọi Web-UI là trang để quản lý router với IP như [192.168.1.1](https://192.168.1.1/) hoặc [192.168.0.1](https://192.168.0.1/)  
+> Mình gọi Web-UI là trang để quản lý router với IP như [192.168.1.1](https://192.168.1.1/) hoặc [192.168.0.1](https://192.168.0.1/)  
+> Gateway là IP của router, ví dụ như 192.168.1.1 hoặc 192.168.0.1  
 > Mình sẽ nói theo giao diện tiếng anh
-* **YÊU CẦU:** Bạn vào Web-UI -> Đăng nhập -> Vào tab Access -> Vào mục ACL Filter -> Chọn Deactivated -> Và ấn Set
+* Nếu bạn vào được Web-UI: Bạn vào Web-UI -> Đăng nhập -> Vào tab Access -> Vào mục ACL Filter -> Chọn Deactivated -> Và ấn Set
 * Đây là chi tiết từng dòng
   - Dòng -H: Sau khi làm yêu cầu trên thì bạn vào được rùi :D (AppleSang không biết tin chuẩn chưa nữa)
   
@@ -80,15 +81,32 @@
     <img width="1190" height="317" alt="image" src="https://github.com/user-attachments/assets/bceea390-af4c-4881-ac7a-ab641a913eca" />
     
 * Sau khi làm xong bạn mở Command Prompt và nhập
+```
+telnet ip.gateway.của.bạn
+```
+Ví dụ như sau:
 ```bash
 telnet 192.168.1.1
 ```
+Hoặc đối với dòng -H, -NS thì có thể SSH, ví dụ như:
+```bash
+ssh admin@192.168.1.1
+```
+
 > [!WARNING]
 > Nếu máy chưa có Telnet thì bật CMD **với quyền admin** và chạy lệnh sau
 > ```bash
 > dism /online /Enable-Feature /FeatureName:TelnetClient
 
-Và quay lại [đây](https://github.com/Expl01tHunt3r/vnptmodemresearch/edit/master/README.md#32-t%C3%A0i-kho%E1%BA%A3n-login) để đăng nhập vào shell 
+Và quay lại [đây](https://github.com/Expl01tHunt3r/vnptmodemresearch/edit/master/README.md#32-t%C3%A0i-kho%E1%BA%A3n-login) để đăng nhập vào shell  
+
+* Nếu bạn không thể kích hoạt Telnet qua Web-UI thì có một cách hoạt động trên -NS, -XS (Bạn cũng có thể thử ở các dòng khác):
+  - Chuẩn bị cho mình một que nhỏ như cây tăm-miễn có thể lọt vào nút Reset trên router là được
+  - Sau khi chuẩn bị tinh thần, bạn lấy ngón tay **ấn thật mạnh** nút WPS, ngay khi đang ấn thì bạn lấy cây tăm đâm vào nút Reset và đẩy mạnh cây tăm vào để nút Reset bị ấn. Khi cả 2 nút đều đang ấn thì bạn nhìn đèn trên router và sẽ có hai trường hợp:
+    - Đèn LOS nhấp nháy: Bạn bỏ tay ra **ngay lập tức** và chờ đợi router restart lại và thực hiện lại. **Nếu vẫn cố tình đè lâu thì router sẽ xoá hết config và buộc bạn phải setup lại từ đầu**
+    - Đèn PON nhấp nháy: Bạn phải ấn giữ 2 nút trên trong tầm 6-7s, khi mà đèn PON nhấp nháy là bạn đã kích hoạt xong telnet và giờ có thể kết nối rồi nhé!
+
+
 
 ---
 ## 4: <ins>Patch romfile.cfg</ins>
