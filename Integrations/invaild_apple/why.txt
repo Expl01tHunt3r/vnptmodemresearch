@@ -13,5 +13,5 @@ echo "13 6 2 0 0" > led_def
 /userfs/bin/tcapi set Wan_PVC1_Entry Active Yes
 /userfs/bin/tcapi commit Wan_PVC1_Entry
 
-/userfs/bin/tcapi set Wan_PVC0 active No
-/userfs/bin/tcapi commit Wan_PVC0
+/userfs/bin/tcapi set Wan_PVC0_Entry active No
+/userfs/bin/tcapi commit Wan_PVC0_Entry
