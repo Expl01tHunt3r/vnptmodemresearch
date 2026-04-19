@@ -48,6 +48,7 @@ rm AdG_armv5l.tar.gz
 cd AdGuardHome
 chmod +x AdGuardHome
 kill -9 $(pidof dnsmasq)
+IP=$(ip addr show br0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1)
 if [ "$AUTORUN_INSTALLED" = "false" ]; then
     echo -e "${YELLOW}############################################################\n" 
     echo -e "${RESET}Looks like you didn't install our ${CYAN}Autorun${RESET} module yet."
@@ -64,8 +65,12 @@ if [ "$AUTORUN_INSTALLED" = "false" ]; then
 else
     cd /tmp && /userfs/bin/curl -s -k -o startup.sh https://github.com/Expl01tHunt3r/vnptmodemresearch/raw/refs/heads/master/Integrations/AdGuard/startup.sh && cp startup.sh /tmp/userdata/startup.sh
 fi
+/userfs/bin/tcapi set Dhcpd_Entry primary_dns ${IP}
+/userfs/bin/tcapi set Dhcpd_Entry dns_mode 1
+/userfs/bin/tcapi commit Dhcpd
+echo -e "${GREEN}[OK]${RESET} Route DNS into ${IP}."
 echo -e "${GREEN}[OK]${RESET} Finished installing AdGuardHome."
-echo -e "\033[31;43mVisit http://$(ip addr show br0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1):3000 to finish setup!\033[0m"
+echo -e "\033[31;43mVisit http://${IP}:3000 to finish setup!\033[0m"
 echo -e "${RED}!!! CLOSE THE TERMINAL, NOT CTRL+C !!!${RESET}"
 rm /tmp/userdata/AdGuard.sh
 cd /tmp/AdGuardHome && ./AdGuardHome -c /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/ --no-check-update
