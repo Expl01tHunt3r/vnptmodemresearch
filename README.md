@@ -50,11 +50,7 @@
   ```txt
   Please press Enter to activate this console.
   ```
-* **Lưu ý**:
-  - Nếu bạn kết nối SSH, bản SSH được xài cực cổ lỗ sĩ nên phải bật option insecure mới kết nối được (với dòng GW020H sử dụng firmware cũ), và muốn dùng telnet/ssh thì sửa file romfile.cfg bằng tool và upload lại để mở firewall (với dòng H), đừng lo, nếu bạn không muốn sửa romfile.cfg thì còn cách khác !
-  - Với model -NS, -XS: (Nếu bạn quên/không biết password web quản trị) Nhấn nút WPS trước và ấn nút Reset sau khi đang nhấn giữ WPS, sau khi nhấn cả hai nút trong tầm 5-6s đèn PON sẽ nhấp nháy là đã mở Telnet thành công. Nếu đang ấn mà đèn LOS nhấp nháy đỏ lên thì **NGAY LẬP TỨC** thả các nút ra và chờ router reboot và thực hiện lại, nhớ backup trước khi mở để tránh nhấn quá thời gian gây reset.
-  - Cách 3 (nếu bạn nhớ/biết password đăng nhập web quản trị) Bạn hãy tìm tới mục ACL và tắt nó đi ... thế là xong rồi.
-* Nếu đã mở telnet và connect vào thì sẽ có: `tc login:`
+* Và connect vào thì sẽ có: `tc login:`
 * Các credential cho -H, -NS:
   * admin / VnT3ch@dm1n (như root do full quyền,telnet,ssh,ftp)
   * operator / VnT3ch0per@tor (only UART)
@@ -66,24 +62,34 @@
   * operator / $1$y....DM.$7eLwNxxQmjB1WmfB.ancV/ (hash, chưa tìm ra pass chính xác, web) (`oper@tor`)
   * user3 / star ( web, disable by default, quyền thấp)
 
-* Khi đăng nhập thành công sẽ vào trực tiếp shell mặc định (BusyBox Shell),nhắc lại một lần nữa, bạn nên đổi mật khẩu bằng **passwd** để tránh người khác có thể vào được shell.
-### 3.3: Telnet/SSH tạm thời (nếu đang sài UART)
-* Gõ 3 lệnh sau vào terminal
+* Khi đăng nhập thành công sẽ vào trực tiếp shell mặc định (BusyBox Shell)
+### 3.3: Telnet/SSH 
+> [!TIP]
+> Trong phần này mình sẽ gọi Web-UI là trang để quản lý router với IP như [192.168.1.1](https://192.168.1.1/) hoặc [192.168.0.1](https://192.168.0.1/)  
+> Mình sẽ nói theo giao diện tiếng anh
+* **YÊU CẦU:** Bạn vào Web-UI -> Đăng nhập -> Vào tab Access -> Vào mục ACL Filter -> Chọn Deactivated -> Và ấn Set
+* Đây là chi tiết từng dòng
+  - Dòng -H: Sau khi làm yêu cầu trên thì bạn vào được rùi :D (AppleSang không biết tin chuẩn chưa nữa)
+  
+  - Dòng -NS: Ngay ở trang Web-UI thì ở đường dẫn vào web bạn xoá chữ ```content.asp``` thay bằng chữ ```getGateWay.cgi``` và truy cập sẽ có kết quả như ảnh dưới
+    <img width="542" height="135" alt="image" src="https://github.com/user-attachments/assets/5574f71b-d030-4c07-813a-8035c7554c8a" />
+    
+  - Dòng -HS: **Chưa có thông tin**
+    
+  - Dòng -XS: Ngay ở trang Web-UI thì ở đường dẫn vào web bạn xoá chữ ```content.asp``` thay bằng chữ ```telnet.asp```, sau khi truy cập thì bạn tick ```TelnetSet: Enable``` và ấn   ```Save```
+    <img width="1190" height="317" alt="image" src="https://github.com/user-attachments/assets/bceea390-af4c-4881-ac7a-ab641a913eca" />
+    
+* Sau khi làm xong bạn mở Command Prompt và nhập
 ```bash
-iptables -P INPUT ACCEPT
-iptables -P FORWARD ACCEPT
-iptables -P OUTPUT ACCEPT
+telnet 192.168.1.1
 ```
-hoặc muốn mở mỗi port SSH thì...
-(Hoặc nếu bạn nhập 3 câu trên nhưng không mở port SSH thì câu dưới nó hoạt động - Xác nhận chạy trên GW040-NS)
-```
-iptables -I INPUT -p tcp --dport 22 -j ACCEPT
-```
-* Xong connect bằng IP gateway (.1.1 hoặc .0.1 tuỳ mạng nội bộ) qua shell của máy bạn, có thể dùng telnet hoặc ssh tuỳ bạn muốn
-```
-ssh [user]@[gateway-ip]
-```
-* Nếu muốn mở telnet/ssh lâu dài, hãy tới mục [3.2: Tài khoản login] và kéo xuống một chút (đối với người mở shell qua UART).
+> [!WARNING]
+> Nếu máy chưa có Telnet thì bật CMD **với quyền admin** và chạy lệnh sau
+> ```bash
+> dism /online /Enable-Feature /FeatureName:TelnetClient
+
+Và quay lại [đây](https://github.com/Expl01tHunt3r/vnptmodemresearch/edit/master/README.md#32-t%C3%A0i-kho%E1%BA%A3n-login) để đăng nhập vào shell 
+
 ---
 ## 4: <ins>Patch romfile.cfg</ins>
 * `romfile.cfg` là file config lấy từ:
