@@ -59,6 +59,9 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9a8792c2-c2d3-4db9-8c37-e770308dd6d9" />
 
 ## 4: <ins>Quay DNS</ins>
+> [!WARNING]
+> Hiện script đã có thể tự set IP Gateway vào chỗ DNS nhưng bạn cũng nên check xem đã đúng chưa
+
 * Vào WebUI  
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7a6a5ea0-7edc-488f-9211-5007ddc9eff7" />
 
