@@ -68,6 +68,7 @@ fi
 /userfs/bin/tcapi set Dhcpd_Entry primary_dns ${IP}
 /userfs/bin/tcapi set Dhcpd_Entry dns_mode 1
 /userfs/bin/tcapi commit Dhcpd
+/userfs/bin/tcapi save
 echo -e "${GREEN}[OK]${RESET} Route DNS into ${IP}."
 echo -e "${GREEN}[OK]${RESET} Finished installing AdGuardHome."
 echo -e "\033[31;43mVisit http://${IP}:3000 to finish setup!\033[0m"
