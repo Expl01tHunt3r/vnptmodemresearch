@@ -66,6 +66,7 @@ else
     cd /tmp && /userfs/bin/curl -s -k -o startup.sh https://github.com/Expl01tHunt3r/vnptmodemresearch/raw/refs/heads/master/Integrations/AdGuard/startup.sh && cp startup.sh /tmp/userdata/startup.sh
 fi
 /userfs/bin/tcapi set Dhcpd_Entry primary_dns ${IP}
+/userfs/bin/tcapi set Dhcpd_Entry secondary_dns 8.8.8.8
 /userfs/bin/tcapi set Dhcpd_Entry dns_mode 1
 /userfs/bin/tcapi commit Dhcpd
 /userfs/bin/tcapi save
