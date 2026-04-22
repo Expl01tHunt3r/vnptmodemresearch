@@ -77,7 +77,7 @@ cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubuser
 
 ## 5: <ins>"Mất Điện"</ins>
 > [!CAUTION]
-> **Nếu bạn đã cài patch AutoRun thì cứ skip chỗ này nhé**  
+> **Bạn chỉ đọc cái này khi mà AdGuardHome không hoạt động sau khi mất điện**  
 > Mời đọc [FAQ](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/AdGuard/README.md#6-faqs) sẽ hiểu tại sao có mục này
 * SSH/Telnet vào router
 <img width="456" height="133" alt="image" src="https://github.com/user-attachments/assets/551a9f3e-c71c-4d89-b95a-c597a9e4d88f" />
