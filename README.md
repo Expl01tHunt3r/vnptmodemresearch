@@ -105,6 +105,9 @@ Và quay lại [đây](https://github.com/Expl01tHunt3r/vnptmodemresearch/edit/m
   - Sau khi chuẩn bị tinh thần, bạn lấy ngón tay **ấn thật mạnh** nút WPS, ngay khi đang ấn thì bạn lấy cây tăm đâm vào nút Reset và đẩy mạnh cây tăm vào để nút Reset bị ấn. Khi cả 2 nút đều đang ấn thì bạn nhìn đèn trên router và sẽ có hai trường hợp:
     - Đèn LOS nhấp nháy: Bạn bỏ tay ra **ngay lập tức** và chờ đợi router restart lại và thực hiện lại. **Nếu vẫn cố tình đè lâu thì router sẽ xoá hết config và buộc bạn phải setup lại từ đầu**
     - Đèn PON nhấp nháy: Bạn phải ấn giữ 2 nút trên trong tầm 6-7s, khi mà đèn PON nhấp nháy là bạn đã kích hoạt xong telnet và giờ có thể kết nối rồi nhé!
+    - Nếu không thì còn một cách với tất cả các dòng, đăng nhập vào web quản trị (192.168.1.1) rồi tắt ACL đi thì sẽ truy cập telnet/ssh được
+    - Lưu ý nho nhỏ là dòng XGS chỉ có telnet, không có ssh
+
 
 
 
@@ -140,6 +143,11 @@ openssl smime -encrypt -inform DER -outform DER \
 ```
    + file cert.pem trên là public key tương ứng với private key, có sẵn trong modem, hiện đã up lên repo này, bạn có thể tìm tại cùng thư mục với private key 
    + Xong! bạn có thể upload file backup và enjoy !
+   + Lưu ý nho nhỏ, nêu bạn thay các hash trong web password (có đầu là $1$ ) thì sẽ làm khác một chút, ví dụ: bạn muốn đặt lại mật khẩu web cho user là admin với pass là 123456 thì bạn sẽ chạy lệnh sau để lấy hash:
+```bash
+openssl passwd -1 "uid = admin;psw = 123456"
+```
+rồi mới dùng hash này thay vào hash cũ, tương tự với các user khác, nếu đổi pass cho operator thì uid sẽ là operator , ... nếu password là 1234 thì chỗ psw sẽ là 1234, ...
 
 * Hướng dẫn sử dụng đã có trong tool, chạy tool với argument trống sẽ in hướng dẫn
 ### 4.2: Yêu cầu để sử dụng tool
