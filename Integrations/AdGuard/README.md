@@ -20,6 +20,11 @@
 > **Và chúng mình KHÔNG CHỊU TRÁCH NHIỆM nếu bị lỗi trên router nhà bạn**  
 > *đã nhắc rồi nhé.*
 
+> [!CAUTION]
+> **Có vấn đề xảy ra sau khi cài AdGuard là sau khi bạn restart router thì DHCP sẽ không cấp IP cho thiết bị được nữa**  
+> **Thế nên hãy đọc hết hướng dẫn trước khi cài**  
+> *applesang khúc này đang buồn ngủ, chắc sẽ viết xong*
+
 > [!WARNING]
 > Hiện tại chỉ có dòng [GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns) đã confirm chạy okay  
 > Còn dòng -H có lỗi reboot sau khi chạy script, chúng mình vẫn đang nấu vụ đó, mà ai có dòng -H có thể liên hệ [Discord](https://discordapp.com/users/1086149348414464041) để góp vui :)
