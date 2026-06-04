@@ -30,7 +30,7 @@
 
 * Paste lệnh dưới vào shell
 ```sh
-cd /tmp/userdata/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/AdGuard/install/ns.sh && chmod +x AdGuard.sh && sh AdGuard.sh
+cd /tmp/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/AdGuard/install/ns.sh && chmod +x AdGuard.sh && sh AdGuard.sh
 ```
 
 * Hãy **CHẮC CHẮN** đọc hết phần text trước khi bấm **Enter** *(nếu hiểu thì thôi .-.)*
