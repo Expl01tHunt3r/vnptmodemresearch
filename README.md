@@ -69,7 +69,7 @@
 > Gateway là IP của router, ví dụ như 192.168.1.1 hoặc 192.168.0.1  
 > Mình sẽ nói theo giao diện tiếng anh
 * Nếu bạn vào được Web-UI: Bạn vào Web-UI -> Đăng nhập -> Vào tab Access -> Vào mục ACL Filter -> Chọn Deactivated -> Và ấn Set
-* Đây là chi tiết từng dòng
+* Sau khi tắt ACL thì đối với:
   - Dòng -H: Sau khi làm yêu cầu trên thì bạn vào được rùi :D (AppleSang không biết tin chuẩn chưa nữa)
   
   - Dòng -NS: Ngay ở trang Web-UI thì ở đường dẫn vào web bạn xoá chữ ```content.asp``` thay bằng chữ ```getGateWay.cgi``` và truy cập sẽ có kết quả như ảnh dưới
