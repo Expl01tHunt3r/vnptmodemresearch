@@ -36,7 +36,6 @@ echo -e "${GREEN}[OK]${RESET} Downloaded AdGuardHome."
 rm AdG_armv5l.tar.gz
 cd AdGuardHome
 chmod +x AdGuardHome
-kill -9 $(pidof dnsmasq)
 IP=$(ip addr show br0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1)
 /userfs/bin/tcapi set Autoexec_Entry adguard "sh /tmp/userdata/AdGuard/startup.sh"
 /userfs/bin/tcapi commit Autoexec_Entry
@@ -50,5 +49,5 @@ echo -e "${GREEN}[OK]${RESET} Route DNS into ${IP}."
 echo -e "${GREEN}[OK]${RESET} Finished installing AdGuardHome."
 echo -e "\033[31;43mVisit http://${IP}:3000 to finish setup!\033[0m"
 echo -e "${RED}!!! CLOSE THE TERMINAL, NOT CTRL+C !!!${RESET}"
-rm /tmp/userdata/AdGuard.sh
+killall dnsmasq
 cd /tmp/AdGuardHome && ./AdGuardHome -c /tmp/userdata/AdGuard/AdGuardHome.yaml -w /tmp/ --no-check-update
