@@ -26,6 +26,11 @@
 > *applesang khúc này đang buồn ngủ, chắc sẽ viết xong*
 
 > [!WARNING]
+> Khi bạn thêm ``DNS Blocklist`` thì đừng chọn quá nhiều, chỉ chọn những cái cần thiết và tầm 5-6 cái thôi
+> nhiều quá coi chừng bị sập router và crash-loop nhé
+> *applesang đã thử và cố thoát bằng việc xoá file config adguardhome ngay khi vừa startup*
+
+> [!WARNING]
 > Hiện tại chỉ có dòng [GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns) đã confirm chạy okay  
 > Còn dòng -H có lỗi reboot sau khi chạy script, chúng mình vẫn đang nấu vụ đó, mà ai có dòng -H có thể liên hệ [Discord](https://discordapp.com/users/1086149348414464041) để góp vui :)
 
