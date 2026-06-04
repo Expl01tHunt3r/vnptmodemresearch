@@ -27,6 +27,8 @@ cd /tmp/userdata/AdGuard
 /userfs/bin/curl -s -k -o ca.crt https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/AdGuard/accvraiz1.crt
 export SSL_CERT_FILE=/tmp/userdata/AdGuard/ca.crt
 echo -e "${GREEN}[OK]${RESET} Downloaded certificate."
+/userfs/bin/curl -s -k -o startup.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/AdGuard/startup.sh && chmod +x startup.sh
+echo -e "${GREEN}[OK]${RESET} Downloaded startup script for AdGuardHome."
 cd /tmp/
 /userfs/bin/curl -s -fSL -o AdG_armv5l.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_armv5.tar.gz
 tar -xzf AdG_armv5l.tar.gz
