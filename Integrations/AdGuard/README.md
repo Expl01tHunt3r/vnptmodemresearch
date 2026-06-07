@@ -101,8 +101,12 @@ cd /tmp/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubusercontent.c
 
 * Xong tắt SSH/Telnet (đừng Ctrl+C, dùng nút X kia)
 
+## 6: <ins>DHCP và bye bye dnsmasq</ins>
+> [!WARNING]
+> Hiện mình-AppleSang chưa thể giải thích được nhưng bạn sẽ sử dụng DHCP của AdGuard để cấp IP thay vì của router
 
-## 6: <ins>FAQs</ins>
+
+## 7: <ins>FAQs</ins>
 * **?: Số liệu (size blocked, ...) của AdGuardHome đều set 0 khi reboot?**
   * Tất cả (trừ config) đều trắng bóc khi reboot (mất điện)
   > Chi tiết hơn: Là chỗ lưu /tmp/userdata/AdGuard/data nó không hỗ trợ nmap(2) vì format không hỗ trợ, cần bạn nào tìm hiểu phương pháp lưu các file database!
