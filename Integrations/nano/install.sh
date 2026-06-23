@@ -32,7 +32,9 @@ read _
 
 cd /tmp/userdata/program
 /userfs/bin/curl -s -k -o nano https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/nano/nano
-/userfs/bin/curl -s -k -o xterm-256color https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/nano/xterm-256color
+/userfs/bin/curl -s -fSL -o x.tar.gz https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/nano/x.tar.gz
+tar -xzf x.tar.gz
+rm -f x.tar.gz
 chmod 777 nano
 echo -e "${GREEN}nano have been installed."
 echo -e "${GREEN}Type ${CYAN}nano${GREEN} to use!${RESET}"
