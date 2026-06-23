@@ -30,10 +30,7 @@ echo -e "${RED}############################################################\n"
 echo -e "        ${YELLOW}Press enter to confirm for install ${CYAN}btop${RESET}"
 read _
 
-cd /tmp/userdata
-mkdir -p btop
-cd btop
-mkdir -p config
+cd /tmp/userdata/program
 /userfs/bin/curl -s -k -o btop https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/btop/btop
 chmod 777 btop
 echo -e "${GREEN}Btop have been installed."
