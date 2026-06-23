@@ -40,3 +40,5 @@ cd /tmp/ && /userfs/bin/curl -s -k -o autorun.sh https://raw.githubusercontent.c
 * nếu bạn muốn edit thì chỉ có thể xài `echo` hoặc `sed`
 * còn cách sử dụng autorun thì nó sẽ tự chạy mỗi lần router mất điện, thế thôi hỏi làm chi?
 * Tuy nhiên bạn nên nhớ khi thêm script trong startup.sh *tuyệt đối* không được để rò output ra, nếu không sẽ fail và phải cài lại từ đầu
+
+## script này có thể được coi debloat familysafe của vnpt
