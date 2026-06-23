@@ -21,9 +21,9 @@ YELLOW='\033[33m'
 CYAN='\033[36m'
 echo -e "${GREEN}Login successfully"
 echo -e "\n"
-echo -e "${YELLOW}=============================================${RESET}"
+echo -e "${YELLOW}====================================================================${RESET}"
 echo -e "${GREEN}$(/userfs/bin/tcapi get DeviceInfo_devParaStatic ModelName | awk '{pad=int((45-length($0))/2); sp="" ; while(pad-->0) sp=sp" "; print sp $0}')${RESET}"
-echo -e "${YELLOW}=============================================${RESET}"
+echo -e "${YELLOW}====================================================================${RESET}"
 echo -e ""
 echo -e "${CYAN}Uptime:${RESET} ${uptime}"
 echo -e "${CYAN}CPU:${RESET} ${CPU}% | ${TEMP}°C"
@@ -31,6 +31,6 @@ echo -e "${CYAN}xPON: ${RESET}${PONT}°C | ${CYAN}Download: ${RESET}${download} 
 echo -e "${CYAN}Load AVG:${RESET} ${LOAD}"
 echo -e "${CYAN}RAM:${RESET} ${MEM_USED}MB/${MEM_TOTAL}MB"
 echo -e ""
-echo -e "${YELLOW}=============================================${RESET}"
+echo -e "${YELLOW}====================================================================${RESET}"
 echo -e "\n"
 exec /bin/sh
