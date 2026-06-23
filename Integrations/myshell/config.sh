@@ -22,7 +22,7 @@ CYAN='\033[36m'
 echo -e "${GREEN}Login successfully"
 echo -e "\n"
 echo -e "${YELLOW}====================================================================${RESET}"
-echo -e "${GREEN}$(/userfs/bin/tcapi get DeviceInfo_devParaStatic ModelName | awk '{pad=int((45-length($0))/2); sp="" ; while(pad-->0) sp=sp" "; print sp $0}')${RESET}"
+echo -e "${GREEN}$(/userfs/bin/tcapi get DeviceInfo_devParaStatic ModelName | awk '{pad=int((68-length($0))/2); sp="" ; while(pad-->0) sp=sp" "; print sp $0}')${RESET}"
 echo -e "${YELLOW}====================================================================${RESET}"
 echo -e ""
 echo -e "${CYAN}Uptime:${RESET} ${uptime}"
