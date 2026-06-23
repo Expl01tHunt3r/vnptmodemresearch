@@ -6,7 +6,7 @@
 <img width="128" height="128" alt="image" src="https://github.com/user-attachments/assets/c4ea7500-9d32-441b-9458-973d59e0d369" align="right" />
 
 * Mở được Telnet/SSH trên router đã đề cập ở [ngoài kia](https://github.com/Expl01tHunt3r/vnptmodemresearch?tab=readme-ov-file#3-shell-v%C3%A0-nh%E1%BB%AFng-ng%C6%B0%E1%BB%9Di-b%E1%BA%A1n-tty-ssh-)
-* Đã chạy patch [autorun](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun)
+* Router phải có DropBear ở /userfs/bin/
 > [!CAUTION]
 > **Bạn sẽ tự chịu hết các hậu quả đi kèm nếu làm theo!!!**  
 > **Và chúng mình KHÔNG CHỊU TRÁCH NHIỆM nếu bị lỗi trên router nhà bạn**  
