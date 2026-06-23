@@ -281,6 +281,7 @@ chmod +x /tmp/auto_dump_boatemp.sh
 * [ddns-updater](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/ddns_updater)
 * Caddy (In progress)
 * [Btop](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/btop)
+* [nano](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/nano)
 > Đã có hướng dẫn cài trong README của các phần ứng dụng
 ---
 ## 9: Patch ( Với các dòng NS )
