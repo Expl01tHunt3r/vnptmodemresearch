@@ -2,6 +2,7 @@
 # this for btop, i'm sure it very useful
 export XDG_CONFIG_HOME=/tmp/userdata/program/config
 export PATH=/tmp/userdata/program:$PATH
+export TERMINFO=/tmp/userdata/program
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 # this look like motd
