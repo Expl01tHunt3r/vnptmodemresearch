@@ -32,6 +32,7 @@ read _
 # Create 3 file: config.sh // startup.sh // banner.txt in folder myshell
 cd /tmp/userdata
 mkdir -p myshell
+mkdir -p program
 cd myshell
 /userfs/bin/curl -s -k -o config.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/myshell/config.sh && chmod +x config.sh
 /userfs/bin/curl -s -k -o startup.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/myshell/startup.sh && chmod +x startup.sh
