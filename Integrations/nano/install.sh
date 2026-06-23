@@ -27,7 +27,7 @@ echo -e "\033[31;43mScript Make By AppleSang With <3\033[0m\n"
 echo -e "${RED}############################################################\n"
 echo -e "${GREEN} https://github.com/Expl01tHunt3r/vnptmodemresearch\n"
 echo -e "${RED}############################################################\n"
-echo -e "        ${YELLOW}Press enter to confirm for install ${CYAN}btop${RESET}"
+echo -e "        ${YELLOW}Press enter to confirm for install ${CYAN}nano${RESET}"
 read _
 
 cd /tmp/userdata/program
