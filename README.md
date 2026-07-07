@@ -1,8 +1,6 @@
 <h1 align="center">VNPT Reverse Engineering & Rooting Project</h1>
 
 ***<h4 align="center">Không gì là không thể :)</h4>***
-***<h5 align="center">(dời nhà, chắc thế) https://github.com/ResearcherPT/VNPT</h5>***
-
 
 ## 1: <ins>Mục tiêu</ins>
 * Nghiên cứu về các modem nhà mạng 4 chữ (VNPT) (hiện tại đang nghiên cứu các dòng -H, -NS, -XS
