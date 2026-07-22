@@ -1,6 +1,6 @@
 <h1 align="center">AdGuardHome</h1>
 <h4 align="center">nhưng là cho dòng 4 chữ~</h4>
-<h6 align="left">AppleSang, D:11/M:01/Y:2026</h6>
+<h6 align="left">AppleSang, D:22/M:07/Y:2026</h6>
 <h6 align="left">BussyBakks, D:11/M:01/Y:2026</h6>
 <img width="27" height="27" alt="image" align="right" src="https://github.com/user-attachments/assets/de8413fe-b942-487b-a6d8-3f5111d292c9" />
 
@@ -18,17 +18,10 @@
 > [!CAUTION]
 > **Bạn sẽ tự chịu hết các hậu quả đi kèm nếu làm theo!!!**  
 > **Và chúng mình KHÔNG CHỊU TRÁCH NHIỆM nếu bị lỗi trên router nhà bạn**  
+> **Hãy đọc hết file ReadMe này một lần rồi mới bắt tay vào làm**   
 > *đã nhắc rồi nhé.*
 
-> [!CAUTION]
-> **Có vấn đề xảy ra sau khi cài AdGuard là sau khi bạn restart router thì DHCP sẽ không cấp IP cho thiết bị được nữa**  
-> **Thế nên hãy đọc hết hướng dẫn trước khi cài**  
-> *applesang khúc này đang buồn ngủ, chắc sẽ viết xong*
 
-> [!WARNING]
-> Khi bạn thêm ``DNS Blocklist`` thì đừng chọn quá nhiều, chỉ chọn những cái cần thiết và tầm 5-6 cái thôi
-> nhiều quá coi chừng bị sập router và crash-loop nhé
-> *applesang đã thử và cố thoát bằng việc xoá file config adguardhome ngay khi vừa startup*
 
 > [!WARNING]
 > Hiện tại chỉ có dòng [GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns) đã confirm chạy okay  
@@ -102,12 +95,27 @@ cd /tmp/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubusercontent.c
 * Xong tắt SSH/Telnet (đừng Ctrl+C, dùng nút X kia)
 
 ## 6: <ins>DHCP và bye bye dnsmasq</ins>
-> [!WARNING]
-> Hiện mình-AppleSang chưa thể giải thích được nhưng bạn sẽ sử dụng DHCP của AdGuard để cấp IP thay vì của router
+
+* Ngay tại trang chủ chính của AdGuardHome bạn vào `DHCP Settings`
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/65913fa1-2fd2-437e-95ab-118a95e1ea8e" />
+
+* Setup những giá trị như trong ảnh
+
+<img width="1104" height="380" alt="image" src="https://github.com/user-attachments/assets/8afdc0dc-8487-41db-aad3-839b7bed6363" />
+
+> Bạn có thể set tuỳ ý nhưng phải biết mình đang làm gì
+
+* Tiếp đến bạn bấm `Check for DHCP server`
+
+  > Tuy sẽ hiện cảnh báo đỏ nhưng bạn cứ mặc kệ đi
+
+* Cuối cùng là bấm `Enable DHCP server`
+
 
 
 ## 7: <ins>FAQs</ins>
-* **?: Số liệu (size blocked, ...) của AdGuardHome đều set 0 khi reboot?**
+* **?: Số liệu (size blocked, ...) của AdGuardHome đều set về 0 khi reboot?**
   * Tất cả (trừ config) đều trắng bóc khi reboot (mất điện)
   > Chi tiết hơn: Là chỗ lưu /tmp/userdata/AdGuard/data nó không hỗ trợ nmap(2) vì format không hỗ trợ, cần bạn nào tìm hiểu phương pháp lưu các file database!
   > Vẫn có thể giữ số liệu bằng việc tạo crondtab liên tục sao lưu và bung ra sau khi reboot nhưng mà...sao lưu số liệu chi vậy?  
@@ -118,20 +126,30 @@ cd /tmp/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubusercontent.c
 * **?: Không block ads trên điện thoại được với AdGuardHome?**
   * Vào `Cài Đặt -> Kết Nối -> Cài Đặt Kết Nối Khác`, chỉnh `DNS Riêng Tư` thành `Tắt`
   > Đấy là cách chỉnh dựa trên điện thoại Samsung, các điện thoại Android khác lẫn IPhone cũng sẽ có cách  
-  > Cứ tra google là được mà  
+  > Cứ tra google là được mà
+  * Còn nếu bạn đã để AdGuardHome cấp DHCP thì bạn không cần quan tâm phần trên, rất tiện khi khách tới nhà mà được sử dụng hệ thống chặn quảng cáo
 * **?: Chỗ `Máy Chủ DNS` mà nó báo `Port 53 đã bị sử dụng`?**
-  * Mở shell và nhập `kill -9 $(pidof dnsmasq)` xong reload và tiếp tục
+  * Mở shell và nhập `killall dnsmasq` xong reload và tiếp tục
 * **?: Có nên update khi AdGuard có bản update không?**
-  * Bạn **KHÔNG CẦN** làm đâu, mà muốn thì cứ restart router là được-Trong trường hợp đã bật AutoRun
-* **?: Tại sao không có AdGuardHome sau khi khởi động lại router mặc dù tôi đã bật [AutoRun](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun)?**
-  * Bạn xem thử có đã cài [AutoRun](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun) chưa bằng việc gõ lệnh `cat /etc/safegate/safegate.sh` và phải ra ouput như ảnh <img width="341" height="56" alt="image" src="https://github.com/user-attachments/assets/a6d7e1e6-f2a0-42f9-8500-b70c9e547c14" />
-  * Và xem trong `/tmp/userdata/AdGuard/` có file `startup.sh` không
-  * Nếu không có:
-    * AutoRun: Đọc [AutoRun](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun)
-    * Startup AdGuard: Chạy lệnh
-    * ```sh
-      cd /tmp/userdata/AdGuard && /userfs/bin/curl -s -k -o startup.sh https://raw.githubusercontent.com/Expl01tHunt3r/vnptmodemresearch/refs/heads/master/Integrations/AdGuard/startup.sh && chmod +x startup.sh
-      ```
+  * Bạn **KHÔNG CẦN** làm đâu, mà muốn thì cứ restart router là được
+* **?: Mình có cần tắt DHCP server có sẵn của router không?**
+  * Mình khuyên là có vì nếu AdGuardHome bị lỗi gì thì bạn còn vào router debug được, còn nếu đã tắt thì chỉ cần set static IP trên thiết bị rồi SSH vào sửa cũng được  
+  * Nói chung là tuỳ, đối với AppleSang thì đang để tắt 
+ ## 8: <ins>Điều bạn cần biết</ins>
+ * 1: Tính năng AutoStartup có sẵn trong script đã chuyển qua sử dụng `tcapi`(Một trình quản lý romfile.cfg) để kích hoạt AdGuardHome mỗi khi router bật lên có một vấn đề là sau khi cài xong và reboot thì những setting sau đó liên quan tới router(Chỉnh wifi, set DDNS, *factory reset router*,...) đều hoạt động bất ổn định, có lúc nó thực thi, có lúc sẽ từ chối chạy. Cho nên việc chạy script install này là chắc chắn bạn đã hài lòng về cấu hình router hiện tại
+   > Nếu bạn thắc mắc sao lại không sử dụng [autorun](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/autorun) thì mình muốn AdGuardHome hoạt động trên mọi router ở mọi điều kiện
+   
+   > Còn nếu bạn phản đối sử dụng tcapi thì tạo [Issue](https://github.com/Expl01tHunt3r/vnptmodemresearch/issues) và mình sẽ thay đổi
+ * 2: Trong DNS Blocklist của AdGuardHome thì bạn **KHÔNG THỂ** chọn hết tất cả các Rule có sẵn vì 2 lý do:
+   * Chọn hết thì bạn còn gì truy cập được internet nữa.
+   * Chọn hết thì RAM sẽ không có đủ chỗ chứa và sẽ gây sập router->Khởi động lại cài AdGuardHome->Tải lại các rule đó->Sập->Và một dây chuyền vòng lặp sẽ diễn ra.
+   > AppleSang đã bị như thế và cách fix là nhanh chóng khi Router chưa kịp cài AdGuardHome thì SSH xong ```rm /tmp/userdata/AdGuard/AdGuardHome.yaml``` và chờ router tự reboot lại
+   * Đây là DNS Blocklist mình đang sử dụng, các bạn có thể tham khảo
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9101b798-0810-4b54-a2cd-4fc56672d48d" />
+   
+   * **Mình khuyên bạn nên né cài ```HaGeZi's Threat Intelligence Feeds``` vì nó nặng gần 45MB nên bạn chỉ cài khi muốn stresstest router**
+
+#
 
 * **?: "Vấn đề khác của AdGuardHome mà trên kia không có!"**
   * Tạo [Issue](https://github.com/Expl01tHunt3r/vnptmodemresearch/issues) với title có đề `[AdGuard]` đầu để hỗ trợ
