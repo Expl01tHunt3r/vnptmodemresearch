@@ -1,4 +1,4 @@
-[![English](https://img.shields.io/badge/lang-English-blue.svg)](README.md) [![Tiếng Việt](https://img.shields.io/badge/lang-Tiếng%20Việt-red.svg)](README_VN.md)
+[![English](https://img.shields.io/badge/lang-English-blue.svg)](readme.md) [![Tiếng Việt](https://img.shields.io/badge/lang-Tiếng%20Việt-red.svg)](readme_vn.md)
 
 ## Specification
 
@@ -17,9 +17,9 @@
 
 ## Unsupported functions and limitations
 
-1. XG-PON will not be available after installing OpenWrt.
-2. The NPU is disabled because the Wi-Fi chip does not support offload at this time.
-   **(Do not enable Hardware Offloading in Firewall settings.)**
+1. XGS-PON will not be available after installing OpenWrt.
+2. The NPU is enabled but Wi-Fi offload doesn't work at this time, only LAN <-> WAN.
+   **(Enable Hardware Offloading in Firewall settings.)**
 3. The MAC address is fixed to a default value, because the raw value in the stock firmware's factory partition is encrypted and cannot be read out.
 
 ## Installation / recovery (OpenWrt U-Boot layout)
@@ -52,7 +52,7 @@
 - **First release** — based on OpenWrt commit [`aac6df7b`](https://github.com/openwrt/openwrt/commit/aac6df7b)
 
 ## Download
-- [openwrt-airoha-an7581-vnpt_xsw-050ns-bl31-uboot.fip](openwrt-xsw-050ns/openwrt-airoha-an7581-vnpt_xsw-050ns-bl31-uboot.fip)
-- [openwrt-airoha-an7581-vnpt_xsw-050ns-initramfs-recovery.itb](openwrt-xsw-050ns/openwrt-airoha-an7581-vnpt_xsw-050ns-initramfs-recovery.itb)
-- [openwrt-airoha-an7581-vnpt_xsw-050ns-preloader.bin](openwrt-xsw-050ns/openwrt-airoha-an7581-vnpt_xsw-050ns-preloader.bin)
-- [openwrt-airoha-an7581-vnpt_xsw-050ns-squashfs-sysupgrade.itb](openwrt-xsw-050ns/openwrt-airoha-an7581-vnpt_xsw-050ns-squashfs-sysupgrade.itb)
+- [openwrt-airoha-an7581-vnpt_xsw-050ns-bl31-uboot.fip](openwrt-airoha-an7581-vnpt_xsw-050ns-bl31-uboot.fip)
+- [openwrt-airoha-an7581-vnpt_xsw-050ns-initramfs-recovery.itb](openwrt-airoha-an7581-vnpt_xsw-050ns-initramfs-recovery.itb)
+- [openwrt-airoha-an7581-vnpt_xsw-050ns-preloader.bin](openwrt-airoha-an7581-vnpt_xsw-050ns-preloader.bin)
+- [openwrt-airoha-an7581-vnpt_xsw-050ns-squashfs-sysupgrade.itb](openwrt-airoha-an7581-vnpt_xsw-050ns-squashfs-sysupgrade.itb)

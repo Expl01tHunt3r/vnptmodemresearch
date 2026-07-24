@@ -1,4 +1,4 @@
-[![English](https://img.shields.io/badge/lang-English-blue.svg)](README.md) [![Tiếng Việt](https://img.shields.io/badge/lang-Tiếng%20Việt-red.svg)](README_VN.md)
+[![English](https://img.shields.io/badge/lang-English-blue.svg)](readme.md) [![Tiếng Việt](https://img.shields.io/badge/lang-Tiếng%20Việt-red.svg)](readme_vn.md)
 
 ## Thông số kỹ thuật
 
@@ -17,9 +17,9 @@
 
 ## Các chức năng không hỗ trợ và giới hạn
 
-1. XG-PON sẽ không hoạt động sau khi cài OpenWrt.
-2. NPU bị vô hiệu hóa vì chip Wi-Fi hiện chưa hỗ trợ offload.
-   **(Không bật Hardware Offloading trong phần Firewall.)**
+1. XGS-PON sẽ không hoạt động sau khi cài OpenWrt.
+2. NPU đã bật nhưng wifi offload chưa hoạt động, chỉ offload LAN <-> WAN
+   **(Cần bật Hardware Offloading trong phần Firewall.)**
 3. Địa chỉ MAC bị cố định ở giá trị mặc định, do giá trị gốc trong phân vùng factory của stock firmware đã bị mã hóa (encrypted) và không thể đọc ra được.
 
 ## Cài đặt / khôi phục (theo cấu trúc U-Boot của OpenWrt)
@@ -53,7 +53,7 @@
 
 ## Tải về
 
-- [openwrt-airoha-an7581-vnpt_xsw-050ns-bl31-uboot.fip](openwrt-xsw-050ns/openwrt-airoha-an7581-vnpt_xsw-050ns-bl31-uboot.fip)
-- [openwrt-airoha-an7581-vnpt_xsw-050ns-initramfs-recovery.itb](openwrt-xsw-050ns/openwrt-airoha-an7581-vnpt_xsw-050ns-initramfs-recovery.itb)
-- [openwrt-airoha-an7581-vnpt_xsw-050ns-preloader.bin](openwrt-xsw-050ns/openwrt-airoha-an7581-vnpt_xsw-050ns-preloader.bin)
-- [openwrt-airoha-an7581-vnpt_xsw-050ns-squashfs-sysupgrade.itb](openwrt-xsw-050ns/openwrt-airoha-an7581-vnpt_xsw-050ns-squashfs-sysupgrade.itb)
+- [openwrt-airoha-an7581-vnpt_xsw-050ns-bl31-uboot.fip](openwrt-airoha-an7581-vnpt_xsw-050ns-bl31-uboot.fip)
+- [openwrt-airoha-an7581-vnpt_xsw-050ns-initramfs-recovery.itb](openwrt-airoha-an7581-vnpt_xsw-050ns-initramfs-recovery.itb)
+- [openwrt-airoha-an7581-vnpt_xsw-050ns-preloader.bin](openwrt-airoha-an7581-vnpt_xsw-050ns-preloader.bin)
+- [openwrt-airoha-an7581-vnpt_xsw-050ns-squashfs-sysupgrade.itb](openwrt-airoha-an7581-vnpt_xsw-050ns-squashfs-sysupgrade.itb)
