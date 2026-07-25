@@ -18,18 +18,19 @@
 #### Mong được các anh dev bên VNPT chiếu cố.
 ---
 ## 2: <ins>Content</ins>
-* [`flashdump/*`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/flashdump) NAND dump của firmware model GW-020H (sắp tới sẽ cập nhật thêm -XS, -NS)
-* [`openwrt-initramfs-en751221/*`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/openwrt-initramfs-en751221) dùng để debrick nếu vọc vạch cháy firmware
-* [`tools/*`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/tools) các tool để decrypt và encrypt romfile.cfg
+* [`flashdump/*`](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/flashdump) NAND dump của firmware model GW-020H (sắp tới sẽ cập nhật thêm -XS, -NS)
+* [`openwrt-initramfs-en751221/*`](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/openwrt-initramfs-en751221) dùng để debrick nếu vọc vạch cháy firmware
+* [`openwrt-xsw-050ns/*`](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/openwrt-xsw-050ns) OpenWRT cho XSW050-NS (cảm ơn [@longnt2007](https://github.com/longnt2007) với đóng góp của bạn :3)
+* [`tools/*`](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/tools) các tool để decrypt và encrypt romfile.cfg
 * Sắp tới sẽ cập nhật tool encrypt, decrypt cho dòng -XS (050)
-* [`decrypted-cfgfile-xs/*`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/decrypted-cfgfile-xs) các mẫu file romfile.cfg của model đã decrypt
-*  [`private-romfile-key/*`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/private-romfile-key) cert và private key cho decrypt và encrypt file .cfg model -XS
-* Dump firmware đã được strip trong [`squashfs-modified`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/main/squashfs-modified):
+* [`decrypted-cfgfile-xs/*`](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/decrypted-cfgfile-xs) các mẫu file romfile.cfg của model đã decrypt
+*  [`private-romfile-key/*`](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/private-romfile-key) cert và private key cho decrypt và encrypt file .cfg model -XS
+* Dump firmware đã được strip trong [`squashfs-modified`](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/squashfs-modified):
 	* `boa-dump.bin`: firmware gốc (GW020-H) trong quá trình upgrade qua web UI.
 	* `squashfs.image`: phần squashfs đã được tách (GW020-H), có thể giải nén bằng `unsquashfs`.
 	* Firmware đã dump đc từ boa của GW040-H
-	* squashfs-root(đã giải mã) tại [đây](https://github.com/Expl01tHunt3r/vnptmodemresearch/releases)
- *  [`Integrations/*`](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations) Hướng dẫn và tài nguyên, lệnh cài các phần mềm bổ sung, patch,...
+	* squashfs-root(đã giải mã) tại [đây](https://github.com/ResearcherPT/vnptmodemresearch/releases)
+ *  [`Integrations/*`](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations) Hướng dẫn và tài nguyên, lệnh cài các phần mềm bổ sung, patch,...
 ---
 ## 3: <ins>Shell và những người bạn (TTY, SSH, ...)</ins>
 * Mục này sẽ hướng dẫn mở shell (console) của router, nếu đã có thì bỏ qua, còn chưa thì tiếp~~
@@ -43,7 +44,7 @@
 ### 3.1: UART
 *Nếu bạn không thể kết nối qua UART cũng đừng lo, có cách không phải con thiệp phần cứng mà vẫn vào được shell cho cả dòng -H, -NS, -XS
 * Chuẩn bị USB-UART (khuyến nghị chip CH340 hoặc FT232BL cho mấy khứa đỗ nghèo khỉ) và dây jumper.
-* [Mở vỏ router](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/doc/disassemble) ra để thấy bo mạch
+* [Mở vỏ router](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/doc/disassemble) ra để thấy bo mạch
 * Trên bo mạch gần đèn LED sẽ có 3 chân: `RX`, `TX`, `GND`.
 * Kết nối đúng để tránh hỏng phần cứng (tự google xem hướng dẫn đi).
 * Lưu ý đảm bảo kết nối tốt dây (có thể hàn cho lành)
@@ -100,7 +101,7 @@ ssh admin@192.168.1.1
 > ```bash
 > dism /online /Enable-Feature /FeatureName:TelnetClient
 
-Và quay lại [đây](https://github.com/Expl01tHunt3r/vnptmodemresearch/edit/master/README.md#32-t%C3%A0i-kho%E1%BA%A3n-login) để đăng nhập vào shell  
+Và quay lại [đây](https://github.com/ResearcherPT/vnptmodemresearch/edit/master/README.md#32-t%C3%A0i-kho%E1%BA%A3n-login) để đăng nhập vào shell  
 
 * Nếu bạn không thể kích hoạt Telnet qua Web-UI thì có một cách hoạt động trên -NS, -XS (Bạn cũng có thể thử ở các dòng khác):
   - Chuẩn bị cho mình một que nhỏ như cây tăm-miễn có thể lọt vào nút Reset trên router là được
@@ -213,7 +214,7 @@ Ngoài lệnh này mọi người có thể thêm các lệnh khác nếu muốn
   * Trong tương lai sẽ mod 1 bản OpenWRT tương thích sau, hiện tại chỉ để debrick.
   * Hãy đọc và làm theo hướng dẫn tại mục [Debricking](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v#debricking) của Router TP-Link Archer VR1200v đến từ OpenWRT.
 
- * Cảm ơn [@cjdelisle](https://github.com/cjdelisle) cho bản [initramfs](https://github.com/Expl01tHunt3r/vnptmodemresearch/blob/main/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin)!
+ * Cảm ơn [@cjdelisle](https://github.com/cjdelisle) cho bản [initramfs](https://github.com/ResearcherPT/vnptmodemresearch/blob/main/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin)!
  * Hiện tại chưa xác định chính xác nhưng khả năng model XS lấy nền firmware từ 1 nhà sản xuất Trung Quốc: baidu (?)
 ---
 ## 6: <ins>Decode firmware từ `/tmp/boa-temp`</ins>
@@ -277,20 +278,20 @@ chmod +x /tmp/auto_dump_boatemp.sh
 * Khi mod file ASP, để tương thích với quy trình hoạt động cần phải encode và flash thay vào chỗ file cũ.
 ---
 ## 8: <ins>Ứng dụng</ins>
-* [AdGuardHome](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/AdGuard)
-* [ddns-updater](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/ddns_updater)
+* [AdGuardHome](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/AdGuard)
+* [ddns-updater](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/ddns_updater)
 * Caddy (In progress)
-* [Btop](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/btop)
-* [nano](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/nano)
+* [Btop](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/btop)
+* [nano](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/nano)
 > Đã có hướng dẫn cài trong README của các phần ứng dụng
 ---
 ## 9: Patch ( Với các dòng NS )
-* [autorun](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/autorun)
-* [myshell](https://github.com/Expl01tHunt3r/vnptmodemresearch/tree/master/Integrations/myshell) 
+* [autorun](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/autorun)
+* [myshell](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/myshell) 
 ---
 ## 10: <ins>Thảo luận</ins>
 * [VOZ](http://voz.vn/t/vnptmodemresearch-%E2%80%94-nghien-cuu-firmware-root-modem-vnpt-can-anh-em-chung-tay.1159218)
-* [Github](https://github.com/Expl01tHunt3r/vnptmodemresearch/discussions/10)
+* [Github](https://github.com/ResearcherPT/vnptmodemresearch/discussions/10)
 * ~~Discord~~
 ---
 ## 11: <ins>Những mục tiêu sắp tới</ins>
