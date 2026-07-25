@@ -115,7 +115,10 @@ cd /tmp/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubusercontent.c
 * Còn khó hình dung quá thì bạn có thể xem video dưới đây
 
 
-<video src="https://github.com/user-attachments/assets/b8dbab0a-f2a7-40bc-b86b-9b3723c19854" autoplay controls></video>
+
+https://github.com/user-attachments/assets/d010b498-484f-47f9-8f73-f2c1bb5f10ba
+
+
 
 
 
