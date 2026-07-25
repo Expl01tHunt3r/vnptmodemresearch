@@ -112,6 +112,16 @@ cd /tmp/ && /userfs/bin/curl -s -k -o AdGuard.sh https://raw.githubusercontent.c
 
 * Cuối cùng là bấm `Enable DHCP server`
 
+* Còn khó hình dung quá thì bạn có thể xem video dưới đây
+
+
+<video src="https://github.com/user-attachments/assets/b8dbab0a-f2a7-40bc-b86b-9b3723c19854" autoplay controls></video>
+
+
+
+
+
+
 
 ## 7: <ins>FAQs</ins>
 * **?: Số liệu (size blocked, ...) của AdGuardHome đều set về 0 khi reboot?**
