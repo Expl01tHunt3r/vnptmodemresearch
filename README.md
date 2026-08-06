@@ -73,7 +73,7 @@
 > Mình sẽ nói theo giao diện tiếng anh
 * Nếu bạn vào được Web-UI: Bạn vào Web-UI -> Đăng nhập -> Vào tab Access -> Vào mục ACL Filter -> Chọn Deactivated -> Và ấn Set
 * Sau khi tắt ACL thì đối với:
-  - Dòng -H: Sau khi làm yêu cầu trên thì bạn vào được rùi :D (AppleSang không biết tin chuẩn chưa nữa)
+  - Dòng -H: Sau khi làm yêu cầu trên thì bạn vào được rùi :D (AppleSang confirm nha, tắt cái là có thể shell luôn)
   
   - Dòng -NS: Ngay ở trang Web-UI thì ở đường dẫn vào web bạn xoá chữ ```content.asp``` thay bằng chữ ```getGateWay.cgi``` và truy cập sẽ có kết quả như ảnh dưới
     <img width="542" height="135" alt="image" src="https://github.com/user-attachments/assets/5574f71b-d030-4c07-813a-8035c7554c8a" />
@@ -294,16 +294,17 @@ chmod +x /tmp/auto_dump_boatemp.sh
 * [Github](https://github.com/ResearcherPT/vnptmodemresearch/discussions/10)
 * ~~Discord~~
 ---
-## 11: <ins>Những mục tiêu sắp tới</ins>
-* Cài được OpenWRT (đã ok cho dòng -NS)
+## 11: <ins>Những mục tiêu sắp tới (Cho 040-NS)</ins>
+* Cài được OpenWRT (Đã hoạt động trên -NS -> Đang thử nghiệm thêm driver PON -> ~~Release vào năm sau~~)
+  * Cài được một loại VPN nào đó
 * Tuỳ chỉnh chức năng cho nút WPS/WLan có những tính năng khác (Như lấy IP mới trong vòng 5s,...)
 * Dễ dàng điều khiển led để báo hiệu những thông tin khác (Như mức sử dụng CPU, cảnh báo khi gần hết RAM,...)
-* Cài được một loại VPN nào đó
-* Optimize để đạt hiệu năng router tốt hơn (Ép xung, loại bỏ tính năng thừa,...)
-* Custom được firmware để dễ dàng phát triển hơn (Như custom Web-UI, thêm bớt tính năng)
+* Custom được firmware để dễ dàng phát triển hơn (Như custom Web-UI, thêm bớt tính năng, tối ưu hiệu năng)
+  * Đã release ngay tại [đây](https://github.com/ResearcherPT/gw040ns-firmware)
 ## Cập nhật
 * Em đã làm 1 web online để có thể tự giải mã và mã hoá file mà không cần các bác phải cài này nọ tại [đây](https://huggingface.co/spaces/Expl01tHunt3r/file-decoder)
-	* (hoặc dùng hosting Việt Nam với ping chỉ = 15ms!! -> https://cfgdecoder.fkrystal.qzz.io) 
+	* (hoặc dùng hosting Việt Nam với ping chỉ = 15ms!! -> https://cfgdecoder.fkrystal.qzz.io)
+    > AppleSang: tin tôi đi, bạn sẽ thích tải tool về để tự mã hoá ra đó
 * Do là free nên sẽ có lúc chập chờn, các bác chịu khó đợi, có thể xem status tại [đây](https://stats.uptimerobot.com/U65yw18Rtl)
 * Hiện đã có key/iv cho dòng NS, đã cải tiến code để có thêm option cho dòng NS
 * Xác nhận tool edit romfile đã chạy được với các model [GW020-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw020-h), [GW240-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw240-h), [GW040-H](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-h), [GW040-NS](https://www.vnpt-technology.vn/vi/product_detail/gpon-ont-igate-gw040-ns) và command chạy được với model [GW050-XGS](https://www.vnpt-technology.vn/vi/product_detail/xgs-pon-ont-igate-xsw050-ns)
@@ -312,5 +313,7 @@ chmod +x /tmp/auto_dump_boatemp.sh
 
 ## Đóng góp:
 - Xin cảm ơn 2 bạn [@BussyBakks](https://github.com/BussyBakks) và [@AppleSang](https://github.com/AppleSang) đã giúp em nghiên cứu thêm về key cho romfile.cfg dòng modem NS và cài các ứng dụng
+- Xin cảm ơn [@longnt2007](https://github.com/longnt2007) đã port OpenWRT lên XSW050-NS
+
 
 <p align="center">Made with ❤️ by Expl01tHunt3r</p>
