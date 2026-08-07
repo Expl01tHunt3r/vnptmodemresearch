@@ -214,7 +214,7 @@ Ngoài lệnh này mọi người có thể thêm các lệnh khác nếu muốn
   * Trong tương lai sẽ mod 1 bản OpenWRT tương thích sau, hiện tại chỉ để debrick.
   * Hãy đọc và làm theo hướng dẫn tại mục [Debricking](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v#debricking) của Router TP-Link Archer VR1200v đến từ OpenWRT.
 
- * Cảm ơn [@cjdelisle](https://github.com/cjdelisle) cho bản [initramfs](https://github.com/ResearcherPT/vnptmodemresearch/blob/master/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin)!
+ * Cảm ơn [@cjdelisle](https://github.com/cjdelisle) cho bản [initramfs](https://github.com/ResearcherPT/vnptmodemresearch/blob/master/openwrt-initramfs-en751221/openwrt-initramfs-en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin)!
  * Hiện tại chưa xác định chính xác nhưng khả năng model XS lấy nền firmware từ 1 nhà sản xuất Trung Quốc: baidu (?)
 ---
 ## 6: <ins>Decode firmware từ `/tmp/boa-temp`</ins>
