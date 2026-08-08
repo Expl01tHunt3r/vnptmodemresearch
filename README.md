@@ -101,7 +101,7 @@ ssh admin@192.168.1.1
 > ```bash
 > dism /online /Enable-Feature /FeatureName:TelnetClient
 
-Và quay lại [đây](https://github.com/ResearcherPT/vnptmodemresearch/edit/master/README.md#32-t%C3%A0i-kho%E1%BA%A3n-login) để đăng nhập vào shell  
+Và quay lại [đây](https://github.com/ResearcherPT/vnptmodemresearch/blob/master/README.md#32-t%C3%A0i-kho%E1%BA%A3n-login) để đăng nhập vào shell  
 
 * Nếu bạn không thể kích hoạt Telnet qua Web-UI thì có một cách hoạt động trên -NS, -XS (Bạn cũng có thể thử ở các dòng khác):
   - Chuẩn bị cho mình một que nhỏ như cây tăm-miễn có thể lọt vào nút Reset trên router là được
