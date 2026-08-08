@@ -281,6 +281,7 @@ chmod +x /tmp/auto_dump_boatemp.sh
 * [AdGuardHome](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/AdGuard)
 * [ddns-updater](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/ddns_updater)
 * Caddy (In progress)
+* wolweb (In progress)
 * [Btop](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/btop)
 * [nano](https://github.com/ResearcherPT/vnptmodemresearch/tree/master/Integrations/nano)
 > Đã có hướng dẫn cài trong README của các phần ứng dụng
