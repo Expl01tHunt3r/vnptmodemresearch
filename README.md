@@ -1,5 +1,9 @@
 <h1 align="center">VNPT Reverse Engineering & Rooting Project</h1>
 
+<!-- hy-mt2-i18n:start -->
+**Español** · [中文](./README_zh-CN.md) · [English](./README_en.md) · [日本語](./README_ja.md)
+<!-- hy-mt2-i18n:end -->
+
 ***<h4 align="center">Không gì là không thể :)</h4>***
 
 ## 1: <ins>Mục tiêu</ins>
