@@ -212,7 +212,7 @@ Ngoài lệnh này mọi người có thể thêm các lệnh khác nếu muốn
  * Cảm ơn [@cjdelisle](https://github.com/cjdelisle) cho bản [initramfs](https://github.com/ResearcherPT/vnptmodemresearch/blob/master/openwrt-initramfs-en751221/openwrt-econet-en751221-en751221_generic-initramfs-kernel.bin)!
  * Hiện tại chưa xác định chính xác nhưng khả năng model XS lấy nền firmware từ 1 nhà sản xuất Trung Quốc: baidu (?)
 ---
-## 6: <ins>Decode firmware từ `/tmp/boa-temp`</ins>
+## 6: <ins>Decode firmware từ `/tmp/boa-temp` (DEP!!!)</ins>
 <details>
 <summary>Chạy lệnh trong shell của modem(click to expand)</summary>
 	
@@ -255,7 +255,8 @@ EOF
 chmod +x /tmp/auto_dump_boatemp.sh
 ```
 </details>
-
+> [!DEP]
+> Hiện đã có repo và tool riêng cho việc trích xuất và chỉnh sửa firmware stock, vui lòng tham khảo tại [đây](https://github.com/ResearcherPT/gw040ns-firmware)
 > [!NOTE]
 > Trong dòng -NS thì sẽ không có mount phân vùng tên yaffs nên khi chạy script đó trên dòng -NS thì file đã dump vẫn sẽ bị mất khi upgrade xong  
 > Khuyên đổi cái output path từ `/tmp/yaffs/*` qua `/tmp/userdata/*` nếu chạy trên dòng -NS,-XS
