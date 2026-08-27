@@ -200,18 +200,13 @@ Ngoài lệnh này mọi người có thể thêm các lệnh khác nếu muốn
     	* Flash lại các file mtdX.bin từ backup.
     	* Khởi động lại và restore cấu hình (`romfile.cfg`), hoặc nếu muốn chắc hơn thì hãy tải lại firmware và update qua webUI 1 lần nữa.
 
+## LJ: <ins> OpenWrt cho các dòng modem khác </ins>
 
-* (Cho dòng -NS) Vui lòng search [OpenWRT](https://openwrt.org/) một trong các router sau:
-    *  [Netis NX31](https://openwrt.org/toh/netis/nx31)
-    *  [Xiaomi AX3000T](https://openwrt.org/inbox/toh/xiaomi/ax3000t)
-    *  [JCG Q30 PRO](https://openwrt.org/toh/jcg/q30_pro)
-* Và làm theo hướng dẫn là có thể flash OpenWRT và sau đó muốn flash lại stock hay tiếp tục giữ để dùng là tuỳ bạn
-* Bạn có thể dùng các loại rom sau: OpenWRT, ImmortalWRT, Keenetic, Gecoos, Netis, ... (Nói chung là các dòng rom mà model vAP 32x6v1 của Viettel chạy được thì con này chạy được, và mọi hướng dẫn có thể làm theo model trên)
+* (Cho dòng -NS) Hãy tham khảo repo openwrt cho 040-ns (coming soon)
+* (Cho dòng -XGS) Hãy tham khảo bản OpenWrt build bởi [@longnt2007](https://github.com/ResearcherPT/openwrt-xsw050ns)
 
 * Tham khảo:
 
-  * Dưới đây là link của 1 bản firmware OpenWRT đang được phát triển cho modem VR1200v, chung SoC với dòng -H nên có thể xài được, tuy nhiên không có driver WiFi ,LAN...
-  * Trong tương lai sẽ mod 1 bản OpenWRT tương thích sau, hiện tại chỉ để debrick.
   * Hãy đọc và làm theo hướng dẫn tại mục [Debricking](https://openwrt.org/inbox/toh/tp-link/archer_vr1200v#debricking) của Router TP-Link Archer VR1200v đến từ OpenWRT.
 
  * Cảm ơn [@cjdelisle](https://github.com/cjdelisle) cho bản [initramfs](https://github.com/ResearcherPT/vnptmodemresearch/blob/master/openwrt-initramfs-en751221/openwrt-econet-en751221-en751221_generic-initramfs-kernel.bin)!
