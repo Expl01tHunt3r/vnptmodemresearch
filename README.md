@@ -254,9 +254,11 @@ EOF
 
 chmod +x /tmp/auto_dump_boatemp.sh
 ```
-</details>
-> [!DEP]
+</details>  
+
+> [!DEP]  
 > Hiện đã có repo và tool riêng cho việc trích xuất và chỉnh sửa firmware stock, vui lòng tham khảo tại [đây](https://github.com/ResearcherPT/gw040ns-firmware)
+
 > [!NOTE]
 > Trong dòng -NS thì sẽ không có mount phân vùng tên yaffs nên khi chạy script đó trên dòng -NS thì file đã dump vẫn sẽ bị mất khi upgrade xong  
 > Khuyên đổi cái output path từ `/tmp/yaffs/*` qua `/tmp/userdata/*` nếu chạy trên dòng -NS,-XS
