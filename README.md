@@ -59,6 +59,14 @@
   * operator / VnT3ch0per@tor (only UART)
   * customer / customer (quyền thấp,telnet,ssh)
   * user3 / star ( web, disable by default, quyền thấp, model -NS)
+
+> [!IMPORTANT]
+> Theo như các báo cáo thì chỉ mỗi customer / customer hoạt động ở trên dòng -H  
+> Để thay đổi pass cho tài khoản admin thì bạn sẽ lấy romfile và decode ra tại [đây](https://huggingface.co/spaces/Expl01tHunt3r/file-decoder)  
+> Sau khi có file decode thì bạn tìm tài khoản admin và nhìn qua mục ssh_passwd, tại đây bạn chỉ cần thay hash password theo ý của bạn vào đây  
+> (hoặc lười quá copy hash pass của customer dán vào là xong)  
+> Sau đó encode lại và up lên router để thay pass thôi  
+
 * Riêng cho dòng -XS
   * customer / customer (quyền thấp, telnet)
   * admin / $2$7c1ae60c120167530ca98a32c5323d9b89cff5bb (hash, chưa tìm ra pass chính xác, telnet, console, ftp) ( `1234` , `s2@We3%Dc#` , `admin4444` )
